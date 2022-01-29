@@ -111,30 +111,61 @@ let userSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  email: {
+    type: String,
+    lowercase: true,
+    unique: true,
+    required: true,
+    validate: {
+      validator: (email) => {
+        var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return regex.test(email);
+      },
+      message: 'Please fill a valid email address'
+    }
+  },
   password: {
     type: String,
     required: true
   },
   address: {
-    street: String,
+    street: {
+      type: String,
+      required: true
+    },
     street2: {
       type: String,
       default: null
     },
-    city: String,
-    state: String,
-    zipcode: Number
+    city: {
+      type: String,
+      required: true
+    },
+    state: {
+      type: String,
+      required: true
+    },
+    zipcode: {
+      type: Number,
+      required: true
+    },
   },
   date: {
     type: Date,
     default: Date.now
   },
   purchases: {
-    type: [Object],
+    type: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Toy'
+    }],
     default: []
   },
   listings: {
-    type: [Object],
+    type: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Toy'
+    }],
     default: []
   }
 });
