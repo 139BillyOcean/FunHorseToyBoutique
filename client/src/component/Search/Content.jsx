@@ -1,8 +1,19 @@
 import React from 'react';
+import ListEntry from './ListEntry.jsx';
+import styles from './Search.styles.css';
 
-const Content = () => {
+const Content = ({toys}) => {
   return (
-<div>Content</div>
+  <div>
+     <ul>
+      {
+        toys.map(item => (
+          <li key={item.id}><ListEntry toy={item}/></li>
+        )
+        )
+        }
+    </ul>
+    </div>
   )
 }
 
