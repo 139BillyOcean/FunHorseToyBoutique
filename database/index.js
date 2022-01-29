@@ -40,7 +40,7 @@ const toySchema = new mongoose.Schema({
   photos: [{
     type: String,
     validate: {
-      validator: value => validator.isURL(value, { protocols: ['http','https','ftp'], require_tld: true, require_protocol: true }),
+      validator: value => validator.isURL(value, { protocols: ['http', 'https', 'ftp'], require_tld: true, require_protocol: true }),
       message: 'Must be a Valid URL'
     }
   }],
@@ -97,4 +97,97 @@ const Toy = mongoose.model('Toy', toySchema);
 //   .then((response)=>{console.log(response)})
 //   .catch((err)=>{console.log(err)})
 
-module.exports = Toy;
+let userSchema = mongoose.Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    lowercase: true,
+    unique: true,
+    required: true,
+    validate: {
+      validator: (email) => {
+        var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return regex.test(email);
+      },
+      message: 'Please fill a valid email address'
+    }
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  address: {
+    street: {
+      type: String,
+      required: true
+    },
+    street2: {
+      type: String,
+      default: null
+    },
+    city: {
+      type: String,
+      required: true
+    },
+    state: {
+      type: String,
+      required: true
+    },
+    zipcode: {
+      type: Number,
+      required: true
+    },
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  purchases: {
+    type: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Toy'
+    }],
+    default: []
+  },
+  listings: {
+    type: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Toy'
+    }],
+    default: []
+  }
+});
+
+let User = mongoose.model('User', userSchema);
+
+// User.create({
+//   // id: ObjectId,
+//   // date: default now
+//   // purchases: default [],
+//   // listings: default []
+//   username: 'helloworld',
+//   name: 'Hello World',
+//   email: 'helloworld@gmail.com',
+//   password: '1234',
+//   address: {
+//     street: '101 Blue Ocean Drive',
+//     city: 'Tampa',
+//     state: 'FL',
+//     zipcode: 12345
+//   }
+// });
+
+module.exports.User = User;
+module.exports.Toy = Toy;
