@@ -1,0 +1,42 @@
+.reviewForm {
+  border: 2px solid black;
+  height: auto;
+  width: 20%;
+  margin: 10px;
+}
+
+.title {
+  border: 2px solid black;
+  padding: 2px;
+  margin: 2px;
+}
+
+.reviewFormTitle {
+  border: 2px solid black;
+  padding: 2px;
+  margin: 2px;
+}
+
+.reviewFormBody {
+  border: 2px solid black;
+  margin: 2px;
+  padding: 2px;
+}
+
+.reviewFormTitle {
+  border: 2px solid black;
+  margin: 2px;
+  padding: 2px;
+}
+
+.reviewFormRatings {
+  border: 2px solid black;
+  margin: 2px;
+  padding: 2px;
+}
+
+.reviewFormHelpful {
+  border: 2px solid black;
+  margin: 2px;
+  padding: 2px;
+}
