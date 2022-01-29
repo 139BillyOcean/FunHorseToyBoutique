@@ -1,0 +1,44 @@
+/******************** Navigation  Section *********************/
+.navigationContainer {
+  display: flex;
+  list-style-type: none;
+  border: 1px solid black;
+  height: 100px;
+}
+
+.search {
+  margin-left: auto;
+  margin-right: auto
+}
+
+.logo {
+  height: 100%;
+  border: 1px solid black;
+  width: 10%;
+  text-align: center;
+}
+
+.mainContainer {
+  display: flex;
+  list-style-type: none;
+  border: 1px solid black;
+  height: 1000px;
+}
+
+/*SIDEBAR*/
+.sidebar {
+  width: 30%;
+  border: 1px solid black;
+  margin-right: 2%;
+  height: 100%
+
+}
+
+
+/*CONTENT*/
+.content {
+  width: 70%;
+  border: 1px solid black;
+  height: 100%
+}
+
