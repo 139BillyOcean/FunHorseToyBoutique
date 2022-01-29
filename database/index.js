@@ -6,10 +6,14 @@ const mongoURI = 'mongodb://localhost:27017/blueOcean';
 mongoose.connect(mongoURI, { useNewUrlParser: true });
 
 const toySchema = new mongoose.Schema({
+  dateCreated: {
+    type: Date,
+    default: Date.now
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    // required: true
+    required: true
   },
   name: {
     type: String,
