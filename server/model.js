@@ -6,8 +6,9 @@ module.exports = {
   },
 
   getSearchResults: (searchTerm) => {
+    console.log("searchTerm:", searchTerm)
     return Toy.find({
-      name: { $regex: '.*' + searchTerm + '.*' }
+      name: { $regex: `.*${searchTerm}.*`, $options: 'i' }
     }).limit(10).exec()
   }
 }

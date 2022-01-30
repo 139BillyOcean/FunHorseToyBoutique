@@ -13,7 +13,6 @@ const MainPage = () => {
   useEffect(() => {
     axios.get('/home')
     .then((toys) => {
-      console.log("setting toys from main page");
       setToys(toys.data);
     })
     .catch((err) => console.log(err))
