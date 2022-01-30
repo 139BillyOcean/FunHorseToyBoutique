@@ -9,6 +9,8 @@ import axios from 'axios';
 const MainPage = () => {
   const [toys, setToys] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [condition, setCondition] = useState([]);
 
   useEffect(() => {
     axios.get('/home')
@@ -20,9 +22,9 @@ const MainPage = () => {
 
   return (
     <>
-    <NavBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setToys={setToys} />
+    <NavBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setToys={setToys} searchResults={searchResults} setSearchResults={setSearchResults} />
     <ul className={styles.mainContainer}>
-      <li className={styles.sidebar}><SideBar/></li>
+      <li className={styles.sidebar} condition={condition} setCondition={setCondition} ><SideBar/></li>
       <li className={styles.content}><Content toys={toys} /></li>
     </ul>
     </>

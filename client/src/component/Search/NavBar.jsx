@@ -2,13 +2,13 @@ import React, {useState, useEffect} from 'react';
 import SearchBar from './SearchBar.jsx';
 import styles from './Search.styles.css';
 
-const NavBar = ({toys, searchTerm, setSearchTerm, setToys}) => {
+const NavBar = ({toys, searchTerm, setSearchTerm, setToys, searchResults, setSearchResults}) => {
   return (
     <>
     <ul className={styles.navigationContainer}>
       <li className={styles.logo}>LOGO</li>
       <li className={styles.search}>
-        <SearchBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setToys={setToys}/>
+        <SearchBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setToys={setToys} searchResults={searchResults} setSearchResults={setSearchResults}/>
       </li>
       <li >
         <div>
