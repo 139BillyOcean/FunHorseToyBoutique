@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SideBar = () => {
+const SideBar = ({condition, setCondition}) => {
   return(
     <div>
       <div>Category</div>

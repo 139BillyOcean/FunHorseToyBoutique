@@ -20,9 +20,23 @@ const MainPage = () => {
     .catch((err) => console.log(err))
   }, [])
 
+  const handleChange = (event) => {
+    event.preventDefault();
+    setSearchTerm(event.target.value);
+  }
+
+  const searchForItem = (searchTerm) => {
+    axios.get(`home/search/${searchTerm}`)
+    .then((response) => {
+      setSearchResults(response.data)
+      setToys(response.data)
+    })
+    .catch((err) => console.log(err))
+  }
+
   return (
     <>
-    <NavBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setToys={setToys} searchResults={searchResults} setSearchResults={setSearchResults} />
+    <NavBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} searchForItem={searchForItem} />
     <ul className={styles.mainContainer}>
       <li className={styles.sidebar} condition={condition} setCondition={setCondition} ><SideBar/></li>
       <li className={styles.content}><Content toys={toys} /></li>
