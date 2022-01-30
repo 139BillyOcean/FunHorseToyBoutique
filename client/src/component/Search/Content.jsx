@@ -9,9 +9,9 @@ const Content = ({toys}) => {
       {
         toys.map(item => (
           <li key={item.id}><ListEntry toy={item}/></li>
+          )
         )
-        )
-        }
+      }
     </ul>
     </div>
   )

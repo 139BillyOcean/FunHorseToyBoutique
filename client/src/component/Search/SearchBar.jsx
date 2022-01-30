@@ -15,9 +15,6 @@ const SearchBar = ({toys, searchTerm, setSearchTerm, setToys}) => {
     .then((response) => {
       setToys(response.data)
     })
-    .then(() => {
-      console.log("toys searched: ", toys)
-    })
     .catch((err) => console.log(err))
   }
 
