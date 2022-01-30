@@ -8,20 +8,23 @@ import axios from 'axios';
 
 const MainPage = () => {
   const [toys, setToys] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
   useEffect(() => {
     axios.get('/home')
     .then((toys) => {
+      console.log("setting toys from main page");
       setToys(toys.data);
     })
     .catch((err) => console.log(err))
-  })
+  }, [])
 
   return (
     <>
-    <NavBar/>
+    <NavBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setToys={setToys} />
     <ul className={styles.mainContainer}>
       <li className={styles.sidebar}><SideBar/></li>
-      <li className={styles.content}><Content toys={toys}/></li>
+      <li className={styles.content}><Content toys={toys} /></li>
     </ul>
     </>
   )
