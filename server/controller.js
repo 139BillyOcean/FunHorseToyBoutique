@@ -10,7 +10,8 @@ module.exports = {
   },
 
   addAProduct: (req, res) => {
-    model.addAProduct()
+    console.log("req: ", req)
+    model.addAProduct(req.body)
     .then((data) => {
       res.status(201).send('added to db')
     })

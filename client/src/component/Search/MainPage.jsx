@@ -3,12 +3,17 @@ import NavBar from './NavBar.jsx';
 import SideBar from './SideBar.jsx';
 import Content from './Content.jsx'
 import styles from './Search.styles.css';
-import faketoys from './fakedata.js'
+import faketoys from './fakedata.js';
+import axios from 'axios';
 
 const MainPage = () => {
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    setToys(faketoys);
+    axios.get('/home')
+    .then((toys) => {
+      setToys(toys.data);
+    })
+    .catch((err) => console.log(err))
   })
 
   return (

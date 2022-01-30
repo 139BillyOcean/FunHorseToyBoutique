@@ -10,7 +10,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/home', controller.getAllProducts);
-app.post('/home', controller.addAProduct);
+app.post('/home', (req, res) => {
+  console.log("request: ", req)
+}
+
+
+//controller.addAProduct
+);
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
