@@ -10,7 +10,6 @@ module.exports = {
   },
 
  getSearchResults: (req, res) => {
-   console.log("request", req.query)
     model.getSearchResults(req.params.searchTerm, req.query)
     .then((data) => {
       res.status(200).send(data);

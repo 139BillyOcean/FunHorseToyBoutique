@@ -4,6 +4,8 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
 
 
   const handleNewClick = () => {
+     //PREVIOUS VERSION(may need it later)
+     
     // var updatedValue = !newFilter;
     // var updatedConditionFilter = [];
 
@@ -21,6 +23,8 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
   }
 
   const handleUsedClick = () => {
+    //PREVIOUS VERSION(may need it later)
+
     // var updatedValue = !usedFilter;
     // var updatedConditionFilter = [];
 
@@ -34,9 +38,7 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
     // setUsedFilter(updatedValue);
     // searchForItem(searchTerm, updatedConditionFilter);
 
-
     setUsedFilter(!usedFilter);
-    // await
   }
 
   const handleSliderChange = (event) => {
@@ -61,7 +63,7 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
         <input type="checkbox" value="Used" onClick={handleUsedClick} />
         <label>Used</label>
       </form>
-      <button onClick={() => {searchForItem()}}>Apply</button>
+      <button onClick={() => {searchForItem()}}>Apply filters</button>
     </div>
   )
 }
