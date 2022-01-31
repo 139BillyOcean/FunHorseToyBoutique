@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import styles from './Reviews.styles.css';
+import styles from './IndividualReview.styles.css';
 import data from '../Reviews/FakeReviewData.js';
 
-const Reviews = () => {
-  const [reviews, setReviews] = useState(0);
-
+const IndividualReview = () => {
   return (
     <div className={styles.review}>
       <div className={styles.reviewRatings}>stars ☆☆☆☆☆</div>
@@ -17,4 +15,4 @@ const Reviews = () => {
   );
 };
 
-export default Reviews;
+export default IndividualReview;
