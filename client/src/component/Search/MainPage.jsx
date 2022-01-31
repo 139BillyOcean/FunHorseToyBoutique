@@ -9,8 +9,7 @@ import axios from 'axios';
 const MainPage = () => {
   const [toys, setToys] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const [condition, setCondition] = useState([]);
+  const [conditionFilter, setConditionFilter] = useState([]);
 
   useEffect(() => {
     axios.get('/home')
@@ -25,10 +24,13 @@ const MainPage = () => {
     setSearchTerm(event.target.value);
   }
 
-  const searchForItem = (searchTerm) => {
-    axios.get(`home/search/${searchTerm}`)
+  const searchForItem = (searchTerm, conditionFilterParam) => {
+
+    var targetConditionFilter = conditionFilterParam ? conditionFilterParam : conditionFilter;
+
+    var searchParam = searchTerm && searchTerm.length > 0 ? `/${searchTerm}` : '';
+    axios.get(`home/search${searchParam}`, {params: {conditionFilter: targetConditionFilter}})
     .then((response) => {
-      setSearchResults(response.data)
       setToys(response.data)
     })
     .catch((err) => console.log(err))
@@ -38,7 +40,7 @@ const MainPage = () => {
     <>
     <NavBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} searchForItem={searchForItem} />
     <ul className={styles.mainContainer}>
-      <li className={styles.sidebar} condition={condition} setCondition={setCondition} ><SideBar/></li>
+      <li className={styles.sidebar}><SideBar conditionFilter={conditionFilter} setConditionFilter={setConditionFilter} searchTerm={searchTerm} searchForItem={searchForItem}/></li>
       <li className={styles.content}><Content toys={toys} /></li>
     </ul>
     </>

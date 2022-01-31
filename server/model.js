@@ -5,9 +5,9 @@ module.exports = {
     return Toy.find({}).exec()
   },
 
-  getSearchResults: (searchTerm) => {
+  getSearchResults: (searchTerm, filterData) => {
     console.log("searchTerm:", searchTerm)
-    var conditionArray = ["new", "used"];
+    var conditionArray = filterData.conditionFilter;
 
     var query = {}
     if (searchTerm && searchTerm.length > 0) {
@@ -19,10 +19,6 @@ module.exports = {
     // var conditionFilter = conditionArray.length !== 0 ? { $in: conditionArray } : {$exists: true}
 
     console.log("query:", query);
-    // return Toy.find({
-    //   name: { $regex: `.*${searchTerm}.*`, $options: 'i' },
-    //   condition: conditionFilter
-    // }).limit(10).exec()
     return Toy.find(query).limit(10).exec()
   }
 }
