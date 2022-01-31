@@ -26,7 +26,11 @@ const data = {
   reviews: [
     {
       title: 'hello world',
-      body: 'this is the body for hello world',
+      body: `How had she been so wrong? All her instincts and intuition completely
+      failed her for the first time in her life. She had so heavily relied on both when making decisions
+      up until this moment and she felt a seismic shift take place in her self-confidence. If she could be so
+      completely wrong about something so simple as this, how could she make decisions about really important things
+      taking place in her life? She wasn't sure what she should do next.`,
       date: '1/31/2022',
       reviewer: 'Michael',
       answers: [
@@ -40,7 +44,10 @@ const data = {
     },
     {
       title: 'hello world 2.0',
-      body: 'this is the body for hello world 2.0',
+      body: `The boxed moved. That was a problem. Peter had packed the box three hours before and
+      there was nothing inside that should make it move. The question now was whether or not Peter
+      was going to open it up and look inside to see why it had moved. The answer to that question
+      was obvious. Peter dropped the package into the mailbox so he would never have to see it again.`,
       date: '1/31/2022',
       reviewer: 'Michael 2.0',
       answers: [

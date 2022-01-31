@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './Reviews.styles.css';
 import data from '../Reviews/FakeReviewData.js';
+import IndividualReview from '../Reviews/IndividualReview.jsx';
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState(0);
+  const [reviewData, setReviewData] = useState(null);
 
+  useEffect(() => {
+    setReviewData(data);
+  }, []);
   return (
-    <div className={styles.review}>
-      <div className={styles.reviewRatings}>stars ☆☆☆☆☆</div>
-      <div className={styles.reviewTitle}>insert review title here</div>
-      <div className={styles.reviewDate}>insert review date here</div>
-      <div className={styles.reviewBody}>insert review body here</div>
-      <div className={styles.reviewHelpful}>mark review helpful</div>
+    <div>
+      {reviewData !== null &&
+        reviewData.reviews.map((review) => (
+          <IndividualReview review={review} />
+        ))}
     </div>
   );
 };
