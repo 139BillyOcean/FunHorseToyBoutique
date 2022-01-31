@@ -1,39 +1,13 @@
-export const toys = [
-  {
-    id: 1
-    dateCreated: 1643487965394,
-    user: 'User01'
-    name: 'Four Pencils',
-    condition: 'used',
-    brand: 'Ticonderoga',
-    yearManufactured: 2019,
-    tags: ['Pencil'],
-    photos['https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.diys.com%2Fpencils-that-will-make-studying-more-fun%2F&psig=AOvVaw13XYCdMg2h_-CiNiHcmuhR&ust=1643574645123000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjZhunm1_UCFQAAAAAdAAAAABAF'],
-    price: {
-      original: 500
-      sale: 499.99
-    },
-    quantity: 4,
-    description: 'Its just four pencils',
-    ratings: [1, 0, 0, 2, 2],
-    reviews: [{
-      body: 'Why?',
-      date: 1643488605908,
-      reviewer: 'Joe',
-      answers: [{
-        body: 'cus',
-        date: 1643488606708,
-        answerer: 'User01'
-      }, {
-        body: 'Its clearly a joke post',
-        date: 1643488802042,
-        answerer: 'Dave'
-      }]
-    }]
-  },
-  {
-    id: 2,
-    dateCreated: 1,
+import React, {useState, useEffect} from 'react';
+import Gallery from './Gallery.jsx';
+import RightPanel from './RightPanel.jsx';
+import Information from './Information.jsx'
+import styles from './Overview.styles.css';
+
+const ProductOverview = () => {
+  const [toy, setToy] = useState({
+    id: 1,
+    dateCreated: Date(),
     user: 'Bobby',
     name: 'Black Lotus',
     condition: 'new',
@@ -49,7 +23,7 @@ export const toys = [
             'https://customizedmtg.com/wp-content/uploads/2020/11/Pic-3-64-600x837.jpg.webp'
           ],
     price: {
-      original: 100000
+      original: 100000,
       sale: null
     },
     quantity: 1,
@@ -58,12 +32,43 @@ export const toys = [
     reviews: [{
       body: 'I hate this card.',
       reviewer: 'Joe',
-      date: 1,
+      date: Date(),
       answers: [{
         body: 'Sucks to be you',
         date: 1,
         answerer: 'Bobby'
       }]
     }]
-  }
-]
+  });
+
+  // useEffect(() => {
+  //   //based on productId, get product info.
+  //   setToy(sampleToy);
+  //   console.log(toy);
+  // }, []);
+
+  return (
+    <div className={styles.productOverview} id='product-overview'>
+      <Gallery photos={toy.photos}/>
+      <Information
+        name={toy.name}
+        ratings={toy.ratings}
+        quantity={toy.quantity}
+        description={toy.description}
+        price={toy.price}
+        seller={toy.user}
+        tags={toy.tags}
+        year={toy.yearManufactured}
+        brand={toy.brand}
+        condition={toy.condition}/>
+      <div className={styles.buttonContainer} id='button-container'>
+        <button>Have this product? Sell now!</button>
+        <button>Add to Cart</button>
+        <button>View Cart</button>
+      </div>
+      <RightPanel />
+    </div>
+  );
+}
+
+export default ProductOverview;

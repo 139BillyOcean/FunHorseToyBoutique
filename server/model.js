@@ -22,5 +22,11 @@ module.exports = {
     }
     // var conditionFilter = conditionArray.length !== 0 ? { $in: conditionArray } : {$exists: true}
     return Toy.find(query).limit(10).exec()
+  },
+
+  getCurrentUser: (user) => {
+    return User.find({
+      name: { $regex: `.*${user}.*`, $options: 'i' }
+    }).limit(1).exec()
   }
 }
