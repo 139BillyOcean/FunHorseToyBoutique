@@ -11,8 +11,7 @@ const App = () => {
 //   <MainPage/>
 //   </>
 // )
-=======
-  return <div className={styles.main}>hello world!</div>;
+  return <div className={styles.main}>hello world!<Account /></div>;
 
 };
 
