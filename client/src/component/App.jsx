@@ -13,7 +13,8 @@ const App = () => {
 //   </>
 // )
 
-  return <div className={styles.main}>hello world!<Account /></div>;
+  return <div className={styles.main}>hello world!<Account currentUser='Bobby' /></div>;
+
 
 
 };
