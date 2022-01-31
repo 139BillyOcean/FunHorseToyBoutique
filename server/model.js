@@ -10,5 +10,11 @@ module.exports = {
     return Toy.find({
       name: { $regex: `.*${searchTerm}.*`, $options: 'i' }
     }).limit(10).exec()
+  },
+
+  getCurrentUser: (user) => {
+    return User.find({
+      name: { $regex: `.*${user}.*`, $options: 'i' }
+    }).limit(1).exec()
   }
 }

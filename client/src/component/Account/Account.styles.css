@@ -4,12 +4,6 @@
   width: 100%;
 }
 
-.mainLogo {
-  width: 200px;
-  height: 200px;
-  justify-self: flex-start;
-}
-
 .headerText {
   justify-self: center;
   align-self: flex-end;
