@@ -12,11 +12,9 @@ const App = () => {
 //   <MainPage/>
 //   </>
 // )
-// =======
-  return <div className={styles.main}>
-    hello world!
-      {/* <CreateListing /> */}
-    </div>;
+
+  return <div className={styles.main}>hello world!<Account /></div>;
+
 
 };
 
