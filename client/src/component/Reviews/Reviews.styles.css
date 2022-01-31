@@ -1,0 +1,36 @@
+.review {
+  border: 2px solid black;
+  height: auto;
+  width: 20%;
+  margin: 10px;
+}
+
+.reviewTitle {
+  border: 2px solid black;
+  padding: 2px;
+  margin: 2px;
+}
+
+.reviewBody {
+  border: 2px solid black;
+  margin: 2px;
+  padding: 2px;
+}
+
+.reviewDate {
+  border: 2px solid black;
+  margin: 2px;
+  padding: 2px;
+}
+
+.reviewRatings {
+  border: 2px solid black;
+  margin: 2px;
+  padding: 2px;
+}
+
+.reviewHelpful {
+  border: 2px solid black;
+  margin: 2px;
+  padding: 2px;
+}
