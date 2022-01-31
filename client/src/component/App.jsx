@@ -4,12 +4,12 @@ import MainPage from './Search/MainPage.jsx'
 import Account from './Account/index.jsx';
 
 const App = () => {
-//  return <div className={styles.main}>hello world!</div>;
-return (
-  <>
-  <MainPage/>
-  </>
-)
+ return <div className={styles.main}>hello world!</div>;
+// return (
+//   <>
+//   <MainPage/>
+//   </>
+// )
 };
 
 export default App;
