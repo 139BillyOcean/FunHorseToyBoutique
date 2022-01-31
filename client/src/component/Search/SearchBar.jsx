@@ -1,10 +1,29 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
-const SearchBar = () => {
+const SearchBar = ({toys, searchTerm, setSearchTerm, setToys}) => {
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    setSearchTerm(event.target.value);
+  }
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    axios.get(`home/search/${searchTerm}`)
+    .then((response) => {
+      setToys(response.data)
+    })
+    .catch((err) => console.log(err))
+  }
+
   return (
     <div >
-      <input placeholder="Search for a toy" />
+      <form onSubmit={handleSearchSubmit}>
+      <input placeholder="Search for a toy" type="text" value={searchTerm} onChange={handleChange}/>
       <button>Search</button>
+      </form>
     </div>
   )
 
