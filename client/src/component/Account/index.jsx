@@ -5,6 +5,7 @@ import Purchases from './Purchases.jsx';
 import Listings from './Listings.jsx';
 import Receipts from './Receipts.jsx';
 import toyData from '../../data/toys.js';
+import userData from '../../data/users.js';
 
 const Account = () => {
   return (
@@ -17,7 +18,9 @@ const Account = () => {
           >Account Overview
         </h1>
       </div>
-      <UserInfo />
+      <UserInfo
+        userData={userData}
+      />
       <Purchases />
       <Listings />
       <Receipts />
