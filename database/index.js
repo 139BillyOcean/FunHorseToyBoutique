@@ -82,7 +82,7 @@ const toySchema = new mongoose.Schema({
       answerer: String
     }],
     helpful: {
-      type: Number
+      type: Number,
       default: 0,
     }
   }]
