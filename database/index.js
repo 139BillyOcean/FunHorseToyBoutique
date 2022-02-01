@@ -66,6 +66,7 @@ const toySchema = new mongoose.Schema({
     max: 5
   }],
   reviews: [{
+    title: String,
     body: String,
     date: {
       type: Date,
@@ -79,7 +80,11 @@ const toySchema = new mongoose.Schema({
         default: Date.now
       },
       answerer: String
-    }]
+    }],
+    helpful: {
+      type: Number,
+      default: 0,
+    }
   }]
 });
 
