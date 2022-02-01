@@ -8,8 +8,8 @@ import CreateListing from './CreateListing/CreateListing.jsx'
 const App = () => (
   //  return <div className={styles.main}>hello world!</div>;
   <div>
+     {/* <ProductOverview /> */}
     <MainPage />
-    {/* <ProductOverview /> */}
   </div>
 
 );
