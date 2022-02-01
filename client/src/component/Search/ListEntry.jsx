@@ -2,6 +2,15 @@ import React from 'react';
 import styles from './Search.styles.css';
 
 const ListEntry = ({toy}) => {
+  var toyStock = '';
+
+  if (toy.quantity === 0){
+      toyStock = 'OUT OF STOCK';
+  } else if (toy.quantity <= 2) {
+    toyStock = 'LOW IN STOCK';
+  } else {
+    toyStock ='IN STOCK';
+  }
   return (
     <div className={styles.itemContainer}>
       <div>
@@ -10,11 +19,11 @@ const ListEntry = ({toy}) => {
       <div className={styles.search}>
       <p>{toy.name}</p>
       <p>{toy.price.original}</p>
-      {/* <p>By {toy.seller}</p> */}
+      <p>By {toy.brand}</p>
       </div>
       <div >
       <button>Add to cart</button>
-      { toy.stock > 2 ? <p> {toy.quantity} IN STOCK</p> : <p>LOW IN STOCK</p> }
+      <p>{toyStock}</p>
       </div>
       </div>
 
