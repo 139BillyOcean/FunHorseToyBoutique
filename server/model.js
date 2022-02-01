@@ -34,5 +34,12 @@ module.exports = {
     return Toy.create(toy)
     // var newListing = new Toy(toy)
     // return newListing.save()
+  },
+  addListingToUser: (data) =>{
+    //iwth userid, add listing id to user document
+    // data.user
+    var toyId = data._id
+    return User.findOneAndUpdate({_id: data.user}, {$push: {listings: toyId}})
   }
+  // {listings: data._id}
 }

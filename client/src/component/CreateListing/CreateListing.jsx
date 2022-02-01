@@ -16,10 +16,10 @@ const CreateListing = () => {
     name: "",
     description: "",
     photos: "",
-    condition: "",
+    condition: "New",
     price: 0,
     brand: "",
-    year: curYear,
+    year:  2022,
     tags: "",
     quantity: 1
   })
@@ -37,8 +37,10 @@ const CreateListing = () => {
     // console.log(toy)
     // console.log(event.target.form)
     var price = inputs.price
+    var year = inputs.year
     var toy = inputs
     toy.price = {}
+    inputs.yearManufactured = year
     // console.log(toy)
     toy.price.original = price
     // console.log(toy)
@@ -46,7 +48,7 @@ const CreateListing = () => {
     // axios.post()
     axios.post(`/createListing`, toy, {params: {user: userId}})
       .then((response)=>{
-        console.log(response)
+        alert('listing was added!')
       })
   }
 
@@ -131,7 +133,7 @@ const CreateListing = () => {
             type="number"
             max="2022"
             min="0"
-            value={inputs.year || curYear}
+            value={inputs.year}
             onChange={handleChange} />
         </label>
         <br />
