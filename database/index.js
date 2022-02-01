@@ -47,7 +47,7 @@ const toySchema = new mongoose.Schema({
   price: {
     original: {
       type: Number,
-      required: true
+      required: true,
     },
     sale: {
       type: Number

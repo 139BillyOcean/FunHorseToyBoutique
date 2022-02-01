@@ -25,5 +25,17 @@ module.exports = {
     .catch((err) => {
       res.status(404).send(err);
     })
+  },
+
+  createListing: (req, res) => {
+    console.log(req)
+    model.createListing(req.body)
+      .then((data)=> {
+        console.log(data)
+        res.status(200).send(data)
+      })
+      .catch((err)=>{
+        res.status(404).send(err)
+      })
   }
 }

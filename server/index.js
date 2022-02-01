@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 app.get('/home', controller.getAllProducts);
 app.get('/home/search/:searchTerm', controller.getSearchResults);
 app.get('/users', controller.getCurrentUser);
-
+app.post('/createListing', controller.createListing);
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
