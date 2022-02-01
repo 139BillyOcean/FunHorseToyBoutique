@@ -5,7 +5,7 @@ import Information from './Information.jsx';
 import Quantity from './Quantity.jsx';
 import styles from './Overview.styles.css';
 
-const ProductOverview = () => {
+const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) => {
   const [toy, setToy] = useState({
     id: 1,
     dateCreated: Date(),
@@ -23,7 +23,7 @@ const ProductOverview = () => {
           ],
     price: {
       original: 100000,
-      sale: null
+      sale: 1
     },
     quantity: 2,
     description: 'The best magic card to ever exist. The best magic card to ever exist. The best magic card to ever exist. The best magic card to ever exist.',
@@ -67,6 +67,12 @@ const ProductOverview = () => {
     }
   }
 
+  const handleAddToCart = () => {
+    toy.selectedQuantity = currentQuantity;
+    cart.push(toy);
+    handleCurrentCart(cart);
+  }
+
   return (
     <div className={styles.productOverview} id='product-overview'>
       <Gallery photos={toy.photos}/>
@@ -82,8 +88,21 @@ const ProductOverview = () => {
       />
       <div className={styles.buttonContainer} id='button-container'>
         <button onClick={handleSell}>Have This Product? Sell now!</button>
+        {toy.price.sale
+        ? <span>
+          Price:
+          <span className={styles.salePrice} id='sale-price'>
+            {toy.price.sale}
+          </span>
+          <span className={styles.slashedPrice} id='slashed-price'>
+            {toy.price.original}
+          </span>
+        </span>
+        : <span>
+          Price: {toy.price.original}
+        </span>}
         <Quantity quantityInStock={toy.quantity} quantitySelected={currentQuantity} handleQuantity={handleQuantity}/>
-        <button>Add to Cart</button>
+        <button onClick={handleAddToCart}>Add to Cart</button>
         <button onClick={handleCart}>Check Out</button>
       </div>
       <RightPanel />

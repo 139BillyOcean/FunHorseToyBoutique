@@ -4,12 +4,12 @@ import MainPage from './Search/MainPage.jsx'
 import Account from './Account/index.jsx';
 import ProductOverview from './ProductOverview/ProductOverview.jsx'
 
-const App = () => {
+const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
 
 //  return <div className={styles.main}>hello world!</div>;
 return (
   <>
-  <ProductOverview />
+  <ProductOverview user={user} cart={cart} handleCurrentUser={handleCurrentUser} handleCurrentCart={handleCurrentCart} />
   </>
 )
 
