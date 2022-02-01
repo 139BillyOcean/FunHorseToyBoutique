@@ -4,6 +4,7 @@ const port = 3000;
 const controller = require('./controller.js')
 
 app.use(express.static('./client/dist'));
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

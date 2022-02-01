@@ -34,14 +34,17 @@ const CreateListing = () => {
   }
 
   const handleSubmit = (event) => {
-
-    var toy = inputs
-    toy.user = userId
     // console.log(toy)
     // console.log(event.target.form)
+    var price = inputs.price
+    var toy = inputs
+    toy.price = {}
+    // console.log(toy)
+    toy.price.original = price
+    // console.log(toy)
     // console.log('here')
     // axios.post()
-    axios.post(`/createListing`, toy)
+    axios.post(`/createListing`, toy, {params: {user: userId}})
       .then((response)=>{
         console.log(response)
       })

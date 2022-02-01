@@ -29,7 +29,8 @@ module.exports = {
       name: { $regex: `.*${user}.*`, $options: 'i' }
     }).limit(1).exec()
   },
-  createListing: (toy)=> {
+  createListing: (user, toy)=> {
+    toy.user = user
     return Toy.create(toy)
     // var newListing = new Toy(toy)
     // return newListing.save()
