@@ -7,7 +7,7 @@ import Receipts from './Receipts.jsx';
 import axios from 'axios';
 
 const Account = ({ currentUser }) => {
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState('');
 
   useEffect(() => {
     // fetch current user info
