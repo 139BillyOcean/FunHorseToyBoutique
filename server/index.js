@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 
 app.get('/home', controller.getAllProducts);
 app.get('/home/search/:searchTerm', controller.getSearchResults);
+app.get('/home/search', controller.getSearchResults);
 app.get('/users', controller.getCurrentUser);
 
 
