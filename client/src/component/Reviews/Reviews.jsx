@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './Reviews.styles.css';
+import data from '../Reviews/FakeReviewData.js';
+
+import IndividualReview from '../Reviews/IndividualReview.jsx';
+import ReviewForm from '../Reviews/ReviewForm.jsx';
 
 const Reviews = () => {
+  const [reviewData, setReviewData] = useState(null);
+  const [reviewSubData, setReviewSubData] = useState(null);
+  const [reviewCount, setReviewCount] = useState(2);
+
+  useEffect(() => {
+    setReviewData(data);
+    setReviewSubData(data.reviews.slice(0, 5));
+  }, []);
+
+  useEffect(() => {
+    setReviewSubData(data.reviews.slice(0, reviewCount));
+  }, [reviewCount]);
+
   return (
-    <div className={styles.review}>
-      <div className={styles.reviewRatings}>stars ☆☆☆☆☆</div>
-      <div className={styles.reviewTitle}>insert review title here</div>
-      <div className={styles.reviewDate}>insert review date here</div>
-      <div className={styles.reviewBody}>insert review body here</div>
-      <div className={styles.reviewHelpful}>mark review helpful</div>
+    <div>
+      <ReviewForm />
+      <div className={styles.reviewSection}>
+        {reviewSubData !== null &&
+          reviewSubData.map((review) => <IndividualReview review={review} />)}
+      </div>
+
+      <button onClick={() => setReviewCount(reviewCount + 2)}>
+        show more reviews
+      </button>
     </div>
   );
 };
