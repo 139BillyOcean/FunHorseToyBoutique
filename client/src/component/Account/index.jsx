@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import css from './Account.styles.css';
 import UserInfo from './UserInfo.jsx';
 import Purchases from './Purchases.jsx';
 import Listings from './Listings.jsx';
 import Receipts from './Receipts.jsx';
-import axios from 'axios';
+// import toyData from '../../data/toys.js';
 
 const Account = ({ currentUser }) => {
   const [userData, setUserData] = useState('');
@@ -34,14 +34,12 @@ const Account = ({ currentUser }) => {
           >Account Overview
         </h1>
       </div>
-      <UserInfo
-        userData={userData}
-      />
+      <UserInfo />
       <Purchases />
       <Listings />
       <Receipts />
     </div>
-  )
-}
+  );
+};
 
 export default Account;
