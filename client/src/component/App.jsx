@@ -17,7 +17,7 @@ const App = () => {
   return (
   <div className={styles.main}>
     hello world!
-    {/* <CreateListing/> */}
+    <CreateListing/>
     {/* <Account currentUser='Bobby' /> */}
   </div>);
 
