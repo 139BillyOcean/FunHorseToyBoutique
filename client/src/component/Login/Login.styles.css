@@ -1,0 +1,23 @@
+.main {
+  color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.loginSignUp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.login {
+  border: 1px solid black;
+  padding: 50px;
+}
+.signUp {
+  border: 1px solid black;
+  padding: 50px;
+}
