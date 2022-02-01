@@ -8,6 +8,10 @@ const Gallery = ({ photos }) => {
   const [modal, setModal] = useState(false);
 
   useEffect(() => {
+    setMainImage(photos ? photos[0] : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png');
+  }, [photos])
+
+  useEffect(() => {
     setRemainingImages(photos.filter(photo => photo !== mainImage));
   }, [mainImage])
 

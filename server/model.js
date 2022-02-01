@@ -5,6 +5,10 @@ module.exports = {
     return Toy.find({}).exec()
   },
 
+  getSingleProduct: (objectId) => {
+    return Toy.findById({ "_id": objectId + '' }).exec()
+  },
+
   getSearchResults: (searchTerm) => {
     console.log("searchTerm:", searchTerm)
     return Toy.find({

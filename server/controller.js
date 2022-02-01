@@ -9,7 +9,16 @@ module.exports = {
     .catch(err => res.status(404).send(err))
   },
 
- getSearchResults: (req, res) => {
+  getSingleProduct: (req, res) => {
+    model.getSingleProduct(req.params.objectId)
+      .then((data) => {
+        console.log(data);
+        res.status(200).send(data);
+      })
+      .catch(err => res.status(404).send(err));
+  },
+
+  getSearchResults: (req, res) => {
     model.getSearchResults(req.params.searchTerm)
     .then((data) => {
       res.status(200).send(data);

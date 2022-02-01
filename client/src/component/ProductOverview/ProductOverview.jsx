@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import Gallery from './Gallery.jsx';
 import RightPanel from './RightPanel.jsx';
 import Information from './Information.jsx';
@@ -7,49 +8,50 @@ import styles from './Overview.styles.css';
 
 const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) => {
   const [toy, setToy] = useState({
-    id: 1,
-    dateCreated: Date(),
-    user: 'Bobby',
-    name: 'Black Lotus',
-    condition: 'new',
-    brand: 'hasbro',
-    yearManufactured: 1991,
-    tags: ['magic: the gathering', 'trading card'],
-    photos: ['https://static.cardkingdom.com/images/magic-the-gathering/alpha/black-lotus-28010.jpg',
-            'https://c1.scryfall.com/file/scryfall-cards/large/front/b/d/bd8fa327-dd41-4737-8f19-2cf5eb1f7cdd.jpg?1614638838',
-            'https://c1.scryfall.com/file/scryfall-cards/large/front/4/a/4a2e428c-dd25-484c-bbc8-2d6ce10ef42c.jpg?1559591808',
-            'https://proxyking.biz/wp-content/uploads/2020/10/il_fullxfull.2636242647_dm4a.jpg',
-            'https://cdn.vox-cdn.com/thumbor/_Y08cn1Z7qhI8n-fg2cTkLJ8ce0=/0x0:2060x1380/920x613/filters:focal(1192x179:1520x507):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68731700/black_lotus_2.0.jpg'
-          ],
+    id: '',
+    dateCreated: 0,
+    user: '',
+    name: '',
+    condition: '',
+    brand: '',
+    yearManufactured: 1,
+    tags: [''],
+    photos: [''],
     price: {
-      original: 100000,
+      original: 1,
       sale: 1
     },
-    quantity: 2,
-    description: 'The best magic card to ever exist. The best magic card to ever exist. The best magic card to ever exist. The best magic card to ever exist.',
-    ratings: [0, 3, 5],
+    quantity: 1,
+    description: '',
+    ratings: [],
     reviews: [{
-      body: 'I hate this card.',
-      reviewer: 'Joe',
-      date: Date(),
+      body: '',
+      reviewer: '',
+      date: 1,
       answers: [{
-        body: 'Sucks to be you',
+        body: '',
         date: 1,
-        answerer: 'Bobby'
+        answerer: ''
       }]
     }]
   });
+
   const [currentQuantity, setCurrentQuantity] = useState(1);
 
   const handleQuantity = (quantity) => {
     setCurrentQuantity(quantity);
   }
 
-  // useEffect(() => {
-  //   //based on productId, get product info.
-  //   setToy(sampleToy);
-  //   console.log(toy);
-  // }, []);
+  useEffect(() => {
+    axios.get('/overview/61f889eb145fe868b3c6979a')
+      .then((results) => {
+        console.log(results.data);
+        setToy(results.data);
+      })
+      .catch((err) => {
+        console.log(error);
+      })
+  }, []);
 
   const handleSell = (userId) => {
     if (userId) {
