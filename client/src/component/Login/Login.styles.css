@@ -1,13 +1,6 @@
-.main {
-  color: black;
+.loginSignUp {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-}
-.loginSignUp {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -16,8 +9,12 @@
 .login {
   border: 1px solid black;
   padding: 50px;
+  height: 40vh;
+  width: 25vw;
 }
 .signUp {
   border: 1px solid black;
   padding: 50px;
+  height: 40vh;
+  width: 25vw;
 }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import styles from './Login.styles.css';
 
 const SignUp = () => {
-  const [newUser, setNewUser] = useState({})
+  const [newUser, setNewUser] = useState({});
 
   const handleChange = (event) => {
     setNewUser(() => {
@@ -15,10 +15,10 @@ const SignUp = () => {
 
   const handleSubmit = () => {
     event.preventDefault();
-    // authenticate user signin
-    axios.post('/signIn', user)
+    axios.post('/users', { newUser })
       .then(() => {
         // redirect to home page using global state
+        setNewUser({});
       })
       .catch(err => {
         // stay on sign in page and display error message
@@ -28,6 +28,26 @@ const SignUp = () => {
 
   return (
     <form id='signUp' className={styles.signUp}>
+        <label id='username'>
+          Your Username:
+          <br />
+          <input
+            name="username"
+            type="text"
+            value={newUser.username || ''}
+            onChange={handleChange} />
+        </label>
+        <br />
+        <label id='password'>
+          Your Password:
+          <br />
+          <input
+            name="password"
+            type="text"
+            value={newUser.password || ''}
+            onChange={handleChange} />
+        </label>
+        <br />
         <label id='firstName'>
           Your First Name:
           <br />
@@ -86,8 +106,8 @@ const SignUp = () => {
           onChange={handleChange} />
         <input
           name="zipcode"
-          type="number"
-          value={newUser.zipcode}
+          type="text"
+          value={newUser.zipcode || ''}
           onChange={handleChange} />
         <br />
         <br />

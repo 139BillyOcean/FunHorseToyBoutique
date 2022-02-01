@@ -13,8 +13,10 @@ const Login = () => {
     });
   }
 
-  const handleSubmit = () => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
+    setUser({});
     // authenticate user signin
     axios.post('/signIn', user)
       .then(() => {
@@ -49,7 +51,7 @@ const Login = () => {
         </label>
         <br />
         <br />
-        <button onClick={handleSubmit}>
+        <button onClick={(e) => { handleSubmit(e) }}>
           Sign In!
         </button>
       </form>

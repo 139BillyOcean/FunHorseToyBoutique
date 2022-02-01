@@ -6,8 +6,8 @@ import styles from './Login.styles.css';
 const LoginSignUp = () => {
   return (
     <div className={styles.loginSignUp} id='loginSignUp'>
-      <Login />
       <SignUp />
+      <Login />
     </div>
   );
 };
