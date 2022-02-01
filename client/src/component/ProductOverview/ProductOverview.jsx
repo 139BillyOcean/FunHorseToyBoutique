@@ -35,6 +35,7 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
       }]
     }]
   });
+  const [seller, setSeller] = useState('');
 
   const [currentQuantity, setCurrentQuantity] = useState(1);
 
@@ -43,14 +44,20 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
   }
 
   useEffect(() => {
-    axios.get('/overview/61f889eb145fe868b3c6979a')
-      .then((results) => {
-        console.log(results.data);
-        setToy(results.data);
+    axios.get('/overview/61f89422edbb84b70e40df31')
+      .then((toyResults) => {
+        setToy(toyResults.data);
+        axios.get(`/overview/user/${toyResults.data.user}`)
+          .then((userResults) => {
+            setSeller(userResults.data.username);
+          })
+          .catch((err) => {
+            console.log(error);
+          });
       })
       .catch((err) => {
         console.log(error);
-      })
+      });
   }, []);
 
   const handleSell = (userId) => {
@@ -82,7 +89,7 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
         name={toy.name}
         quantity={toy.quantity}
         description={toy.description}
-        seller={toy.user}
+        seller={seller}
         tags={toy.tags}
         year={toy.yearManufactured}
         brand={toy.brand}

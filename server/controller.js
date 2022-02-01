@@ -12,10 +12,17 @@ module.exports = {
   getSingleProduct: (req, res) => {
     model.getSingleProduct(req.params.objectId)
       .then((data) => {
-        console.log(data);
         res.status(200).send(data);
       })
       .catch(err => res.status(404).send(err));
+  },
+
+  getSingleUser: (req, res) => {
+    model.getSingleUser(req.params.userId)
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch(err => res.status(404).send(err));
   },
 
   getSearchResults: (req, res) => {
