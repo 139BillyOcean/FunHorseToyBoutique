@@ -10,7 +10,7 @@ module.exports = {
   },
 
  getSearchResults: (req, res) => {
-    model.getSearchResults(req.params.searchTerm)
+    model.getSearchResults(req.params.searchTerm, req.query)
     .then((data) => {
       res.status(200).send(data);
     })
@@ -39,3 +39,4 @@ module.exports = {
       })
   }
 }
+
