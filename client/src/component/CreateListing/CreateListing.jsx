@@ -1,11 +1,28 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios'
 
 const CreateListing = () => {
+  // need to grab current account info - user id to send in post
+  var curYear = new Date().getFullYear()
+  var userId = '61f84088f6630f99b59136ab'
+  // need to grab home button
+  //need to implement handleSubmit to either 1: refresh the page to a blank state with a ntoification saying (successfully added!) or 2: redirect to account overview page
+
   // const [title, setTitle] = useState('')
   // const [description, setDescription] = useState('')
   // const [condition ,setCondition] = useState('')
   // const [features, setFeatures] = useState('')
-  const [inputs, setInputs] = useState({})
+  const [inputs, setInputs] = useState({
+    name: "",
+    description: "",
+    photos: "",
+    condition: "New",
+    price: 0,
+    brand: "",
+    year:  2022,
+    tags: "",
+    quantity: 1
+  })
   // const [photos, setPhotos] = useState([])
 
 
@@ -16,14 +33,33 @@ const CreateListing = () => {
     }))
   }
 
+  const handleSubmit = (event) => {
+    // console.log(toy)
+    // console.log(event.target.form)
+    var price = inputs.price
+    var year = inputs.year
+    var toy = inputs
+    toy.price = {}
+    inputs.yearManufactured = year
+    // console.log(toy)
+    toy.price.original = price
+    // console.log(toy)
+    // console.log('here')
+    // axios.post()
+    axios.post(`/createListing`, toy, {params: {user: userId}})
+      .then((response)=>{
+        alert('listing was added!')
+      })
+  }
+
   return (
     <form id='CreateListing-overview'>
         <label id='product-title'>
           Title of your Listing:
           <input
-            name="toyTitle"
+            name="name"
             type="text"
-            value={inputs.toyTitle || ''}
+            value={inputs.name || ''}
             onChange={handleChange} />
         </label>
         <br />
@@ -31,9 +67,9 @@ const CreateListing = () => {
         id='product-description'>
           Description:
           <input
-            name="toyDescription"
+            name="description"
             type="text"
-            value={inputs.toyDescription || ''}
+            value={inputs.description || ''}
             onChange={handleChange} />
         </label>
         <br />
@@ -41,9 +77,9 @@ const CreateListing = () => {
         id='product-photos'>
           urls of Photos:
           <input
-            name="toyPhotos"
+            name="photos"
             type="text"
-            value={inputs.toyTags || ''}
+            value={inputs.photos || ''}
             onChange={handleChange} />
         </label>
         {/* <br />
@@ -61,8 +97,8 @@ const CreateListing = () => {
         id='product-condition'>
           Condition:
           <select
-            name="toyCondition"
-            value={inputs.toyCondition || 'new'}
+            name="condition"
+            value={inputs.condition || 'new'}
             onChange={handleChange} >
               <option value='new'>New</option>
               <option value='used'>Used</option>
@@ -72,9 +108,10 @@ const CreateListing = () => {
         id='product-price'>
           Your Price: $
           <input
-            name="toyPrice"
+            name="price"
             type="number"
-            value={inputs.toyPrice || 0}
+            min="0.01"
+            value={inputs.price || 0}
             onChange={handleChange} />
         </label>
         <br />
@@ -82,9 +119,9 @@ const CreateListing = () => {
         id='product-brand'>
           Brand:
           <input
-            name="toyBrand"
+            name="brand"
             type="text"
-            value={inputs.toyDescription || ''}
+            value={inputs.brand || ''}
             onChange={handleChange} />
         </label>
         <br />
@@ -92,9 +129,11 @@ const CreateListing = () => {
         id='product-year'>
           Product Manufactured Year:
           <input
-            name="toyYear"
+            name="year"
             type="number"
-            value={inputs.toyYear || 2022}
+            max="2022"
+            min="0"
+            value={inputs.year}
             onChange={handleChange} />
         </label>
         <br />
@@ -102,9 +141,9 @@ const CreateListing = () => {
         id='product-tags'>
           Tags:
           <input
-            name="toyTags"
+            name="tags"
             type="text"
-            value={inputs.toyTags || ''}
+            value={inputs.tags || ''}
             onChange={handleChange} />
         </label>
         <br />
@@ -112,11 +151,19 @@ const CreateListing = () => {
         id='product-quantity'>
           How many do you want to sell?:
           <input
-            name="toyQuantity"
+            name="quantity"
             type="number"
-            value={inputs.toyQuantity || 1}
+            min="1"
+            value={inputs.quantity || 1}
             onChange={handleChange} />
         </label>
+        <button
+        onClick={(event)=>{
+          event.preventDefault()
+          handleSubmit(event)
+        }}
+        id='addListing'
+        type="submit">Add Listing Now</button>
       </form>
   )
 }
