@@ -23,12 +23,11 @@ const Reviews = () => {
   return (
     <div>
       <ReviewForm />
-      {reviewSubData !== null &&
-        reviewSubData.map((review) => (
-          <span>
-            <IndividualReview review={review} />
-          </span>
-        ))}
+      <div className={styles.reviewSection}>
+        {reviewSubData !== null &&
+          reviewSubData.map((review) => <IndividualReview review={review} />)}
+      </div>
+
       <button onClick={() => setReviewCount(reviewCount + 2)}>
         show more reviews
       </button>

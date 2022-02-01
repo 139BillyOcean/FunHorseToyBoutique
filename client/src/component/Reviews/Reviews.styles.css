@@ -5,6 +5,10 @@
   margin: 10px;
 }
 
+.reviewSection {
+  z-index: 1;
+}
+
 .reviewTitle {
   border: 2px solid black;
   padding: 2px;
