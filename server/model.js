@@ -6,7 +6,7 @@ module.exports = {
   },
 
   getSearchResults: (searchTerm, filterData) => {
-    console.log("searchTerm:", searchTerm);
+    console.log('searchTerm:', searchTerm);
     var conditionArray = filterData.conditionFilter;
     var price = filterData.maxPrice;
 
@@ -29,6 +29,19 @@ module.exports = {
       name: { $regex: `.*${user}.*`, $options: 'i' }
     }).limit(1).exec();
   },
+  createListing: (user, toy)=> {
+    toy.user = user;
+    return Toy.create(toy);
+    // var newListing = new Toy(toy)
+    // return newListing.save()
+  },
+  addListingToUser: (data) =>{
+    //iwth userid, add listing id to user document
+    // data.user
+    var toyId = data._id;
+    return User.findOneAndUpdate({_id: data.user}, {$push: {listings: toyId}});
+  },
+  // {listings: data._id}
 
   addUser: (user) => {
     return User.create(user);

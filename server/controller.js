@@ -27,6 +27,25 @@ module.exports = {
       });
   },
 
+  createListing: (req, res) => {
+    // console.log(req.query.user)
+    model.createListing(req.query.user, req.body)
+      .then((data)=> {
+        model.addListingToUser(data)
+          .then((data)=>{
+            console.log('here');
+            console.log(data);
+
+          });
+        // console.log(data)
+        res.status(200).send(data);
+      })
+      .catch((err)=>{
+        res.status(404).send(err);
+        console.log(err);
+      });
+  },
+
   addNewUser: (req, res) => {
     let newUser = {
       username: req.body.newUser.username,
