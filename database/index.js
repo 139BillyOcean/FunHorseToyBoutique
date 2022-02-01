@@ -39,15 +39,11 @@ const toySchema = new mongoose.Schema({
   }],
   photos: [{
     type: String,
-    validate: {
-      validator: value => validator.isURL(value, { protocols: ['http', 'https', 'ftp'], require_tld: true, require_protocol: true }),
-      message: 'Must be a Valid URL'
-    }
   }],
   price: {
     original: {
       type: Number,
-      required: true
+      required: true,
     },
     sale: {
       type: Number
@@ -109,10 +105,6 @@ let userSchema = mongoose.Schema({
     required: true
   },
   name: {
-    type: String,
-    required: true
-  },
-  email: {
     type: String,
     required: true
   },

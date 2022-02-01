@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import SearchCSS from "./Search.module.css";
 
 const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFilter, setMaxPrice, maxPrice}) => {
 
 
   const handleNewClick = () => {
      //PREVIOUS VERSION(may need it later)
-     
+
     // var updatedValue = !newFilter;
     // var updatedConditionFilter = [];
 
