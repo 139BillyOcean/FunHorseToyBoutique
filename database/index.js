@@ -110,10 +110,6 @@ let userSchema = mongoose.Schema({
   },
   email: {
     type: String,
-    required: true
-  },
-  email: {
-    type: String,
     lowercase: true,
     unique: true,
     required: true,
