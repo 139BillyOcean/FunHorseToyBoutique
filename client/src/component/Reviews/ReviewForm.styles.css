@@ -1,42 +1,40 @@
 .reviewForm {
-  border: 2px solid black;
-  height: auto;
-  width: 20%;
+  border-radius: 10px;
+  height: 500px;
+  width: 500px;
+  padding: 20px;
   margin: 10px;
+  position: absolute;
+  z-index: 10;
+  background-color: lightgray;
 }
 
 .title {
-  border: 2px solid black;
   padding: 2px;
-  margin: 2px;
+  margin: 10px;
 }
 
 .reviewFormTitle {
-  border: 2px solid black;
   padding: 2px;
-  margin: 2px;
+  margin: 10px;
 }
 
 .reviewFormBody {
-  border: 2px solid black;
-  margin: 2px;
+  margin: 10px;
   padding: 2px;
 }
 
 .reviewFormTitle {
-  border: 2px solid black;
-  margin: 2px;
+  margin: 10px;
   padding: 2px;
 }
 
 .reviewFormRatings {
-  border: 2px solid black;
-  margin: 2px;
+  margin: 10px;
   padding: 2px;
 }
 
 .reviewFormHelpful {
-  border: 2px solid black;
-  margin: 2px;
+  margin: 10px;
   padding: 2px;
 }

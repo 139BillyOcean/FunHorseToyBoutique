@@ -1,12 +1,14 @@
 .review {
   border: 2px solid black;
   height: auto;
-  width: 20%;
   margin: 10px;
+  width: 300px;
 }
 
-.reviewSection {
-  z-index: 1;
+.reviewer {
+  border: 2px solid black;
+  padding: 2px;
+  margin: 2px;
 }
 
 .reviewTitle {
