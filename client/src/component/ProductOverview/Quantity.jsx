@@ -7,7 +7,7 @@ const Quantity = ({ quantityInStock, quantitySelected, handleQuantity }) => {
 
   useEffect(() => {
     viewPlusAndMinus(quantityInStock, quantitySelected);
-  }, [hidePlus, hideMinus])
+  }, [hidePlus, hideMinus, quantityInStock])
 
   const handlePlus = () => {
     if (quantityInStock > quantitySelected) {
