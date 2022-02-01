@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar.jsx";
 import SideBar from "./SideBar.jsx";
 import Content from "./Content.jsx";
-import styles from "./Search.styles.css";
+//chaning to css modules
+//import styles from "./Search.styles.css";
+import SearchCSS from "./Search.module.css";
 import faketoys from "./fakedata.js";
 import axios from "axios";
 import Modal from './Modal.jsx';
@@ -50,11 +52,11 @@ const MainPage = () => {
   }
 
   return (
-    <div id="landing-page" >
+    <div id="main" className ={SearchCSS.main} >
        {modal ? <Modal modal={modal} showModal={showModal} /> : null}
     <NavBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} searchForItem={searchForItem} />
-    <ul className={styles.mainContainer}>
-      <li className={styles.sidebar}>
+    <ul id = 'mainContainer' className={SearchCSS.mainContainer}>
+      <li id = 'sidebar' className={SearchCSS.sidebar}>
         <SideBar
           newFilter={newFilter} setNewFilter={setNewFilter}
           usedFilter={usedFilter} setUsedFilter={setUsedFilter}
@@ -62,7 +64,7 @@ const MainPage = () => {
           searchForItem={searchForItem}
         />
       </li>
-      <li className={styles.content}><Content toys={toys} /></li>
+      <li id = 'content' className={SearchCSS.content}><Content toys={toys} /></li>
     </ul>
     </div>
   )
