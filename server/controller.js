@@ -9,6 +9,22 @@ module.exports = {
       .catch(err => res.status(404).send(err));
   },
 
+  getSingleProduct: (req, res) => {
+    model.getSingleProduct(req.params.objectId)
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch(err => res.status(404).send(err));
+  },
+
+  getSingleUser: (req, res) => {
+    model.getSingleUser(req.params.userId)
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch(err => res.status(404).send(err));
+  },
+
   getSearchResults: (req, res) => {
     model.getSearchResults(req.params.searchTerm, req.query)
       .then((data) => {

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styles from './Overview.styles.css';
 
 const Information = ({ quantity, description, seller, tags, year, brand, condition, name }) => {
-
+  console.log(seller);
   return (
     <div className={styles.information} id='information'>
       <div className={styles.productTitle} id='product-title'>
@@ -54,7 +54,7 @@ const Information = ({ quantity, description, seller, tags, year, brand, conditi
             Tags:
           </div>
           <div className={styles.categoryValue} id='category-value'>
-
+            {tags.join(', ')}
           </div>
         </div>
         <div className={styles.category} id='category'>
@@ -62,7 +62,7 @@ const Information = ({ quantity, description, seller, tags, year, brand, conditi
             Seller:
           </div>
           <div className={styles.categoryValue} id='category-value'>
-
+            {seller}
           </div>
         </div>
       </div>

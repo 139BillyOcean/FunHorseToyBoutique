@@ -5,6 +5,15 @@ module.exports = {
     return Toy.find({}).exec();
   },
 
+  getSingleProduct: (objectId) => {
+    return Toy.findById({ "_id": objectId + '' }).exec()
+  },
+
+  getSingleUser: (userId) => {
+    console.log(userId);
+    return User.findById({ "_id": userId + '' }).exec();
+  },
+
   getSearchResults: (searchTerm, filterData) => {
     console.log('searchTerm:', searchTerm);
     var conditionArray = filterData.conditionFilter;
@@ -42,7 +51,6 @@ module.exports = {
     return User.findOneAndUpdate({_id: data.user}, {$push: {listings: toyId}});
   },
   // {listings: data._id}
-
   addUser: (user) => {
     return User.create(user);
   }
