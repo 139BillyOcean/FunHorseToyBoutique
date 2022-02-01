@@ -1,9 +1,10 @@
 import React from 'react';
 
-const UserInfo = () => {
+const UserInfo = ({ userData }) => {
   return (
     <div>
       User Info
+      {}
     </div>
   )
 }

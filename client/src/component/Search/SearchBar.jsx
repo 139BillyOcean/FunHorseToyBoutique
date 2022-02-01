@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-const SearchBar = ({toys, searchTerm, setSearchTerm, setToys}) => {
-  const [searchResults, setSearchResults] = useState([]);
+const SearchBar = ({searchTerm, setSearchTerm, searchForItem}) => {
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -11,11 +10,7 @@ const SearchBar = ({toys, searchTerm, setSearchTerm, setToys}) => {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    axios.get(`home/search/${searchTerm}`)
-    .then((response) => {
-      setToys(response.data)
-    })
-    .catch((err) => console.log(err))
+    searchForItem(searchTerm)
   }
 
   return (

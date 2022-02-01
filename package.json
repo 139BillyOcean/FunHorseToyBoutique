@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.config.js --watch",
     "start": "nodemon ./server/index.js",
-    "test": "jest"
+    "test": "jest",
+    "loadData": "mongo mongodb://localhost:27017/blueOcean data.js"
   },
   "repository": {
     "type": "git",
