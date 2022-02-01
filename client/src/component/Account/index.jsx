@@ -6,18 +6,30 @@ import Listings from './Listings.jsx';
 import Receipts from './Receipts.jsx';
 import axios from 'axios';
 
-const Account = () => {
+const Account = ({ currentUser }) => {
+  const [userData, setUserData] = useState([]);
+
   useEffect(() => {
     // fetch current user info
-
+    axios.get('/users', {
+      params: {
+        user: currentUser
+      }
+    })
+    .then((response) => {
+      setUserData(response.data[0]);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }, [])
 
   return (
     <div>
+      <button>Home</button>
       <div
         className={css.mainHeader}
-        ><button>Home</button>
-        <h1
+        ><h1
           className={css.headerText}
           >Account Overview
         </h1>
