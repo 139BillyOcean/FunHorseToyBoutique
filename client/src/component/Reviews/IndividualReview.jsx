@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './IndividualReview.styles.css';
 import data from '../Reviews/FakeReviewData.js';
+import Answers from '../Reviews/Answers.jsx';
 
 const IndividualReview = ({ review }) => {
-  console.log(review);
+  const [answers, showAnswers] = useState(false);
   return (
     <div className={styles.review}>
       <div className={styles.reviewRatings}>stars ☆☆☆☆☆</div>
@@ -13,6 +14,8 @@ const IndividualReview = ({ review }) => {
       <span className={styles.reviewDate}>Date: {review.date}</span>
       <div className={styles.reviewBody}>{review.body}</div>
       <div className={styles.reviewHelpful}>Helpfulness: {review.helpful}</div>
+      <button onClick={() => showAnswers(!answers)}>show answers</button>
+      {answers === true && <Answers answers={review.answers} />}
     </div>
   );
 };
