@@ -8,19 +8,30 @@ import ReviewForm from '../Reviews/ReviewForm.jsx';
 
 const Reviews = () => {
   const [reviewData, setReviewData] = useState(null);
-  const [reviewCount, setReviewCount] = useState(5);
+  const [reviewSubData, setReviewSubData] = useState(null);
+  const [reviewCount, setReviewCount] = useState(2);
 
   useEffect(() => {
     setReviewData(data);
+    setReviewSubData(data.reviews.slice(0, 5));
   }, []);
+
+  useEffect(() => {
+    setReviewSubData(data.reviews.slice(0, reviewCount));
+  }, [reviewCount]);
 
   return (
     <div>
       <ReviewForm />
-      {reviewData !== null &&
-        reviewData.reviews.map((review) => (
-          <IndividualReview review={review} />
+      {reviewSubData !== null &&
+        reviewSubData.map((review) => (
+          <span>
+            <IndividualReview review={review} />
+          </span>
         ))}
+      <button onClick={() => setReviewCount(reviewCount + 2)}>
+        show more reviews
+      </button>
     </div>
   );
 };
