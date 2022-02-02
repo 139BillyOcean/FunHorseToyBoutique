@@ -10,6 +10,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
+      {
         test: /\.m?js|x$/,
         exclude: /(node_modules|bower_components)/,
         use: {

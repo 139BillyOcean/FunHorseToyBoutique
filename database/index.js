@@ -122,10 +122,6 @@ let userSchema = mongoose.Schema({
       message: 'Please fill a valid email address'
     }
   },
-  password: {
-    type: String,
-    required: true
-  },
   address: {
     street: {
       type: String,
