@@ -26,7 +26,7 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
           <ProductOverview user={user} cart={cart} handleCurrentUser={handleCurrentUser} handleCurrentCart={handleCurrentCart} />
         } />
         <Route path='/signin/' element={
-          <LoginSignUp />
+          <LoginSignUp user={user} handleCurrentUser={handleCurrentUser}/>
         }/>
         {/* Need the list product page here */}
         <Route path='/listproduct/' element={
