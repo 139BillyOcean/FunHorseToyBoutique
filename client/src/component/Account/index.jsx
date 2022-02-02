@@ -21,7 +21,7 @@ const Account = ({ currentUser }) => {
     })
     .then((response) => {
       setUserData(response.data);
-      return axios.get(`/overview/${response.data.purchases[0]}`);
+      return axios.get(`/overview/${response.data.listings[0]}`);
     })
     .then((response) => {
       setUserPurchases(response.data);
