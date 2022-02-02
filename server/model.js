@@ -1,4 +1,4 @@
-const {Toy, User} = require('../database/index.js');
+const { Toy, User } = require('../database/index.js');
 
 module.exports = {
   getAllProducts: () => {
@@ -6,11 +6,11 @@ module.exports = {
   },
 
   getSingleProduct: (objectId) => {
-    return Toy.findById({ "_id": objectId + '' }).exec()
+    return Toy.findById({ _id: objectId + '' }).exec();
   },
 
   getSingleUser: (userId) => {
-    return User.findById({ "_id": userId + '' }).exec();
+    return User.findById({ _id: userId + '' }).exec();
   },
 
   getSearchResults: (searchTerm, filterData) => {
@@ -25,28 +25,27 @@ module.exports = {
     if (searchTerm && searchTerm.length > 0) {
       query.name = { $regex: `.*${searchTerm}.*`, $options: 'i' };
     }
-    if (conditionArray && conditionArray.length > 0 ) {
+    if (conditionArray && conditionArray.length > 0) {
       query.condition = { $in: conditionArray };
     }
     if (price) {
-      query['price.original'] = {$lte: price};
+      query['price.original'] = { $lte: price };
     }
     if (brandArray && brandArray.length > 0) {
-      query.brand =  { $in: brandArray }
+      query.brand = { $in: brandArray };
     }
     if (tagsArray && tagsArray.length > 0) {
-      query.tags = { $in: tagsArray }
+      query.tags = { $in: tagsArray };
     }
     if (sortOption) {
-        var sortObject = {};
-        if (sortOption === 'desc'){
-          sortObject['price.original'] = -1
-        } else if (sortOption === 'asc') {
-          sortObject['price.original'] = 1
-        }
+      var sortObject = {};
+      if (sortOption === 'desc') {
+        sortObject['price.original'] = -1;
+      } else if (sortOption === 'asc') {
+        sortObject['price.original'] = 1;
+      }
 
-
-        return Toy.find(query).sort(sortObject)
+      return Toy.find(query).sort(sortObject);
     }
 
     return Toy.find(query).exec();
@@ -54,23 +53,43 @@ module.exports = {
 
   getCurrentUser: (user) => {
     return User.find({
-      username: { $regex: `.*${user}.*`, $options: 'i' }
-    }).limit(1).exec();
+      username: { $regex: `.*${user}.*`, $options: 'i' },
+    })
+      .limit(1)
+      .exec();
   },
-  createListing: (user, toy)=> {
+  createListing: (user, toy) => {
     toy.user = user;
     return Toy.create(toy);
     // var newListing = new Toy(toy)
     // return newListing.save()
   },
-  addListingToUser: (data) =>{
+  addListingToUser: (data) => {
     //iwth userid, add listing id to user document
     // data.user
     var toyId = data._id;
-    return User.findOneAndUpdate({_id: data.user}, {$push: {listings: toyId}}, { new: true});
+    return User.findOneAndUpdate(
+      { _id: data.user },
+      { $push: { listings: toyId } },
+      { new: true }
+    );
   },
   // {listings: data._id}
   addUser: (user) => {
     return User.create(user);
-  }
+  },
+  addReview: (review, productId) => {
+    return Toy.findOneAndUpdate(
+      { _id: productId },
+      { $push: { reviews: review } },
+      { new: true }
+    );
+  },
+  addAnswer: (answer, questionId) => {
+    return Toy.findOneAndUpdate(
+      { _id: questionId },
+      { $push: { answers: answer } },
+      { new: true }
+    );
+  },
 };

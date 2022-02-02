@@ -2,41 +2,41 @@
   border: 2px solid black;
   height: auto;
   margin: 10px;
-  width: 300px;
+  width: 500px;
 }
 
 .reviewer {
   border: 2px solid black;
   padding: 2px;
-  margin: 2px;
+  margin: 5px;
 }
 
 .reviewTitle {
   border: 2px solid black;
   padding: 2px;
-  margin: 2px;
+  margin: 5px;
 }
 
 .reviewBody {
   border: 2px solid black;
-  margin: 2px;
+  margin: 5px;
   padding: 2px;
 }
 
 .reviewDate {
   border: 2px solid black;
-  margin: 2px;
+  margin: 5px;
   padding: 2px;
 }
 
 .reviewRatings {
   border: 2px solid black;
-  margin: 2px;
+  margin: 5px;
   padding: 2px;
 }
 
 .reviewHelpful {
   border: 2px solid black;
-  margin: 2px;
+  margin: 5px;
   padding: 2px;
 }
