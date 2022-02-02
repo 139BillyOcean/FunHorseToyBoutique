@@ -1,19 +1,29 @@
 import React, {useState, useEffect} from 'react'
+import {DataColumn} from './dataColumn.jsx'
+import {ProductsColumn} from './productsColumn.jsx'
+import {PaymentColumn} from './paymentColumn.jsx'
+import {flexSetup} from './styles.jsx'
 
-export const Cart = () => {
+export const Cart = ({cart, handleCurrentCart}) => {
+  const [quantity, updateQuantity] = useState(0)
+  const [totalCost, updateTotalCost] = useState(0)
+
+  useEffect(() => {
+    let items = 0
+    let price = 0
+    cart.map((item) => {
+      items += item.
+      price += (item. * item.)
+    })
+  }, [cart])
+
   return (
     <div>
-      <div id={SearchBar}>This will be the overhead search bar</div>
-      <div>
-        <div id={dataColumn}>
-          this will be the right most column, it will have total items and price
-        </div>
-        <div id={productsColumn}>
-          this will be the centre column, it will have an overview of each product in the cart
-        </div>
-        <div id={paymentColumn}>
-          this will be the left column, it will have inputs for card info
-        </div>
+      <div id='SearchBar'>This will be the overhead search bar</div>
+      <div id='flexSetup' style={flexSetup}>
+        <DataColumn quantity={quantity} totalCost={totalCost}/>
+        <ProductsColumn />
+        <PaymentColumn />
       </div>
     </div>
   )

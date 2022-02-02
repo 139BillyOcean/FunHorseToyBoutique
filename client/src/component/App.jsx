@@ -5,6 +5,7 @@ import Account from './Account/index.jsx';
 import ProductOverview from './ProductOverview/ProductOverview.jsx';
 import CreateListing from './CreateListing/CreateListing.jsx';
 import LoginSignUp from './Login/LoginSignUp.jsx';
+import {Cart} from './Cart/cart.jsx';
 import { Routes, Route } from 'react-router-dom';
 
 const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
@@ -37,7 +38,7 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
         {/* Need the cart page here */}
         <Route path='/viewcart/' element={
           <div>
-            Cart
+            <Cart cart={cart} handleCurrentCart={handleCurrentCart}/>
           </div>
         }/>
         {/* Need the account overview page here */}
