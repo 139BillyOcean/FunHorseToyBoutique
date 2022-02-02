@@ -6,6 +6,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const { verify, signUp } = require('./auth.js');
 var session = require('express-session');
+var db = require('../database/dbAuth');
 
 var SQLiteStore = require('connect-sqlite3')(session);
 
