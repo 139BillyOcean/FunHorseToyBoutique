@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar.jsx";
 import SideBar from "./SideBar.jsx";
 import Content from "./Content.jsx";
-//chaning to css modules
-//import styles from "./Search.styles.css";
+import styles from "./Search.styles.css";
 import SearchCSS from "./Search.module.css";
 import faketoys from "./fakedata.js";
 import axios from "axios";
@@ -19,7 +18,7 @@ const MainPage = () => {
   const [kgToys, setKGToys] = useState(false);
   const [availableTags, setAvailableTags] = useState([]);
   const [appliedTags, setAppliedTags] = useState([]);
-
+  const [sortOption, setSortOption] = useState('desc');
 
   useEffect(() => {
     axios
@@ -65,7 +64,8 @@ const MainPage = () => {
       conditionFilter: conditionFilter,
       maxPrice: maxPrice,
       sellerFilter: sellerFilter,
-      tags: appliedTags}})
+      tags: appliedTags,
+      sortOption: sortOption}})
     .then((response) => {
       setToys(response.data)
     })
@@ -85,6 +85,7 @@ const MainPage = () => {
           kgToys={kgToys} setKGToys={setKGToys}
           availableTags={availableTags} setAvailableTags={setAvailableTags}
           appliedTags={appliedTags} setAppliedTags={setAppliedTags}
+          sortOption={sortOption} setSortOption={setSortOption}
           searchForItem={searchForItem}
         />
       </li>

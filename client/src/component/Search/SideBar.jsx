@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchCSS from "./Search.module.css";
 
 const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFilter, setMaxPrice, maxPrice,
-  kgToys, setKGToys, availableTags, setAvailableTags, appliedTags, setAppliedTags}) => {
+  kgToys, setKGToys, availableTags, setAvailableTags, appliedTags, setAppliedTags, sortOption, setSortOption}) => {
 
   const handleNewClick = () => {
     setNewFilter(!newFilter)
@@ -32,13 +32,26 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
     }
   }
 
+  const handleSortOptionsClick = (event) => {
+    setSortOption(event.target.value)
+  }
 
   return(
     <div>
+      <div>
+      <label for="sortOptions">Sort By:</label>
+        <select name="sortOptions" onClick={handleSortOptionsClick}>
+          <option value="bestsellers" onClick={handleSortOptionsClick}>Bestsellers</option>
+          <option value="desc" onClick={handleSortOptionsClick}>Price: High To Low</option>
+          <option value="asc" onClick={handleSortOptionsClick}>Price: Low To High</option>
+          <option value="rating" onClick={handleSortOptionsClick}>Top Rated</option>
+        </select>
+        </div>
       <div>Filter By: </div>
       <div>
         <label for="price">Price </label>
         <input type="range" name="price" min="0" max="1000" defaultValue="1000" onChange={handleSliderChange} />
+        <output for="price">$0 - ${maxPrice}</output>
       </div>
       <div>Condition</div>
       <form>

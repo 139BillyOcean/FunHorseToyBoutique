@@ -18,6 +18,7 @@ module.exports = {
     var price = filterData.maxPrice;
     var brandArray = filterData.sellerFilter;
     var tagsArray = filterData.tags;
+    var sortOption = filterData.sortOption;
 
     var query = {};
 
@@ -34,12 +35,25 @@ module.exports = {
       query.brand = { $in: brandArray }
     }
     if (tagsArray && tagsArray.length > 0) {
-      query.tags = {$regex:`.*${tagsArray}.*`,  $options: 'i'}
+      query.tags = { $regex:`.*${tagsArray}.*`,  $options: 'i' }
     }
 
-    console.log("QUERY: ", query)
-    // var conditionFilter = conditionArray.length !== 0 ? { $in: conditionArray } : {$exists: true}
-    return Toy.find(query).limit(10).exec();
+    // if (sortOption === 'desc') {
+    //   query.orderBy = { 'price.original': -1 }
+    // }
+
+    if (sortOption) {
+        var sortObject = {};
+        if (sortOption === 'desc'){
+          sortObject['price.original'] = -1
+        } else if (sortOption === 'asc') {
+          sortObject['price.original'] = 1
+        }
+
+        return Toy.find(query).sort(sortObject)
+    }
+
+    return Toy.find(query).exec();
   },
 
   getCurrentUser: (user) => {
