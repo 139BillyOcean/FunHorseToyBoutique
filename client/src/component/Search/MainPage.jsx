@@ -8,6 +8,7 @@ import faketoys from "./fakedata.js";
 import axios from "axios";
 // import Modal from './Modal.jsx';
 
+
 const MainPage = ({handleCurrentCart, cart}) => {
   const [toys, setToys] = useState([]);
   const [modal, showModal] = useState(true);
@@ -20,6 +21,7 @@ const MainPage = ({handleCurrentCart, cart}) => {
   const [availableTags, setAvailableTags] = useState([]);
   const [appliedTags, setAppliedTags] = useState([]);
   const [sortOption, setSortOption] = useState('default');
+
 
   useEffect(() => {
     axios

@@ -8,7 +8,7 @@ const NavBar = ({searchTerm, setSearchTerm, searchForItem}) => {
   return (
     <>
     <ul id = "navigationContainer" className={SearchCSS.navigationContainer}>
-      <li id = 'logo' className={SearchCSS.logo}>LOGO</li>
+     <li id = 'logo' className={SearchCSS.logo}><Link to={'/'}>Logo will be here</Link></li>
       <li className={SearchCSS.search}>
         <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} searchForItem={searchForItem}/>
       </li>
