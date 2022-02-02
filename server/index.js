@@ -52,6 +52,11 @@ app.get('/overview/user/:userId', controller.getSingleUser);
 app.get('/home/search', controller.getSearchResults);
 app.get('/users', controller.getCurrentUser);
 
+app.get('/authenticate', (req, res) => {
+  let user = req.user;
+  res.send(user);
+});
+
 app.post('/createListing', controller.createListing);
 app.post('/adduser', controller.createUser);
 app.post('/signup', signUp);

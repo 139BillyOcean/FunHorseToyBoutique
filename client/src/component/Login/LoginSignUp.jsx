@@ -5,9 +5,14 @@ import LoginCSS from './Login.module.css';
 import arrow from '../../../dist/images/arrow-left.png';
 import logo from '../../../dist/images/Fun-Horse-Transparent.png';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const LoginSignUp = ({ user, handleCurrentUser }) => {
   let navigate = useNavigate();
+
+  // useEffect(() => {
+  //   axios.get('/authenticate');
+  // });
 
   return (
     <div className={LoginCSS.loginSignUp}>
