@@ -22,7 +22,7 @@ const Login = () => {
         navigate('/');
       })
       .catch(err => {
-        alert('Incorrect username or password');
+        alert('Incorrect username or password.');
       });
   }
 

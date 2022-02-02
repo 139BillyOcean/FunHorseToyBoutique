@@ -24,12 +24,11 @@ const SignUp = () => {
             navigate('/');
           })
           .catch(err => {
-            console.error(err);
+            alert('Please complete all fields with valid responses.');
           })
       })
       .catch(err => {
-        // stay on sign in page and display error message
-        console.error(err);
+        alert('Username is taken. Please try again.');
       });
   }
 
