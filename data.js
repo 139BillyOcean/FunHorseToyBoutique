@@ -1,3 +1,45 @@
+{
+  "dateCreated": "2022-01-29T20:40:02.042Z",
+  "user": "61f889eb145fe868b3c6979d",
+  "name": "Black Lotus",
+  "condition": "new",
+  "brand": "hasbro",
+  "yearManufactured": 1991,
+  "tags": ["magic: the gathering", "trading card"],
+  "photos": ["https://static.cardkingdom.com/images/magic-the-gathering/alpha/black-lotus-28010.jpg",
+    "https://c1.scryfall.com/file/scryfall-cards/large/front/b/d/bd8fa327-dd41-4737-8f19-2cf5eb1f7cdd.jpg?1614638838",
+    "https://c1.scryfall.com/file/scryfall-cards/large/front/4/a/4a2e428c-dd25-484c-bbc8-2d6ce10ef42c.jpg?1559591808",
+    "https://proxyking.biz/wp-content/uploads/2020/10/il_fullxfull.2636242647_dm4a.jpg",
+    "https://cdn.vox-cdn.com/thumbor/_Y08cn1Z7qhI8n-fg2cTkLJ8ce0=/0x0:2060x1380/920x613/filters:focal(1192x179:1520x507):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68731700/black_lotus_2.0.jpg"
+  ],
+  "quantity": 4,
+  "price": {
+      "original": 500,
+      "sale": 499.99
+  },
+  "description": "Its just four pencils",
+  "ratings": [
+      1,
+      0,
+      0,
+      2,
+      2
+  ],
+  "_id": "61f89422edbb84b70e40df31",
+  "reviews": [{
+    "body": "I hate this card.",
+    "reviewer": "Joe",
+    "date": 1643488802042,
+    "answers": [{
+      "body": "Sucks to be you",
+      "date": 1643488802042,
+      "answerer": "Bobby"
+    }]
+  }]
+  "__v": 0
+}
+
+
 db.toys.insertMany([
   {
     dateCreated: 1643487965394,
@@ -32,7 +74,7 @@ db.toys.insertMany([
     }]
   },
   {
-    dateCreated: 1,
+    dateCreated: 1643488802042,
     user: 'Bobby',
     name: 'Black Lotus',
     condition: 'new',
@@ -136,6 +178,7 @@ db.toys.insertMany([
 
 db.users.insertMany([
   {
+    _id: '61f889eb145fe868b3c6979c',
     username: 'User01',
     name: 'John',
     email: 'test01@gmail.com',
@@ -149,7 +192,7 @@ db.users.insertMany([
     date: 1643487822595,
     purchases: [
       {
-        id: 1,
+        id: '61f889eb145fe868b3c69791',
         dateCreated: 1643487965394,
         user: 'User02',
         name: 'Four Pencils',

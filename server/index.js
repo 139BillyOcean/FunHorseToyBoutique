@@ -25,6 +25,7 @@ app.get('/users', controller.getCurrentUser);
 
 app.post('/createListing', controller.createListing);
 app.post('/users', controller.addNewUser);
+app.post('/adduser', controller.createUser);
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
