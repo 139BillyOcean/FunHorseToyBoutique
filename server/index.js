@@ -12,9 +12,9 @@ app.use('/viewcart/', express.static('./client/dist'));
 app.use('/accountoverview/', express.static('./client/dist'));
 app.use(express.json());
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!');
-// });
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
 app.get('/home', controller.getAllProducts);
 app.get('/home/search/:searchTerm', controller.getSearchResults);
