@@ -51,7 +51,7 @@ const SignUp = () => {
           <br />
           <input
             name="password"
-            type="text"
+            type="password"
             value={newUser.password || ''}
             onChange={handleChange} />
         </label>
