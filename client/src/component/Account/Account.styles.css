@@ -2,9 +2,32 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  justify-content: center;
 }
 
 .headerText {
-  justify-self: center;
   align-self: flex-end;
+}
+
+.profilePicture {
+  height: 100px;
+  width: 100px;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.listingRowContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 10%;
 }

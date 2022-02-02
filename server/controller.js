@@ -34,9 +34,9 @@ module.exports = {
   },
 
   getCurrentUser: (req, res) => {
-    model.getCurrentUser(req.params.user)
+    model.getCurrentUser(req.query.user)
       .then((data) => {
-        res.status(200).send(data);
+        res.status(200).send(data[0]);
       })
       .catch((err) => {
         res.status(404).send(err);
