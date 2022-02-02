@@ -3,7 +3,7 @@ import axios from 'axios';
 import LoginCSS from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 
-const SignUp = () => {
+const SignUp = ({ handleCurrentUser }) => {
   const [newUser, setNewUser] = useState({});
   let navigate = useNavigate();
 
@@ -17,9 +17,16 @@ const SignUp = () => {
 
   const handleSubmit = () => {
     event.preventDefault();
-    axios.post('/users', { newUser })
+    axios.post('/signup', newUser)
       .then(() => {
-        navigate('/');
+        axios.post('/users', newUser)
+          .then(() => {
+            handleCurrentUser(user);
+            navigate('/');
+          })
+          .catch(err => {
+            console.error(err);
+          })
       })
       .catch(err => {
         // stay on sign in page and display error message
@@ -48,7 +55,7 @@ const SignUp = () => {
           <input
             name="password"
             className = {LoginCSS.input_field}
-            type="text"
+            type="password"
             value={newUser.password || ''}
             onChange={handleChange} />
         </label>
