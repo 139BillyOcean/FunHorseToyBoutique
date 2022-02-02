@@ -10,11 +10,14 @@ export const Cart = ({cart, handleCurrentCart}) => {
 
   useEffect(() => {
     let items = 0
-    let price = 0
+    let cost = 0
     cart.map((item) => {
-      items += item.
-      price += (item. * item.)
+      price = item.price.sale || item.price.original
+      items += item.selectedQuantity
+      cost += (item.selectedQuantity * price)
     })
+    updateQuantity(items)
+    updateTotalCost(cost)
   }, [cart])
 
   return (
@@ -22,7 +25,7 @@ export const Cart = ({cart, handleCurrentCart}) => {
       <div id='SearchBar'>This will be the overhead search bar</div>
       <div id='flexSetup' style={flexSetup}>
         <DataColumn quantity={quantity} totalCost={totalCost}/>
-        <ProductsColumn />
+        <ProductsColumn cart={cart}/>
         <PaymentColumn />
       </div>
     </div>
