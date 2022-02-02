@@ -3,7 +3,6 @@ import css from './Account.styles.css';
 import UserInfo from './UserInfo.jsx';
 import Purchases from './Purchases.jsx';
 import Listings from './Listings.jsx';
-import Receipts from './Receipts.jsx';
 import axios from 'axios';
 // import toyData from '../../data/toys.js';
 
@@ -21,7 +20,7 @@ const Account = ({ currentUser }) => {
     })
     .then((response) => {
       setUserData(response.data);
-      return axios.get(`/overview/${response.data.purchases[0]}`);
+      return axios.get(`/overview/${response.data.listings[0]}`);
     })
     .then((response) => {
       setUserPurchases(response.data);
@@ -58,7 +57,6 @@ const Account = ({ currentUser }) => {
           />
         </div>
       </div>
-      <Receipts />
     </div>
   );
 };
