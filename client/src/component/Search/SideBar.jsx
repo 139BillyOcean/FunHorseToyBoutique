@@ -45,6 +45,7 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
           <option value="desc" >Price: High To Low</option>
           <option value="asc">Price: Low To High</option>
         </select>
+        <button onClick={() => {searchForItem()}}>Sort</button>
         </div>
       <div>Filter By: </div>
       <div>
@@ -63,8 +64,8 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
       <form>
         <input type="checkbox" value="KGToys" onClick={handleSellerClick}/>
         <label> KGToys</label>
-        <input type="checkbox" value="Others"  />
-        <label>Other Sellers</label>
+        <input type="checkbox" value="Others" />
+        <label>All Sellers</label>
       </form>
       <div>Tag</div>
       <ul>
@@ -77,7 +78,7 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
       {appliedTags.length > 0 ? <ul>
         <li>Selected tags:</li>
         {appliedTags.map(item => (
-          <li>#{item}</li>
+          <li>#{item}  <strong>x</strong></li>
         ))}
       </ul> : null}
       <button onClick={() => {searchForItem()}}>Apply filters</button>

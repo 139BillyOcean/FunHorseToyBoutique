@@ -32,16 +32,18 @@ module.exports = {
       query['price.original'] = {$lte: price};
     }
     if (brandArray && brandArray.length > 0) {
-      query.brand = { $in: brandArray }
+      query.brand = { $regex:`.*${brandArray}.*`,  $options: 'i' }
     }
-    if (tagsArray && tagsArray.length > 0) {
-      query.tags = { $regex:`.*${tagsArray}.*`,  $options: 'i' }
-    }
-
-    // if (sortOption === 'desc') {
-    //   query.orderBy = { 'price.original': -1 }
+    // if (tagsArray && tagsArray.length > 0) {
+    //   query.tags = { $regex:`.*${tagsArray}.*`,  $options: 'i' }
     // }
 
+     if (tagsArray && tagsArray.length > 0) {
+      query = {"tags":{ $regex:`.*${tagsArray}.*`,  $options: 'i'} }
+    }
+    // if (tagsArray && tagsArray.length > 0) {
+    //   query.tags = { $regex: {$in: tagsArray ,  $options: 'i'} }
+    // }
     if (sortOption) {
         var sortObject = {};
         if (sortOption === 'desc'){
@@ -49,6 +51,7 @@ module.exports = {
         } else if (sortOption === 'asc') {
           sortObject['price.original'] = 1
         }
+
 
         return Toy.find(query).sort(sortObject)
     }
