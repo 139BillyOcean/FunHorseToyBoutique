@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const CreateListing = ({user}) => {
   let navigate = useNavigate();
   // need to grab current account info - user id to send in post
-  // console.log(user)
+  console.log(user)
   var curYear = new Date().getFullYear()
   var userId = '61f889eb145fe868b3c6979c'
 
@@ -102,8 +102,9 @@ const CreateListing = ({user}) => {
   }, [photos])
 
   useEffect(()=>{
-
-  }, [photos, tags])
+    axios.get('/authentication')
+      .then()
+  }, [])
   return (
     <div id='CreateListing-container'>
     <Link to={'/'}>
@@ -212,7 +213,7 @@ const CreateListing = ({user}) => {
         <br />
         <label
         id='product-tags'>
-          Tags:
+          Keywords:
           {tags.map((tag)=>{
             return(
             <Tags
