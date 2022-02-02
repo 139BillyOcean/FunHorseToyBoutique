@@ -9,8 +9,8 @@ const Content = ({toys}) => {
   <div>
      <ul>
       {
-        toys.map(item => (
-          <li key={item.id}><ListEntry toy={item}/></li>
+        toys.map((item, index) => (
+          <li key={index}><ListEntry toy={item}/></li>
           )
         )
       }
