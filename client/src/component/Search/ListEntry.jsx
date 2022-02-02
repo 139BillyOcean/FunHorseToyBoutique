@@ -1,9 +1,12 @@
 import React from 'react';
 //import styles from './Search.styles.css';
 import SearchCSS from "./Search.module.css";
+import { useParams, Link } from 'react-router-dom';
 
 const ListEntry = ({toy}) => {
   var toyStock = '';
+
+
 
   if (toy.quantity === 0){
       toyStock = 'OUT OF STOCK';
@@ -18,7 +21,9 @@ const ListEntry = ({toy}) => {
         <img src={toy.photos[0]} width="100" height="100"/>
       </div>
       <div className={SearchCSS.search}>
+      <Link to={`/product/${toy._id}`}>
       <p>{toy.name}</p>
+      </Link>
       <p>${toy.price.original}</p>
       <p>By {toy.brand}</p>
       </div>
