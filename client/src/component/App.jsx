@@ -45,7 +45,9 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
           }
         />
         {/* Need the account overview page here */}
-        <Route path='/accountoverview/' element={<Account />} />
+        <Route path='/accountoverview/' element={
+          <Account currentUser='user01'/>
+        }/>
       </Routes>
     </div>
   );
