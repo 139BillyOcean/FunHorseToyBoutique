@@ -6,9 +6,9 @@ export const Product = ({product}) => {
 
   return (
     <div id='flexsetup' style={flexSetup}>
-      <img src={product.photos[0]} id='listbox' style={listbox}></img>
+      <img src={product.photos[0]} id='listbox'></img>
       <div id='listbox' style={listBox}>
-        <div>{product.name}  {cost}</div>
+        <div>{product.name}  {cost}$</div>
         <div>{product.description}</div>
       </div>
     </div>
