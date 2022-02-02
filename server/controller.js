@@ -66,7 +66,7 @@ module.exports = {
     let newUser = {
       username: req.body.username,
       email: req.body.email,
-      name: req.body.firstName + ' ' + req.body.lastName,
+      name: req.body.name,
       address: {
         street: req.body.street,
         street2: req.body.street2 || null,
