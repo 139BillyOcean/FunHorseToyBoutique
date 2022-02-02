@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import SearchCSS from "./Search.module.css";
 
 const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFilter, setMaxPrice, maxPrice,
-  kgToys, setKGToys, availableTags, setAvailableTags, appliedTags, setAppliedTags, sortOption, setSortOption}) => {
+  availableBrands, setAvailableBrands, appliedBrands, setAppliedBrands,
+   availableTags, setAvailableTags, appliedTags, setAppliedTags, sortOption, setSortOption}) => {
 
   const handleNewClick = () => {
     setNewFilter(!newFilter)
@@ -12,8 +13,15 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
     setUsedFilter(!usedFilter);
   }
 
-  const handleSellerClick = () => {
-    setKGToys(!kgToys)
+  const handleBrandClick = (brandName) => {
+    var tmp = appliedBrands.slice();
+    tmp.push(brandName.item)
+    setAppliedBrands(tmp);
+
+    var index = availableBrands.indexOf(brandName.item);
+    if (index !== -1) {
+      availableBrands.splice(index, 1);
+    }
   }
 
   const handleSliderChange = (event) => {
@@ -60,13 +68,20 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
         <input type="checkbox" value="Used" onClick={handleUsedClick} />
         <label>Used</label>
       </form>
-      <div>Seller</div>
-      <form>
-        <input type="checkbox" value="KGToys" onClick={handleSellerClick}/>
-        <label> KGToys</label>
-        <input type="checkbox" value="Others" />
-        <label>All Sellers</label>
-      </form>
+      <div>Brand</div>
+      <ul>
+        {
+          availableBrands.map(item => (
+            <li onClick={()=>{handleBrandClick({item})}}><input type="checkbox" value={item}/><label>{item}</label></li>
+          ))
+        }
+      </ul>
+      {appliedBrands.length > 0 ? <ul>
+        <li>Selected brands:</li>
+        {appliedBrands.map(item => (
+          <li>#{item}  <strong>x</strong></li>
+        ))}
+      </ul> : null}
       <div>Tag</div>
       <ul>
         {

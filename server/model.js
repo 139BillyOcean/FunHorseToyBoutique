@@ -16,7 +16,7 @@ module.exports = {
   getSearchResults: (searchTerm, filterData) => {
     var conditionArray = filterData.conditionFilter;
     var price = filterData.maxPrice;
-    var brandArray = filterData.sellerFilter;
+    var brandArray = filterData.brands;
     var tagsArray = filterData.tags;
     var sortOption = filterData.sortOption;
 
@@ -32,18 +32,11 @@ module.exports = {
       query['price.original'] = {$lte: price};
     }
     if (brandArray && brandArray.length > 0) {
-      query.brand = { $regex:`.*${brandArray}.*`,  $options: 'i' }
+      query.brand =  { $in: brandArray }
     }
-    // if (tagsArray && tagsArray.length > 0) {
-    //   query.tags = { $regex:`.*${tagsArray}.*`,  $options: 'i' }
-    // }
-
-     if (tagsArray && tagsArray.length > 0) {
-      query = {"tags":{ $regex:`.*${tagsArray}.*`,  $options: 'i'} }
+    if (tagsArray && tagsArray.length > 0) {
+      query.tags = { $in: tagsArray }
     }
-    // if (tagsArray && tagsArray.length > 0) {
-    //   query.tags = { $regex: {$in: tagsArray ,  $options: 'i'} }
-    // }
     if (sortOption) {
         var sortObject = {};
         if (sortOption === 'desc'){

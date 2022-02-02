@@ -15,7 +15,8 @@ const MainPage = () => {
   const [newFilter, setNewFilter] = useState(false);
   const [usedFilter, setUsedFilter] = useState(false);
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [kgToys, setKGToys] = useState(false);
+  const [availableBrands, setAvailableBrands] = useState([]);
+  const [appliedBrands, setAppliedBrands] = useState([]);
   const [availableTags, setAvailableTags] = useState([]);
   const [appliedTags, setAppliedTags] = useState([]);
   const [sortOption, setSortOption] = useState('default');
@@ -24,6 +25,7 @@ const MainPage = () => {
     axios
       .get("/home")
       .then((toys) => {
+        console.log(toys)
         setToys(toys.data);
         //creating unique tags arr
         const temp = new Set();
@@ -33,6 +35,12 @@ const MainPage = () => {
           })
         ))
         setAvailableTags(Array.from(temp))
+
+        const tempBrand = new Set();
+        toys.data.map(item => (
+          tempBrand.add(item.brand)
+        ))
+        setAvailableBrands(Array.from(tempBrand))
       })
       .catch((err) => console.log(err));
   }, []);
@@ -46,15 +54,13 @@ const MainPage = () => {
     var conditionFilter = [];
     var sellerFilter = [];
     var tags = appliedTags;
+    var brands = appliedBrands;
 
     if (usedFilter) {
       conditionFilter.push('used')
     }
     if (newFilter) {
       conditionFilter.push('new')
-    }
-    if(kgToys) {
-      sellerFilter.push('kgtoys')
     }
 
     // var targetConditionFilter = conditionFilterParam ? conditionFilterParam : conditionFilter;
@@ -63,8 +69,8 @@ const MainPage = () => {
       {params: {
       conditionFilter: conditionFilter,
       maxPrice: maxPrice,
-      sellerFilter: sellerFilter,
       tags: appliedTags,
+      brands: appliedBrands,
       sortOption: sortOption}})
     .then((response) => {
       setToys(response.data)
@@ -82,7 +88,8 @@ const MainPage = () => {
           newFilter={newFilter} setNewFilter={setNewFilter}
           usedFilter={usedFilter} setUsedFilter={setUsedFilter}
           maxPrice={maxPrice} setMaxPrice={setMaxPrice}
-          kgToys={kgToys} setKGToys={setKGToys}
+          availableBrands={availableBrands} setAvailableBrands={setAvailableBrands}
+          appliedBrands={appliedBrands} setAppliedBrands={setAppliedBrands}
           availableTags={availableTags} setAvailableTags={setAvailableTags}
           appliedTags={appliedTags} setAppliedTags={setAppliedTags}
           sortOption={sortOption} setSortOption={setSortOption}
