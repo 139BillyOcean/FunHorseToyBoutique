@@ -11,13 +11,6 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
   return (
     <div className={styles.main} id='main'>
       <Routes>
-        {/* May need the mailing list page here */}
-        <Route path='/banner/' element={
-          <div>
-            Banner
-          </div>
-        }/>
-        {/* Need to un-.gitignore image folder in dist; I'm getting errors otherwise */}
         <Route path='/' element={
           <MainPage />
         }/>
