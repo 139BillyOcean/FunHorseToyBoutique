@@ -21,12 +21,11 @@ module.exports = {
   },
 
   getSingleUser: (req, res) => {
-    model
-      .getSingleUser(req.params.userId)
+    model.getSingleUser(req.params.userId)
       .then((data) => {
         res.status(200).send(data);
       })
-      .catch((err) => res.status(404).send(err));
+      .catch(err => res.status(404).send(err));
   },
 
   getSearchResults: (req, res) => {
@@ -39,10 +38,9 @@ module.exports = {
   },
 
   getCurrentUser: (req, res) => {
-    model
-      .getCurrentUser(req.params.user)
+    model.getCurrentUser(req.query.user)
       .then((data) => {
-        res.status(200).send(data);
+        res.status(200).send(data[0]);
       })
       .catch((err) => {
         res.status(404).send(err);
@@ -51,13 +49,14 @@ module.exports = {
 
   createListing: (req, res) => {
     // console.log(req.query.user)
-    model
-      .createListing(req.query.user, req.body)
-      .then((data) => {
-        model.addListingToUser(data).then((data) => {
-          console.log('here');
-          console.log(data);
-        });
+    model.createListing(req.query.user, req.body)
+      .then((data)=> {
+        model.addListingToUser(data)
+          .then((data)=>{
+            // console.log('here');
+            console.log(data);
+
+          });
         // console.log(data)
         res.status(200).send(data);
       })
@@ -69,17 +68,16 @@ module.exports = {
 
   addNewUser: (req, res) => {
     let newUser = {
-      username: req.body.newUser.username,
-      password: req.body.newUser.password,
-      email: req.body.newUser.email,
-      name: req.body.newUser.firstName + ' ' + req.body.newUser.lastName,
+      username: req.body.username,
+      email: req.body.email,
+      name: req.body.name,
       address: {
-        street: req.body.newUser.street,
-        street2: req.body.newUser.street2 || null,
-        city: req.body.newUser.city,
-        state: req.body.newUser.state,
-        zipcode: req.body.newUser.zipcode,
-      },
+        street: req.body.street,
+        street2: req.body.street2 || null,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode
+      }
     };
     model
       .addUser(newUser)

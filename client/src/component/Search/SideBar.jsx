@@ -1,45 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import SearchCSS from "./Search.module.css";
 
-const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFilter, setMaxPrice, maxPrice}) => {
-
+const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFilter, setMaxPrice, maxPrice,
+  availableBrands, setAvailableBrands, appliedBrands, setAppliedBrands,
+   availableTags, setAvailableTags, appliedTags, setAppliedTags, sortOption, setSortOption}) => {
 
   const handleNewClick = () => {
-     //PREVIOUS VERSION(may need it later)
-
-    // var updatedValue = !newFilter;
-    // var updatedConditionFilter = [];
-
-    // if (updatedValue) {
-    //   updatedConditionFilter = conditionFilter.slice();
-    //   updatedConditionFilter.push('new');
-    // } else {
-    //   updatedConditionFilter = conditionFilter.filter(item => item !== 'new');
-    // }
-    // setConditionFilter(updatedConditionFilter);
-    // setNewFilter(updatedValue);
-    // searchForItem(searchTerm, updatedConditionFilter);
     setNewFilter(!newFilter)
-
   }
 
   const handleUsedClick = () => {
-    //PREVIOUS VERSION(may need it later)
-
-    // var updatedValue = !usedFilter;
-    // var updatedConditionFilter = [];
-
-    // if (updatedValue) {
-    //   updatedConditionFilter = conditionFilter.slice();
-    //   updatedConditionFilter.push('used');
-    // } else {
-    //   updatedConditionFilter = conditionFilter.filter(item => item !== 'used');
-    // }
-    // setConditionFilter(updatedConditionFilter);
-    // setUsedFilter(updatedValue);
-    // searchForItem(searchTerm, updatedConditionFilter);
-
     setUsedFilter(!usedFilter);
+  }
+
+  const handleBrandClick = (brandName) => {
+    var tmp = appliedBrands.slice();
+    tmp.push(brandName.item)
+    setAppliedBrands(tmp);
+
+    var index = availableBrands.indexOf(brandName.item);
+    if (index !== -1) {
+      availableBrands.splice(index, 1);
+    }
   }
 
   const handleSliderChange = (event) => {
@@ -47,15 +29,37 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
     setMaxPrice(event.target.value);
   }
 
+  const handleClickTag = (tagName) => {
+    var tmp = appliedTags.slice();
+    tmp.push(tagName.item)
+    setAppliedTags(tmp);
 
+    var index = availableTags.indexOf(tagName.item);
+    if (index !== -1) {
+      availableTags.splice(index, 1);
+    }
+  }
+
+  const handleSortOptionsClick = (val) => {
+    setSortOption(val)
+  }
 
   return(
     <div>
-      <div>Filter By Tag</div>
-      <div></div>
       <div>
-        <label for="price">Filter By Price </label>
+      <label for="sortOptions">Sort By:</label>
+        <select name="desc" onChange={ () => handleSortOptionsClick(event.target.value)}>
+          <option value="default" >New Arrivals</option>
+          <option value="desc" >Price: High To Low</option>
+          <option value="asc">Price: Low To High</option>
+        </select>
+        <button onClick={() => {searchForItem()}}>Sort</button>
+        </div>
+      <div>Filter By: </div>
+      <div>
+        <label for="price">Price </label>
         <input type="range" name="price" min="0" max="1000" defaultValue="1000" onChange={handleSliderChange} />
+        <output for="price">$0 - ${maxPrice}</output>
       </div>
       <div>Condition</div>
       <form>
@@ -64,6 +68,34 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
         <input type="checkbox" value="Used" onClick={handleUsedClick} />
         <label>Used</label>
       </form>
+      <div>Brand</div>
+      <ul>
+        {
+          availableBrands.map(item => (
+            <li onClick={()=>{handleBrandClick({item})}}><input type="checkbox" value={item}/><label>{item}</label></li>
+          ))
+        }
+      </ul>
+      {appliedBrands.length > 0 ? <ul>
+        <li>Selected brands:</li>
+        {appliedBrands.map(item => (
+          <li>#{item}  <strong>x</strong></li>
+        ))}
+      </ul> : null}
+      <div>Tag</div>
+      <ul>
+        {
+          availableTags.map(item => (
+            <li onClick={()=>{handleClickTag({item})}}>#{item}</li>
+          ))
+        }
+      </ul>
+      {appliedTags.length > 0 ? <ul>
+        <li>Selected tags:</li>
+        {appliedTags.map(item => (
+          <li>#{item}  <strong>x</strong></li>
+        ))}
+      </ul> : null}
       <button onClick={() => {searchForItem()}}>Apply filters</button>
     </div>
   )

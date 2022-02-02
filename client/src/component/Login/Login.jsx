@@ -17,16 +17,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
-    setUser({});
-    // authenticate user signin
-    axios.post('/signIn', user)
-      .then(() => {
+    axios.post('/login', user)
+      .then((results) => {
         navigate('/');
       })
       .catch(err => {
-        // stay on sign in page and display error message
-        console.error(err);
+        alert('Incorrect username or password');
       });
   }
 
@@ -35,7 +31,7 @@ const Login = () => {
       <h1 className={LoginCSS.login_title}>Already a member? Sign in!</h1>
     <form id='login' className={LoginCSS.login}>
         <label id='username' className={LoginCSS.label} >
-          Your Username:
+          Username:
           <br />
           <input
             className = {LoginCSS.input_field}
@@ -46,12 +42,12 @@ const Login = () => {
         </label>
         <br />
         <label id='password' className={LoginCSS.label} >
-          Your Password:
+          Password:
           <br />
           <input
              className = {LoginCSS.input_field}
             name="password"
-            type="text"
+            type="password"
             value={user.password || ''}
             onChange={handleChange} />
         </label>

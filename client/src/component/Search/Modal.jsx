@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Newsletter from './Newsletter.jsx'
-import animatedLogo from '../../../dist/images/Animated-Fun-Horse-Logo.gif';
+// import animatedLogo from '../../../dist/images/Animated-Fun-Horse-Logo.gif';
 import SearchCSS from "./Search.module.css";
 
 const Modal = ({ modal, showModal }) => {
