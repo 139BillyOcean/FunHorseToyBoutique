@@ -9,6 +9,8 @@ import axios from 'axios';
 
 const Account = ({ currentUser }) => {
   const [userData, setUserData] = useState('');
+  const [userPurchases, setUserPurchases] = useState('');
+  const [userListings, setUserListings] = useState('');
 
   useEffect(() => {
     // fetch current user info
@@ -18,7 +20,11 @@ const Account = ({ currentUser }) => {
       }
     })
     .then((response) => {
-      setUserData(response.data[0]);
+      setUserData(response.data);
+      return axios.get(`/overview/${response.data.purchases[0]}`);
+    })
+    .then((response) => {
+      setUserPurchases(response.data);
     })
     .catch((error) => {
       console.log(error);
@@ -38,8 +44,20 @@ const Account = ({ currentUser }) => {
       <UserInfo
         userData={userData}
       />
-      <Purchases />
-      <Listings />
+      <div className={css.listingRowContainer}>
+        <div className={css.columnContainer}>
+          <h3>Purchases</h3>
+          <Purchases
+            productInfo={userPurchases}
+          />
+        </div>
+        <div className={css.columnContainer}>
+          <h3>Listings</h3>
+          <Purchases
+            productInfo={userPurchases}
+          />
+        </div>
+      </div>
       <Receipts />
     </div>
   );

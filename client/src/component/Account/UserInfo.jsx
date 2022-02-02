@@ -4,8 +4,8 @@ import css from './Account.styles.css';
 const UserInfo = ({ userData }) => {
   if (userData) {
     return (
-      <div className={css.userInfo}>
-        <div className={css.userInfoColumn}>
+      <div className={css.rowContainer}>
+        <div className={css.columnContainer}>
           {
             userData.profilePicture ?
             <img
@@ -19,7 +19,7 @@ const UserInfo = ({ userData }) => {
           }
           <div>{userData.username}</div>
         </div>
-        <div className={css.userInfoColumn}>
+        <div className={css.columnContainer}>
           <div>Name: {userData.name}</div>
           <div>Member since: {userData.date}</div>
           <div>Email: {userData.email}</div>

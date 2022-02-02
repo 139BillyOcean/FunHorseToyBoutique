@@ -14,12 +14,20 @@
   width: 100px;
 }
 
-.userInfo {
+.rowContainer {
   display: flex;
   flex-direction: row;
 }
 
-.userInfoColumn {
+.columnContainer {
   display: flex;
   flex-direction: column;
+}
+
+.listingRowContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 10%;
 }

@@ -9,13 +9,13 @@ import LoginSignUp from './Login/LoginSignUp.jsx';
 const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
 
 //  return <div className={styles.main}>hello world!</div>;
-return (
-  <>
-  <ProductOverview user={user} cart={cart} handleCurrentUser={handleCurrentUser} handleCurrentCart={handleCurrentCart} />
-  <Account currentUser='User02' />
-  {/* <MainPage /> */}
-  {/* <LoginSignUp /> */}
-  </>
-)
-
+  return (
+    <>
+    {/* <ProductOverview user={user} cart={cart} handleCurrentUser={handleCurrentUser} handleCurrentCart={handleCurrentCart} /> */}
+    <Account currentUser='User01' />
+    {/* <MainPage /> */}
+    {/* <LoginSignUp /> */}
+    </>
+  )
+}
 export default App;
