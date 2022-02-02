@@ -3,7 +3,7 @@ import axios from 'axios';
 import LoginCSS from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 
-const SignUp = ({ handleCurrentUser }) => {
+const SignUp = () => {
   const [newUser, setNewUser] = useState({});
   let navigate = useNavigate();
 
@@ -21,7 +21,6 @@ const SignUp = ({ handleCurrentUser }) => {
       .then(() => {
         axios.post('/users', newUser)
           .then(() => {
-            handleCurrentUser(user);
             navigate('/');
           })
           .catch(err => {
@@ -61,24 +60,13 @@ const SignUp = ({ handleCurrentUser }) => {
         </label>
         <br />
         <label className={LoginCSS.label} >
-          First Name:
+          First & Last Name:
           <br />
           <input
-            name="firstName"
+            name="name"
             className = {LoginCSS.input_field}
             type="text"
-            value={newUser.firstName || ''}
-            onChange={handleChange} />
-        </label>
-        <br />
-        <label className={LoginCSS.label} >
-          Last Name:
-          <br />
-          <input
-            name="lastName"
-            className = {LoginCSS.input_field}
-            type="text"
-            value={newUser.lastName || ''}
+            value={newUser.name || ''}
             onChange={handleChange} />
         </label>
         <br />
@@ -100,7 +88,7 @@ const SignUp = ({ handleCurrentUser }) => {
             name="street"
             type="text"
             placeholder="Street"
-            className = {LoginCSS.input_field}
+            className = {LoginCSS.input_field2}
             value={newUser.street || ''}
             onChange={handleChange} />
         </label>
@@ -109,7 +97,7 @@ const SignUp = ({ handleCurrentUser }) => {
           name="street2"
           type="text"
           placeholder="House / Apartment #"
-          className = {LoginCSS.input_field}
+          className = {LoginCSS.input_field2}
             value={newUser.street2 || ''}
             onChange={handleChange} />
         <br />
@@ -117,21 +105,21 @@ const SignUp = ({ handleCurrentUser }) => {
           name="city"
           type="text"
           placeholder="City"
-          className = {LoginCSS.input_field}
+          className = {LoginCSS.input_field2}
           value={newUser.city || ''}
           onChange={handleChange} />
         <input
           name="state"
           type="text"
           placeholder="State"
-          className = {LoginCSS.input_field}
+          className = {LoginCSS.input_field2}
           value={newUser.state || ''}
           onChange={handleChange} />
         <input
           name="zipcode"
           type="text"
           placeholder="Zipcode"
-          className = {LoginCSS.input_field}
+          className = {LoginCSS.input_field2}
           value={newUser.zipcode || ''}
           onChange={handleChange} />
         <br />
