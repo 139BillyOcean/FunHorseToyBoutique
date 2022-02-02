@@ -17,6 +17,8 @@ module.exports = {
     var conditionArray = filterData.conditionFilter;
     var price = filterData.maxPrice;
     var brandArray = filterData.sellerFilter;
+    var tagsArray = filterData.tags;
+
     var query = {};
 
     if (searchTerm && searchTerm.length > 0) {
@@ -28,9 +30,11 @@ module.exports = {
     if (price) {
       query['price.original'] = {$lte: price};
     }
-
     if (brandArray && brandArray.length > 0) {
       query.brand = { $in: brandArray }
+    }
+    if (tagsArray && tagsArray.length > 0) {
+      query.tags = {$regex:`.*${tagsArray}.*`,  $options: 'i'}
     }
 
     console.log("QUERY: ", query)

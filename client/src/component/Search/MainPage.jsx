@@ -17,13 +17,23 @@ const MainPage = () => {
   const [usedFilter, setUsedFilter] = useState(false);
   const [maxPrice, setMaxPrice] = useState(1000);
   const [kgToys, setKGToys] = useState(false);
-  const [otherSellers, setOtherSellers] = useState(false)
+  const [availableTags, setAvailableTags] = useState([]);
+  const [appliedTags, setAppliedTags] = useState([]);
+
 
   useEffect(() => {
     axios
       .get("/home")
       .then((toys) => {
         setToys(toys.data);
+        //creating unique tags arr
+        const temp = new Set();
+        toys.data.map(item => (
+          item.tags.forEach(tag => {
+            temp.add(tag)
+          })
+        ))
+        setAvailableTags(Array.from(temp))
       })
       .catch((err) => console.log(err));
   }, []);
@@ -36,6 +46,7 @@ const MainPage = () => {
   const searchForItem = () => {
     var conditionFilter = [];
     var sellerFilter = [];
+    var tags = appliedTags;
 
     if (usedFilter) {
       conditionFilter.push('used')
@@ -46,10 +57,15 @@ const MainPage = () => {
     if(kgToys) {
       sellerFilter.push('kgtoys')
     }
-  
+
     // var targetConditionFilter = conditionFilterParam ? conditionFilterParam : conditionFilter;
     var searchParam = searchTerm && searchTerm.length > 0 ? `/${searchTerm}` : '';
-    axios.get(`home/search${searchParam}`, {params: {conditionFilter: conditionFilter, maxPrice: maxPrice, sellerFilter: sellerFilter}})
+    axios.get(`home/search${searchParam}`,
+      {params: {
+      conditionFilter: conditionFilter,
+      maxPrice: maxPrice,
+      sellerFilter: sellerFilter,
+      tags: appliedTags}})
     .then((response) => {
       setToys(response.data)
     })
@@ -67,6 +83,8 @@ const MainPage = () => {
           usedFilter={usedFilter} setUsedFilter={setUsedFilter}
           maxPrice={maxPrice} setMaxPrice={setMaxPrice}
           kgToys={kgToys} setKGToys={setKGToys}
+          availableTags={availableTags} setAvailableTags={setAvailableTags}
+          appliedTags={appliedTags} setAppliedTags={setAppliedTags}
           searchForItem={searchForItem}
         />
       </li>
