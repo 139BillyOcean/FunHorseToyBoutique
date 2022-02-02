@@ -9,6 +9,14 @@ var session = require('express-session');
 
 var SQLiteStore = require('connect-sqlite3')(session);
 
+const path = require('path');
+
+app.use(express.static('./client/dist'));
+app.use('/product/:productId', express.static('./client/dist'));
+app.use('/signin/', express.static('./client/dist'));
+app.use('/listproduct/', express.static('./client/dist'));
+app.use('/viewcart/', express.static('./client/dist'));
+app.use('/accountoverview/', express.static('./client/dist'));
 app.use(express.json());
 app.use(express.static('./client/dist'));
 
@@ -36,9 +44,9 @@ passport.deserializeUser((user, cb) => {
   });
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello World!');
+// });
 
 app.get('/home', controller.getAllProducts);
 app.get('/home/search/:searchTerm', controller.getSearchResults);
@@ -59,6 +67,7 @@ app.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/'
 }));
+app.post('/adduser', controller.createUser);
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
