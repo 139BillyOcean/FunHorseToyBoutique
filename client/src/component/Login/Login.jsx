@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-// import styles from './Login.styles.css';
 import LoginCSS from './Login.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [user, setUser] = useState({})
+  let navigate = useNavigate();
 
   const handleChange = (event) => {
     setUser(() => {
@@ -21,7 +22,7 @@ const Login = () => {
     // authenticate user signin
     axios.post('/signIn', user)
       .then(() => {
-        // redirect to home page using global state
+        navigate('/');
       })
       .catch(err => {
         // stay on sign in page and display error message

@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-// import styles from './Login.styles.css';
 import LoginCSS from './Login.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [newUser, setNewUser] = useState({});
+  let navigate = useNavigate();
 
   const handleChange = (event) => {
     setNewUser(() => {
@@ -18,8 +19,7 @@ const SignUp = () => {
     event.preventDefault();
     axios.post('/users', { newUser })
       .then(() => {
-        // redirect to home page using global state
-        setNewUser({});
+        navigate('/');
       })
       .catch(err => {
         // stay on sign in page and display error message
@@ -29,10 +29,10 @@ const SignUp = () => {
 
   return (
     <div>
-      <h1 className={LoginCSS.singup_title}>Sign up to Buy and Sell Toys!</h1>
-    <form id='signUp' className={LoginCSS.signUp}>
+      <h1 className={LoginCSS.signup_title}>Sign up to Buy and Sell Toys!</h1>
+      <form className={LoginCSS.signUp}>
         <label className={LoginCSS.label} id='username'>
-          Your Username:
+          Username:
           <br />
           <input
             name="username"
@@ -43,7 +43,7 @@ const SignUp = () => {
         </label>
         <br />
         <label className={LoginCSS.label} id='password'>
-          Your Password:
+          Password:
           <br />
           <input
             name="password"
@@ -54,7 +54,7 @@ const SignUp = () => {
         </label>
         <br />
         <label id='firstName' className={LoginCSS.label} >
-          Your First Name:
+          First Name:
           <br />
           <input
             name="firstName"
@@ -65,7 +65,7 @@ const SignUp = () => {
         </label>
         <br />
         <label id='lastName' className={LoginCSS.label} >
-          Your Last Name:
+          Last Name:
           <br />
           <input
             name="lastName"
@@ -76,7 +76,7 @@ const SignUp = () => {
         </label>
         <br />
         <label id='email' className={LoginCSS.label} >
-          Your Email:
+          Email:
           <br />
           <input
             name="email"
@@ -87,12 +87,12 @@ const SignUp = () => {
         </label>
         <br />
         <label id='address' className={LoginCSS.label} >
-          Your Address:
+          Address:
           <br />
           <input
             name="street"
             type="text"
-            placeholder="Enter your Street"
+            placeholder="Street"
             className = {LoginCSS.input_field}
             value={newUser.street || ''}
             onChange={handleChange} />
@@ -101,7 +101,7 @@ const SignUp = () => {
         <input
             name="street2"
           type="text"
-          placeholder="Enter your house or apartment"
+          placeholder="House / Apartment #"
           className = {LoginCSS.input_field}
             value={newUser.street2 || ''}
             onChange={handleChange} />
@@ -109,21 +109,21 @@ const SignUp = () => {
         <input
           name="city"
           type="text"
-          placeholder="Enter your city"
+          placeholder="City"
           className = {LoginCSS.input_field}
           value={newUser.city || ''}
           onChange={handleChange} />
         <input
           name="state"
           type="text"
-          placeholder="Enter your State"
+          placeholder="State"
           className = {LoginCSS.input_field}
           value={newUser.state || ''}
           onChange={handleChange} />
         <input
           name="zipcode"
           type="text"
-          placeholder="Enter your zipcode"
+          placeholder="Zipcode"
           className = {LoginCSS.input_field}
           value={newUser.zipcode || ''}
           onChange={handleChange} />
@@ -133,7 +133,7 @@ const SignUp = () => {
           Sign Up!
         </button>
       </form>
-      </div>
+  </div>
   )
 }
 
