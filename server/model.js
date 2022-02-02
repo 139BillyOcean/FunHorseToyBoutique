@@ -54,7 +54,7 @@ module.exports = {
 
   getCurrentUser: (user) => {
     return User.find({
-      name: { $regex: `.*${user}.*`, $options: 'i' }
+      username: { $regex: `.*${user}.*`, $options: 'i' }
     }).limit(1).exec();
   },
   createListing: (user, toy)=> {
