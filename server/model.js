@@ -10,7 +10,6 @@ module.exports = {
   },
 
   getSingleUser: (userId) => {
-    console.log(userId);
     return User.findById({ "_id": userId + '' }).exec();
   },
 
