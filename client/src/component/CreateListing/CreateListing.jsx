@@ -3,8 +3,10 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Tags from './Tags.jsx'
 import Photos from './Photos.jsx'
+import { useNavigate } from 'react-router-dom';
 
 const CreateListing = ({user}) => {
+  let navigate = useNavigate();
   // need to grab current account info - user id to send in post
   // console.log(user)
   var curYear = new Date().getFullYear()
@@ -68,14 +70,15 @@ const CreateListing = ({user}) => {
     inputs.yearManufactured = year
     // console.log(toy)
     toy.price.original = price
-    console.log(price)
-    console.log(toy)
+    // console.log(price)
+    // console.log(toy)
     // console.log(toy)
     // console.log('here')
     // axios.post()
     axios.post(`/createListing`, toy, {params: {user: userId}})
       .then((response)=>{
         alert('listing was added!')
+        navigate('/accountoverview/');
       })
   }
   const handleAddTag = (event) => {
