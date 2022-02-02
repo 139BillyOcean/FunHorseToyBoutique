@@ -12,7 +12,7 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
   return (
     <>
     {/* <ProductOverview user={user} cart={cart} handleCurrentUser={handleCurrentUser} handleCurrentCart={handleCurrentCart} /> */}
-    <Account currentUser='User01' />
+    {/* <Account currentUser='User01' /> */}
     {/* <MainPage /> */}
     {/* <LoginSignUp /> */}
     </>
