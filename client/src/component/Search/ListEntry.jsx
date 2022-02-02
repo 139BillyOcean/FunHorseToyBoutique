@@ -3,10 +3,8 @@ import React from 'react';
 import SearchCSS from "./Search.module.css";
 import { useParams, Link } from 'react-router-dom';
 
-const ListEntry = ({toy}) => {
+const ListEntry = ({toy, handleCurrentCart, cart}) => {
   var toyStock = '';
-
-
 
   if (toy.quantity === 0){
       toyStock = 'OUT OF STOCK';
@@ -15,6 +13,14 @@ const ListEntry = ({toy}) => {
   } else {
     toyStock ='IN STOCK';
   }
+
+  const handleAddToCart = () => {
+    cart.push(toy);
+    handleCurrentCart(cart);
+    console.log(cart)
+  }
+
+
   return (
     <div className={SearchCSS.itemContainer}>
       <div>
@@ -28,7 +34,7 @@ const ListEntry = ({toy}) => {
       <p>By {toy.brand}</p>
       </div>
       <div >
-      <button>Add to cart</button>
+      <button onClick={handleAddToCart}>Add to cart</button>
       <p>{toyStock}</p>
       </div>
       </div>

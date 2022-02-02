@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import SearchBar from './SearchBar.jsx';
 //import SearchCSS from './Search.styles.css';
 import SearchCSS from "./Search.module.css";
+import { useParams, Link } from 'react-router-dom';
 
 const NavBar = ({searchTerm, setSearchTerm, searchForItem}) => {
   return (
@@ -15,7 +16,9 @@ const NavBar = ({searchTerm, setSearchTerm, searchForItem}) => {
         <div>
         <button>Hi @user</button>
         <br/>
+        <Link to={'/viewcart/'}>
         <button>Cart</button>
+      </Link>
         </div>
       </li>
     </ul>

@@ -19,7 +19,7 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
         }/>
         {/* Need to un-.gitignore image folder in dist; I'm getting errors otherwise */}
         <Route path='/' element={
-          <MainPage />
+          <MainPage handleCurrentCart={handleCurrentCart} cart={cart} />
         }/>
         {/* Need the navigation bar and reviews module here */}
         <Route path='/product/:productId' element={

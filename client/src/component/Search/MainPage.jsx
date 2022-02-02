@@ -8,7 +8,7 @@ import faketoys from "./fakedata.js";
 import axios from "axios";
 // import Modal from './Modal.jsx';
 
-const MainPage = () => {
+const MainPage = ({handleCurrentCart, cart}) => {
   const [toys, setToys] = useState([]);
   const [modal, showModal] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -96,7 +96,7 @@ const MainPage = () => {
           searchForItem={searchForItem}
         />
       </li>
-      <li id = 'content' className={SearchCSS.content}><Content toys={toys} /></li>
+      <li id = 'content' className={SearchCSS.content}><Content toys={toys} cart={cart} handleCurrentCart={handleCurrentCart}/></li>
     </ul>
     </div>
   )
