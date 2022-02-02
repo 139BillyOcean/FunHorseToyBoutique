@@ -14,11 +14,11 @@ module.exports = {
   },
 
   getSearchResults: (searchTerm, filterData) => {
-    console.log('searchTerm:', searchTerm);
     var conditionArray = filterData.conditionFilter;
     var price = filterData.maxPrice;
-
+    var brandArray = filterData.sellerFilter;
     var query = {};
+
     if (searchTerm && searchTerm.length > 0) {
       query.name = { $regex: `.*${searchTerm}.*`, $options: 'i' };
     }
@@ -28,6 +28,12 @@ module.exports = {
     if (price) {
       query['price.original'] = {$lte: price};
     }
+
+    if (brandArray && brandArray.length > 0) {
+      query.brand = { $in: brandArray }
+    }
+
+    console.log("QUERY: ", query)
     // var conditionFilter = conditionArray.length !== 0 ? { $in: conditionArray } : {$exists: true}
     return Toy.find(query).limit(10).exec();
   },

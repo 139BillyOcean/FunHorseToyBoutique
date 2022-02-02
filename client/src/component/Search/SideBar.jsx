@@ -1,45 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import SearchCSS from "./Search.module.css";
 
-const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFilter, setMaxPrice, maxPrice}) => {
-
+const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFilter, setMaxPrice, maxPrice,
+  kgToys, setKGToys}) => {
 
   const handleNewClick = () => {
-     //PREVIOUS VERSION(may need it later)
-
-    // var updatedValue = !newFilter;
-    // var updatedConditionFilter = [];
-
-    // if (updatedValue) {
-    //   updatedConditionFilter = conditionFilter.slice();
-    //   updatedConditionFilter.push('new');
-    // } else {
-    //   updatedConditionFilter = conditionFilter.filter(item => item !== 'new');
-    // }
-    // setConditionFilter(updatedConditionFilter);
-    // setNewFilter(updatedValue);
-    // searchForItem(searchTerm, updatedConditionFilter);
     setNewFilter(!newFilter)
-
   }
 
   const handleUsedClick = () => {
-    //PREVIOUS VERSION(may need it later)
-
-    // var updatedValue = !usedFilter;
-    // var updatedConditionFilter = [];
-
-    // if (updatedValue) {
-    //   updatedConditionFilter = conditionFilter.slice();
-    //   updatedConditionFilter.push('used');
-    // } else {
-    //   updatedConditionFilter = conditionFilter.filter(item => item !== 'used');
-    // }
-    // setConditionFilter(updatedConditionFilter);
-    // setUsedFilter(updatedValue);
-    // searchForItem(searchTerm, updatedConditionFilter);
-
     setUsedFilter(!usedFilter);
+  }
+
+  const handleSellerClick = () => {
+    setKGToys(!kgToys)
   }
 
   const handleSliderChange = (event) => {
@@ -63,6 +37,13 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
         <label> New</label>
         <input type="checkbox" value="Used" onClick={handleUsedClick} />
         <label>Used</label>
+      </form>
+      <div>Seller</div>
+      <form>
+        <input type="checkbox" value="KGToys" onClick={handleSellerClick}/>
+        <label> KGToys</label>
+        <input type="checkbox" value="Others"  />
+        <label>Other Sellers</label>
       </form>
       <button onClick={() => {searchForItem()}}>Apply filters</button>
     </div>

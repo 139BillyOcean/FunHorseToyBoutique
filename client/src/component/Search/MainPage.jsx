@@ -7,17 +7,17 @@ import Content from "./Content.jsx";
 import SearchCSS from "./Search.module.css";
 import faketoys from "./fakedata.js";
 import axios from "axios";
-import Modal from './Modal.jsx';
+// import Modal from './Modal.jsx';
 
 const MainPage = () => {
   const [toys, setToys] = useState([]);
-  //const [searchTerm, setSearchTerm] = useState("");
   const [modal, showModal] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  //const [conditionFilter, setConditionFilter] = useState([]);
   const [newFilter, setNewFilter] = useState(false);
   const [usedFilter, setUsedFilter] = useState(false);
   const [maxPrice, setMaxPrice] = useState(1000);
+  const [kgToys, setKGToys] = useState(false);
+  const [otherSellers, setOtherSellers] = useState(false)
 
   useEffect(() => {
     axios
@@ -35,6 +35,7 @@ const MainPage = () => {
 
   const searchForItem = () => {
     var conditionFilter = [];
+    var sellerFilter = [];
 
     if (usedFilter) {
       conditionFilter.push('used')
@@ -42,9 +43,13 @@ const MainPage = () => {
     if (newFilter) {
       conditionFilter.push('new')
     }
+    if(kgToys) {
+      sellerFilter.push('kgtoys')
+    }
+  
     // var targetConditionFilter = conditionFilterParam ? conditionFilterParam : conditionFilter;
     var searchParam = searchTerm && searchTerm.length > 0 ? `/${searchTerm}` : '';
-    axios.get(`home/search${searchParam}`, {params: {conditionFilter: conditionFilter, maxPrice: maxPrice}})
+    axios.get(`home/search${searchParam}`, {params: {conditionFilter: conditionFilter, maxPrice: maxPrice, sellerFilter: sellerFilter}})
     .then((response) => {
       setToys(response.data)
     })
@@ -53,7 +58,7 @@ const MainPage = () => {
 
   return (
     <div id="main" className ={SearchCSS.main} >
-       {modal ? <Modal modal={modal} showModal={showModal} /> : null}
+       {/* {modal ? <Modal modal={modal} showModal={showModal} /> : null} */}
     <NavBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} searchForItem={searchForItem} />
     <ul id = 'mainContainer' className={SearchCSS.mainContainer}>
       <li id = 'sidebar' className={SearchCSS.sidebar}>
@@ -61,6 +66,7 @@ const MainPage = () => {
           newFilter={newFilter} setNewFilter={setNewFilter}
           usedFilter={usedFilter} setUsedFilter={setUsedFilter}
           maxPrice={maxPrice} setMaxPrice={setMaxPrice}
+          kgToys={kgToys} setKGToys={setKGToys}
           searchForItem={searchForItem}
         />
       </li>
