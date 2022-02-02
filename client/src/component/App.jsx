@@ -26,13 +26,14 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
           <ProductOverview user={user} cart={cart} handleCurrentUser={handleCurrentUser} handleCurrentCart={handleCurrentCart} />
         } />
         <Route path='/signin/' element={
-          <LoginSignUp />
+          <LoginSignUp user={user} handleCurrentUser={handleCurrentUser}/>
         }/>
         {/* Need the list product page here */}
         <Route path='/listproduct/' element={
-          <div>
-            List Product
-          </div>
+          <CreateListing
+          user={user}
+
+          />
         }/>
         {/* Need the cart page here */}
         <Route path='/viewcart/' element={
@@ -42,9 +43,7 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
         }/>
         {/* Need the account overview page here */}
         <Route path='/accountoverview/' element={
-          <div>
-            Account
-          </div>
+          <Account/>
         }/>
       </Routes>
     </div>
