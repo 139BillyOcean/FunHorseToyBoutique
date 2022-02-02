@@ -6,6 +6,7 @@ import Information from './Information.jsx';
 import Quantity from './Quantity.jsx';
 import styles from './Overview.styles.css';
 import { useParams, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) => {
   const [toy, setToy] = useState({
@@ -39,6 +40,8 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
 
   const { productId } = useParams();
 
+  const navigate = useNavigate();
+
   const [seller, setSeller] = useState('');
 
   const [currentQuantity, setCurrentQuantity] = useState(1);
@@ -66,23 +69,33 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
       });
   }, []);
 
-  // const handleSell = () => {
-  //   //once auth is established
-  //   // if (userId) {
-  //   //   console.log('go to create listing');
-  //   // } else {
-  //   //   console.log('go to account creation/login');
-  //   // }
-  // }
+  const handleSell = () => {
+    axios.get('/authenticate')
+      .then((results) => {
+        if (results.data) {
+          navigate('/listproduct/')
+        } else {
+          navigate('/signin/')
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
-  // const handleCart = () => {
-  //   //once auth is established
-  //   // if (userId) {
-  //   //   console.log('go to cart');
-  //   // } else {
-  //   //   console.log('go to account creation/login');
-  //   // }
-  // }
+  const handleCart = () => {
+    axios.get('/authenticate')
+      .then((results) => {
+        if (results.data) {
+          navigate('/viewcart/')
+        } else {
+          navigate('/signin/')
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
   const handleAddToCart = () => {
     toy.selectedQuantity = currentQuantity;
@@ -104,9 +117,7 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
         condition={toy.condition}
       />
       <div className={styles.buttonContainer} id='button-container'>
-        <Link to={'/listproduct/'}>
-          <button id='sell-button'>Have This Product? Sell now!</button>
-        </Link>
+        <button id='sell-button' onClick={handleSell}>Have This Product? Sell now!</button>
         {toy.price.sale
         ? <span>
           Price:
@@ -122,9 +133,7 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
         </span>}
         <Quantity quantityInStock={toy.quantity} quantitySelected={currentQuantity} handleQuantity={handleQuantity}/>
         <button onClick={handleAddToCart} id='cartadd-button'>Add to Cart</button>
-        <Link to={'/viewcart/'}>
-          <button id='cartview-button'>Check Out</button>
-        </Link>
+        <button id='cartview-button' onClick={handleCart}>Check Out</button>
       </div>
       <RightPanel />
     </div>

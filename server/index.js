@@ -18,7 +18,6 @@ app.use('/listproduct/', express.static('./client/dist'));
 app.use('/viewcart/', express.static('./client/dist'));
 app.use('/accountoverview/', express.static('./client/dist'));
 app.use(express.json());
-app.use(express.static('./client/dist'));
 
 app.use(session({
   secret: 'blue ocean',
