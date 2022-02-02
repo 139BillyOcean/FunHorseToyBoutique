@@ -33,6 +33,12 @@ module.exports = {
           },
         ]
       },
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
     ],
   },
 };

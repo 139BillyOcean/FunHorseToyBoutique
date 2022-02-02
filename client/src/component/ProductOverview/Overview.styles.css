@@ -18,6 +18,17 @@
   justify-content: space-around;
 }
 
+.salePrice {
+  color: red;
+  font-weight: 900;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.slashedPrice {
+  text-decoration: line-through;
+}
+
 /* Gallery.jsx */
 
 .gallery {

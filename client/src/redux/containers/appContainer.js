@@ -2,21 +2,22 @@ import { connect } from 'react-redux';
 // import the component the props that need updating/the event handler will be firing within.
 import App from '../../component/App.jsx';
 // import the event handler action from Actions
-import handleProductInit from '../actions/exampleAction2.js';
-import changeStyle from '../actions/exampleAction1.js';
+import updateUser from '../actions/updateUser.js';
+import updateCart from '../actions/updateCart.js';
 
 //place any props you need from the global state here (or remove if none).
 const mapStateToProps = (state) => {
   return {
-    currentStyle: state.currentStyle
+    user: state.user,
+    cart: state.cart
   };
 };
 
 //place any events that fire that alter the global state here (or remove if none).
 const mapDispatchToProps = (dispatch) =>{
   return {
-    handleProductInit: (q) => dispatch(handleProductInit(q)),
-    handleCurrentStyleClick: (style) => dispatch(changeStyle(style))
+    handleCurrentUser: (user) => dispatch(updateUser(user)),
+    handleCurrentCart: (cart) => dispatch(updateCart(cart))
   };
 };
 
