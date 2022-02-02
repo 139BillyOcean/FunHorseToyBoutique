@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './App.styles.css';
 import MainPage from './Search/MainPage.jsx';
 import Account from './Account/index.jsx';
-import ProductOverview from './ProductOverview/ProductOverview.jsx';
+import CombinedOverview from './CombinedOverviewReviews/CombinedOverview.jsx';
 import CreateListing from './CreateListing/CreateListing.jsx';
 import LoginSignUp from './Login/LoginSignUp.jsx';
 import { Routes, Route } from 'react-router-dom';
@@ -16,7 +16,7 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
         }/>
         {/* Need the navigation bar and reviews module here */}
         <Route path='/product/:productId' element={
-          <ProductOverview user={user} cart={cart} handleCurrentUser={handleCurrentUser} handleCurrentCart={handleCurrentCart} />
+          <CombinedOverview user={user} cart={cart} handleCurrentUser={handleCurrentUser} handleCurrentCart={handleCurrentCart} />
         } />
         <Route path='/signin/' element={
           <LoginSignUp user={user} handleCurrentUser={handleCurrentUser}/>
