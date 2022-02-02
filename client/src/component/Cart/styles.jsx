@@ -10,6 +10,5 @@ export const listBox = {
   padding: '5px',
   paddingLeft: '5%',
   paddingRight: '5%',
-  margin: '5px',
   flexGrow: 1
 }

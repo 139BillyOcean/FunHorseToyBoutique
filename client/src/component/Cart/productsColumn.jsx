@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
+import {Product} from './product.jsx'
 import {listBox} from './styles.jsx'
 
-export const ProductsColumn = () => {
+export const ProductsColumn = ({cart}) => {
   return (
     <div id='productsColumn' style={listBox}>
-      this will be the centre column, it will have an overview of each product in the cart
+      {cart.map((product) => {<Product product={product} />})}
     </div>
   )
 }
