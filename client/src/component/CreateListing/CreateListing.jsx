@@ -63,6 +63,8 @@ const CreateListing = ({user}) => {
     var year = inputs.year
     var toy = inputs
     toy.price = {}
+    toy.photos = photos
+    toy.tags = tags
     inputs.yearManufactured = year
     // console.log(toy)
     toy.price.original = price
