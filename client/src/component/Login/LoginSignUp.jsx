@@ -10,7 +10,7 @@ const LoginSignUp = () => {
   let navigate = useNavigate();
 
   return (
-    <div className={LoginCSS.loginSignUp} id='loginSignUp'>
+    <div className={LoginCSS.loginSignUp}>
       <img src={logo} className = {LoginCSS.logo}></img>
       <button className={LoginCSS.home_button} onClick={() => { navigate('/'); }}>
         Home

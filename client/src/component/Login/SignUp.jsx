@@ -31,7 +31,7 @@ const SignUp = () => {
     <div>
       <h1 className={LoginCSS.signup_title}>Sign up to Buy and Sell Toys!</h1>
       <form className={LoginCSS.signUp}>
-        <label className={LoginCSS.label} id='username'>
+        <label className={LoginCSS.label}>
           Username:
           <br />
           <input
@@ -42,7 +42,7 @@ const SignUp = () => {
             onChange={handleChange} />
         </label>
         <br />
-        <label className={LoginCSS.label} id='password'>
+        <label className={LoginCSS.label}>
           Password:
           <br />
           <input
@@ -53,7 +53,7 @@ const SignUp = () => {
             onChange={handleChange} />
         </label>
         <br />
-        <label id='firstName' className={LoginCSS.label} >
+        <label className={LoginCSS.label} >
           First Name:
           <br />
           <input
@@ -64,7 +64,7 @@ const SignUp = () => {
             onChange={handleChange} />
         </label>
         <br />
-        <label id='lastName' className={LoginCSS.label} >
+        <label className={LoginCSS.label} >
           Last Name:
           <br />
           <input
@@ -75,7 +75,7 @@ const SignUp = () => {
             onChange={handleChange} />
         </label>
         <br />
-        <label id='email' className={LoginCSS.label} >
+        <label className={LoginCSS.label} >
           Email:
           <br />
           <input
@@ -86,7 +86,7 @@ const SignUp = () => {
             onChange={handleChange} />
         </label>
         <br />
-        <label id='address' className={LoginCSS.label} >
+        <label className={LoginCSS.label} >
           Address:
           <br />
           <input
@@ -99,7 +99,7 @@ const SignUp = () => {
         </label>
         <br />
         <input
-            name="street2"
+          name="street2"
           type="text"
           placeholder="House / Apartment #"
           className = {LoginCSS.input_field}
