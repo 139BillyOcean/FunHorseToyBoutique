@@ -5,6 +5,7 @@ import RightPanel from './RightPanel.jsx';
 import Information from './Information.jsx';
 import Quantity from './Quantity.jsx';
 import styles from './Overview.styles.css';
+import { useParams, Link } from 'react-router-dom';
 
 const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) => {
   const [toy, setToy] = useState({
@@ -35,6 +36,9 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
       }]
     }]
   });
+
+  const { productId } = useParams();
+
   const [seller, setSeller] = useState('');
 
   const [currentQuantity, setCurrentQuantity] = useState(1);
@@ -43,8 +47,10 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
     setCurrentQuantity(quantity);
   }
 
+  //sample id 61f89422edbb84b70e40df31 -> exchange with any product id in your database to view the page.
+
   useEffect(() => {
-    axios.get('/overview/61f89422edbb84b70e40df31')
+    axios.get(`/overview/${productId}`)
       .then((toyResults) => {
         setToy(toyResults.data);
         axios.get(`/overview/user/${toyResults.data.user}`)
@@ -60,21 +66,23 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
       });
   }, []);
 
-  const handleSell = (userId) => {
-    if (userId) {
-      console.log('go to create listing');
-    } else {
-      console.log('go to account creation/login');
-    }
-  }
+  // const handleSell = () => {
+  //   //once auth is established
+  //   // if (userId) {
+  //   //   console.log('go to create listing');
+  //   // } else {
+  //   //   console.log('go to account creation/login');
+  //   // }
+  // }
 
-  const handleCart = (userId) => {
-    if (userId) {
-      console.log('go to cart');
-    } else {
-      console.log('go to account creation/login');
-    }
-  }
+  // const handleCart = () => {
+  //   //once auth is established
+  //   // if (userId) {
+  //   //   console.log('go to cart');
+  //   // } else {
+  //   //   console.log('go to account creation/login');
+  //   // }
+  // }
 
   const handleAddToCart = () => {
     toy.selectedQuantity = currentQuantity;
@@ -96,7 +104,9 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
         condition={toy.condition}
       />
       <div className={styles.buttonContainer} id='button-container'>
-        <button onClick={handleSell}>Have This Product? Sell now!</button>
+        <Link to={'/listproduct/'}>
+          <button id='sell-button'>Have This Product? Sell now!</button>
+        </Link>
         {toy.price.sale
         ? <span>
           Price:
@@ -111,8 +121,10 @@ const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) =
           Price: {toy.price.original}
         </span>}
         <Quantity quantityInStock={toy.quantity} quantitySelected={currentQuantity} handleQuantity={handleQuantity}/>
-        <button onClick={handleAddToCart}>Add to Cart</button>
-        <button onClick={handleCart}>Check Out</button>
+        <button onClick={handleAddToCart} id='cartadd-button'>Add to Cart</button>
+        <Link to={'/viewcart/'}>
+          <button id='cartview-button'>Check Out</button>
+        </Link>
       </div>
       <RightPanel />
     </div>

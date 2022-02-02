@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import styles from './Login.styles.css';
+import LoginCSS from './Login.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [newUser, setNewUser] = useState({});
+  let navigate = useNavigate();
 
   const handleChange = (event) => {
     setNewUser(() => {
@@ -15,10 +17,15 @@ const SignUp = () => {
 
   const handleSubmit = () => {
     event.preventDefault();
-    axios.post('/users', { newUser })
+    axios.post('/signup', newUser)
       .then(() => {
-        // redirect to home page using global state
-        setNewUser({});
+        axios.post('/users', newUser)
+          .then(() => {
+            navigate('/');
+          })
+          .catch(err => {
+            console.error(err);
+          })
       })
       .catch(err => {
         // stay on sign in page and display error message
@@ -27,94 +34,101 @@ const SignUp = () => {
   }
 
   return (
-    <form id='signUp' className={styles.signUp}>
-        <label id='username'>
-          Your Username:
+    <div>
+      <h1 className={LoginCSS.signup_title}>Sign up to Buy and Sell Toys!</h1>
+      <form className={LoginCSS.signUp}>
+        <label className={LoginCSS.label}>
+          Username:
           <br />
           <input
             name="username"
+            className = {LoginCSS.input_field}
             type="text"
             value={newUser.username || ''}
             onChange={handleChange} />
         </label>
         <br />
-        <label id='password'>
-          Your Password:
+        <label className={LoginCSS.label}>
+          Password:
           <br />
           <input
             name="password"
-            type="text"
+            className = {LoginCSS.input_field}
+            type="password"
             value={newUser.password || ''}
             onChange={handleChange} />
         </label>
         <br />
-        <label id='firstName'>
-          Your First Name:
+        <label className={LoginCSS.label} >
+          First & Last Name:
           <br />
           <input
-            name="firstName"
+            name="name"
+            className = {LoginCSS.input_field}
             type="text"
-            value={newUser.firstName || ''}
+            value={newUser.name || ''}
             onChange={handleChange} />
         </label>
         <br />
-        <label id='lastName'>
-          Your Last Name:
-          <br />
-          <input
-            name="lastName"
-            type="text"
-            value={newUser.lastName || ''}
-            onChange={handleChange} />
-        </label>
-        <br />
-        <label id='email'>
-          Your Email:
+        <label className={LoginCSS.label} >
+          Email:
           <br />
           <input
             name="email"
+            className = {LoginCSS.input_field}
             type="text"
             value={newUser.email || ''}
             onChange={handleChange} />
         </label>
         <br />
-        <label id='address'>
-          Your Address:
+        <label className={LoginCSS.label} >
+          Address:
           <br />
           <input
             name="street"
             type="text"
+            placeholder="Street"
+            className = {LoginCSS.input_field2}
             value={newUser.street || ''}
             onChange={handleChange} />
         </label>
         <br />
         <input
-            name="street2"
-            type="text"
+          name="street2"
+          type="text"
+          placeholder="House / Apartment #"
+          className = {LoginCSS.input_field2}
             value={newUser.street2 || ''}
             onChange={handleChange} />
         <br />
         <input
           name="city"
           type="text"
+          placeholder="City"
+          className = {LoginCSS.input_field2}
           value={newUser.city || ''}
           onChange={handleChange} />
         <input
           name="state"
           type="text"
+          placeholder="State"
+          className = {LoginCSS.input_field2}
           value={newUser.state || ''}
           onChange={handleChange} />
         <input
           name="zipcode"
           type="text"
+          placeholder="Zipcode"
+          className = {LoginCSS.input_field2}
           value={newUser.zipcode || ''}
           onChange={handleChange} />
         <br />
         <br />
-        <button onClick={handleSubmit}>
+        <button className={LoginCSS.signup_button }onClick={handleSubmit}>
           Sign Up!
         </button>
       </form>
+  </div>
   )
 }
 
