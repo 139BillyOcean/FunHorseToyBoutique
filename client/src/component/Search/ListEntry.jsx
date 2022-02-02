@@ -19,7 +19,7 @@ const ListEntry = ({toy}) => {
       </div>
       <div className={SearchCSS.search}>
       <p>{toy.name}</p>
-      <p>{toy.price.original}</p>
+      <p>${toy.price.original}</p>
       <p>By {toy.brand}</p>
       </div>
       <div >
