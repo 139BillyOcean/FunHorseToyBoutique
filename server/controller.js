@@ -19,10 +19,10 @@ module.exports = {
 
   getSingleUser: (req, res) => {
     model.getSingleUser(req.params.userId)
-    .then((data) => {
-      res.status(200).send(data);
-    })
-    .catch(err => res.status(404).send(err));
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch(err => res.status(404).send(err));
   },
 
   getSearchResults: (req, res) => {
@@ -65,7 +65,6 @@ module.exports = {
   addNewUser: (req, res) => {
     let newUser = {
       username: req.body.username,
-      password: req.body.password,
       email: req.body.email,
       name: req.body.firstName + ' ' + req.body.lastName,
       address: {
@@ -76,7 +75,6 @@ module.exports = {
         zipcode: req.body.zipcode
       }
     };
-    console.log('Add user to local DB: ', newUser);
     model.addUser(newUser)
       .then(() => {
         res.sendStatus(201);
