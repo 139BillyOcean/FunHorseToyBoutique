@@ -4,7 +4,7 @@ const Answers = ({ answers, questionId }) => {
   return (
     <div>
       {answers.map((answer) => (
-        <IndividualAnswer answer={answer} />
+        <IndividualAnswer answer={answer} questionId={questionId} />
       ))}
     </div>
   );

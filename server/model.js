@@ -86,6 +86,10 @@ module.exports = {
     );
   },
   addAnswer: (answer, questionId) => {
-    return;
+    return Toy.findOneAndUpdate(
+      { _id: questionId },
+      { $push: { answers: answer } },
+      { new: true }
+    );
   },
 };

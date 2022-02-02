@@ -125,9 +125,8 @@ module.exports = {
   },
   addAnswer: (req, res) => {
     let answer = req.body.answer;
-
     model
-      .addAnswer(review, req.query.productId)
+      .addAnswer(answer, req.query.questionId)
       .then(() => res.sendStatus(201))
       .catch((err) => res.status(404).send(err));
   },

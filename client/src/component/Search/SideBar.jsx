@@ -71,29 +71,29 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
       <div>Brand</div>
       <ul>
         {
-          availableBrands.map(item => (
-            <li onClick={()=>{handleBrandClick({item})}}><input type="checkbox" value={item}/><label>{item}</label></li>
+          availableBrands.map((item,index)=> (
+            <li key={index} onClick={()=>{handleBrandClick({item})}}><input type="checkbox" value={item}/><label>{item}</label></li>
           ))
         }
       </ul>
       {appliedBrands.length > 0 ? <ul>
         <li>Selected brands:</li>
-        {appliedBrands.map(item => (
-          <li>#{item}  <strong>x</strong></li>
+        {appliedBrands.map((item, index)=> (
+          <li key={index}>#{item}  <strong>x</strong></li>
         ))}
       </ul> : null}
       <div>Tag</div>
       <ul>
         {
-          availableTags.map(item => (
-            <li onClick={()=>{handleClickTag({item})}}>#{item}</li>
+          availableTags.map((item, index) => (
+            <li key={index} onClick={()=>{handleClickTag({item})}}>#{item}</li>
           ))
         }
       </ul>
       {appliedTags.length > 0 ? <ul>
         <li>Selected tags:</li>
-        {appliedTags.map(item => (
-          <li>#{item}  <strong>x</strong></li>
+        {appliedTags.map((item, index) => (
+          <li key={index}>#{item}  <strong>x</strong></li>
         ))}
       </ul> : null}
       <button onClick={() => {searchForItem()}}>Apply filters</button>
