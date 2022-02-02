@@ -7,12 +7,8 @@ import logo from '../../../dist/images/Fun-Horse-Transparent.png';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const LoginSignUp = ({ user, handleCurrentUser }) => {
+const LoginSignUp = () => {
   let navigate = useNavigate();
-
-  // useEffect(() => {
-  //   axios.get('/authenticate');
-  // });
 
   return (
     <div className={LoginCSS.loginSignUp}>
@@ -21,8 +17,8 @@ const LoginSignUp = ({ user, handleCurrentUser }) => {
         Home
       </button>
       <img src={arrow} className={LoginCSS.arrow}></img>
-      <SignUp handleCurrentUser={handleCurrentUser}/>
-      <Login handleCurrentUser={handleCurrentUser}/>
+      <SignUp />
+      <Login />
     </div>
   );
 };
