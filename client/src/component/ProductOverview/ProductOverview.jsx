@@ -5,69 +5,17 @@ import RightPanel from './RightPanel.jsx';
 import Information from './Information.jsx';
 import Quantity from './Quantity.jsx';
 import styles from './Overview.styles.css';
-import { useParams, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const ProductOverview = ({ cart, user, handleCurrentUser, handleCurrentCart }) => {
-  const [toy, setToy] = useState({
-    id: '',
-    dateCreated: 0,
-    user: '',
-    name: '',
-    condition: '',
-    brand: '',
-    yearManufactured: 1,
-    tags: [''],
-    photos: [''],
-    price: {
-      original: 1,
-      sale: 1
-    },
-    quantity: 1,
-    description: '',
-    ratings: [],
-    reviews: [{
-      body: '',
-      reviewer: '',
-      date: 1,
-      answers: [{
-        body: '',
-        date: 1,
-        answerer: ''
-      }]
-    }]
-  });
-
-  const { productId } = useParams();
+const ProductOverview = ({ toy, seller, cart, user, handleCurrentUser, handleCurrentCart }) => {
 
   const navigate = useNavigate();
-
-  const [seller, setSeller] = useState('');
 
   const [currentQuantity, setCurrentQuantity] = useState(1);
 
   const handleQuantity = (quantity) => {
     setCurrentQuantity(quantity);
   }
-
-  //sample id 61f89422edbb84b70e40df31 -> exchange with any product id in your database to view the page.
-
-  useEffect(() => {
-    axios.get(`/overview/${productId}`)
-      .then((toyResults) => {
-        setToy(toyResults.data);
-        axios.get(`/overview/user/${toyResults.data.user}`)
-          .then((userResults) => {
-            setSeller(userResults.data.username);
-          })
-          .catch((err) => {
-            console.log(error);
-          });
-      })
-      .catch((err) => {
-        console.log(error);
-      });
-  }, []);
 
   const handleSell = () => {
     axios.get('/authenticate')
