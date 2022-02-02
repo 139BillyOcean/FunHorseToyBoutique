@@ -34,17 +34,17 @@ const CreateListing = ({user}) => {
   })
   // const [photos, setPhotos] = useState([])
   const onClickOfPhoto = (index) => {
-    console.log('here')
-    console.log(photos)
+    // console.log('here')
+    // console.log(photos)
     var newPhoto = [...photos]
     newPhoto.splice(index, 1)
-    console.log(newPhoto)
+    // console.log(newPhoto)
     setPhotos(newPhoto)
     //not updating?
   }
 
   const onClickOfTag = (index) => {
-    console.log('here')
+    // console.log('here')
     var newTag = [...tags]
     newTag.splice(index, 1)
     setTags(newTag)
