@@ -8,7 +8,7 @@ const CreateListing = ({user}) => {
   // need to grab current account info - user id to send in post
   // console.log(user)
   var curYear = new Date().getFullYear()
-  var userId = '61f84088f6630f99b59136ab'
+  var userId = '61f889eb145fe868b3c6979c'
 
   // need to grab home button
   //need to implement handleSubmit to either 1: refresh the page to a blank state with a ntoification saying (successfully added!) or 2: redirect to account overview page
@@ -68,6 +68,8 @@ const CreateListing = ({user}) => {
     inputs.yearManufactured = year
     // console.log(toy)
     toy.price.original = price
+    console.log(price)
+    console.log(toy)
     // console.log(toy)
     // console.log('here')
     // axios.post()

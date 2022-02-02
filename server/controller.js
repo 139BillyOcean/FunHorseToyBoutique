@@ -49,7 +49,7 @@ module.exports = {
       .then((data)=> {
         model.addListingToUser(data)
           .then((data)=>{
-            console.log('here');
+            // console.log('here');
             console.log(data);
 
           });
@@ -74,6 +74,30 @@ module.exports = {
         city: req.body.newUser.city,
         state: req.body.newUser.state,
         zipcode: req.body.newUser.zipcode
+      }
+    };
+    model.addUser(newUser)
+      .then(() => {
+        res.sendStatus(201);
+      })
+      .catch(err => {
+        res.status(404).send(err);
+      });
+  },
+
+  createUser: (req, res) => {
+    let newUser = {
+      _id: req.body._id,
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      name: req.body.name,
+      address: {
+        street: req.body.address.street,
+        // street2: req.body.newUser.street2 || null,
+        city: req.body.address.city,
+        state: req.body.address.state,
+        zipcode: req.body.address.zipcode
       }
     };
     model.addUser(newUser)

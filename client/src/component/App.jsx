@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './App.styles.css';
-// import MainPage from './Search/MainPage.jsx';
+import MainPage from './Search/MainPage.jsx';
 import Account from './Account/index.jsx';
 import ProductOverview from './ProductOverview/ProductOverview.jsx';
 import CreateListing from './CreateListing/CreateListing.jsx';
@@ -18,9 +18,9 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
           </div>
         }/>
         {/* Need to un-.gitignore image folder in dist; I'm getting errors otherwise */}
-        {/* <Route path='/' element={
+        <Route path='/' element={
           <MainPage />
-        }/> */}
+        }/>
         {/* Need the navigation bar and reviews module here */}
         <Route path='/product/:productId' element={
           <ProductOverview user={user} cart={cart} handleCurrentUser={handleCurrentUser} handleCurrentCart={handleCurrentCart} />
@@ -32,7 +32,7 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
         <Route path='/listproduct/' element={
           <CreateListing
           user={user}
-          
+
           />
         }/>
         {/* Need the cart page here */}
