@@ -3,7 +3,7 @@ import axios from 'axios';
 import LoginCSS from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ handleCurrentUser }) => {
   const [user, setUser] = useState({})
   let navigate = useNavigate();
 
@@ -19,6 +19,7 @@ const Login = () => {
     e.preventDefault();
     axios.post('/login', user)
       .then((results) => {
+        handleCurrentUser(user);
         navigate('/');
       })
       .catch(err => {

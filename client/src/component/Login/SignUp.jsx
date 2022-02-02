@@ -3,7 +3,7 @@ import axios from 'axios';
 import LoginCSS from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 
-const SignUp = () => {
+const SignUp = ({ handleCurrentUser }) => {
   const [newUser, setNewUser] = useState({});
   let navigate = useNavigate();
 
@@ -19,10 +19,9 @@ const SignUp = () => {
     event.preventDefault();
     axios.post('/signup', newUser)
       .then(() => {
-        console.log('Signed up!');
         axios.post('/users', newUser)
           .then(() => {
-            console.log('Added to local DB!');
+            handleCurrentUser(user);
             navigate('/');
           })
           .catch(err => {

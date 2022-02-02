@@ -6,7 +6,7 @@ import arrow from '../../../dist/images/arrow-left.png';
 import logo from '../../../dist/images/Fun-Horse-Transparent.png';
 import { useNavigate } from 'react-router-dom';
 
-const LoginSignUp = () => {
+const LoginSignUp = ({ user, handleCurrentUser }) => {
   let navigate = useNavigate();
 
   return (
@@ -16,8 +16,8 @@ const LoginSignUp = () => {
         Home
       </button>
       <img src={arrow} className={LoginCSS.arrow}></img>
-      <SignUp />
-      <Login />
+      <SignUp handleCurrentUser={handleCurrentUser}/>
+      <Login handleCurrentUser={handleCurrentUser}/>
     </div>
   );
 };
