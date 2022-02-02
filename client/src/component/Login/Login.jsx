@@ -16,11 +16,11 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
-    setUser({});
     // authenticate user signin
-    axios.post('/signIn', user)
+    axios.post('/login', user)
       .then(() => {
-        // redirect to home page using global state
+        setUser({});
+        // redirect to home page
       })
       .catch(err => {
         // stay on sign in page and display error message

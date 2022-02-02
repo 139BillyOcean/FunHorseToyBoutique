@@ -15,10 +15,18 @@ const SignUp = () => {
 
   const handleSubmit = () => {
     event.preventDefault();
-    axios.post('/users', { newUser })
+    axios.post('/signup', newUser)
       .then(() => {
-        // redirect to home page using global state
-        setNewUser({});
+        console.log('Signed up!');
+        axios.post('/users', newUser)
+          .then(() => {
+            console.log('Added to local DB!');
+            setNewUser({});
+          })
+          .catch(err => {
+            console.error(err);
+          })
+        // redirect to home page
       })
       .catch(err => {
         // stay on sign in page and display error message

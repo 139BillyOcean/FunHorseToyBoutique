@@ -64,18 +64,19 @@ module.exports = {
 
   addNewUser: (req, res) => {
     let newUser = {
-      username: req.body.newUser.username,
-      password: req.body.newUser.password,
-      email: req.body.newUser.email,
-      name: req.body.newUser.firstName + ' ' + req.body.newUser.lastName,
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      name: req.body.firstName + ' ' + req.body.lastName,
       address: {
-        street: req.body.newUser.street,
-        street2: req.body.newUser.street2 || null,
-        city: req.body.newUser.city,
-        state: req.body.newUser.state,
-        zipcode: req.body.newUser.zipcode
+        street: req.body.street,
+        street2: req.body.street2 || null,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode
       }
     };
+    console.log('Add user to local DB: ', newUser);
     model.addUser(newUser)
       .then(() => {
         res.sendStatus(201);
