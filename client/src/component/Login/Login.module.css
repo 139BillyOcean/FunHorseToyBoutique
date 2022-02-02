@@ -1,0 +1,146 @@
+.loginSignUp {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.login {
+  padding: 50px;
+  height: 40vh;
+  width: 25vw;
+  background: #C4C4C4;
+  border-radius: 12px;
+}
+.signUp {
+  padding: 50px;
+  height: 40vh;
+  width: 25vw;
+  background: #C4C4C4;
+  border-radius: 12px;
+}
+.home_button {
+  position: absolute;
+  width: 142px;
+  height: 49px;
+  left: 65px;
+  top: 53px;
+  background: #C4C4C4;
+  border-radius: 12px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: white;
+  outline: none;
+  border: none;
+
+}
+
+.arrow {
+  position: absolute;
+  width: 15px;
+  height: 24px;
+  left: 75px;
+  top: 65px;
+}
+
+.logo {
+position: absolute;
+width: 200px;
+height: 200px;
+left: 1381px;
+top: 10px;
+
+}
+
+body{
+  background: white;
+}
+
+.login_title {
+  font-family: 'Montserrat';
+  font-style: normal;
+  color: #CF6789;
+  left: 50px;
+}
+
+.singup_title {
+  font-family: 'Montserrat';
+  font-style: normal;
+  color: #8ba0c4;
+}
+
+.input_field {
+  /* position: absolute; */
+width: 400px;
+height: 40px;
+/* left: 766px;
+top: 278px; */
+background: #E5E5E5;
+border: 2px solid #FFFFFF;
+box-sizing: border-box;
+margin-top: 5px;
+}
+
+input[type=text] {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+input[type=text]:focus{
+  background-color: #8ba0c4;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+input[type=text]::-webkit-input-placeholder{
+  color: white;
+  letter-spacing: 2px;
+}
+
+.signin_button {
+  position: absolute;
+  width: 257px;
+  height: 45px;
+  left: 1020px;
+  top: 679px;
+  background: #6A8FC5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  color: white;
+  font-style: normal;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.signup_button {
+  position: absolute;
+width: 261px;
+height: 46px;
+left: 300px;
+top: 1104px;
+background: #CF6789;
+mix-blend-mode: normal;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 12px;
+outline: none;
+border: none;
+color: white;
+font-style: normal;
+font-family: 'Montserrat', sans-serif;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+.label {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
