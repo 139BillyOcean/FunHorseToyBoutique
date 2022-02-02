@@ -138,14 +138,20 @@ text-transform: uppercase;
 letter-spacing: 2px;
 }
 
-
-
 /*CONTENT*/
 .content {
-  width: 70%;
+  /* width: 70%;
   border: 1px solid black;
   height: 100%;
-  list-style-type: none;
+  list-style-type: none; */
+position: absolute;
+width: 1000px;
+/* height: 1181px; */
+height: 80%;
+left: 215px;
+top: 218px;
+background: #E5E5E5;
+margin-left: 45px;
 }
 
 .itemContainer {
