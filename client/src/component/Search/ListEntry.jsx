@@ -5,6 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 
 const ListEntry = ({toy, handleCurrentCart, cart}) => {
   var toyStock = '';
+ 
 
   if (toy.quantity === 0){
       toyStock = 'OUT OF STOCK';
@@ -21,12 +22,16 @@ const ListEntry = ({toy, handleCurrentCart, cart}) => {
   }
 
 
+
+
+
+
   return (
     <div className={SearchCSS.itemContainer}>
       <div>
         <img src={toy.photos[0]} width="100" height="100"/>
       </div>
-      <div className={SearchCSS.search}>
+      <div >
       <Link to={`/product/${toy._id}`}>
       <p>{toy.name}</p>
       </Link>

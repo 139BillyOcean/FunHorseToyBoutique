@@ -13,7 +13,7 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
     <div className={styles.main} id='main'>
       <Routes>
         <Route path='/' element={
-          <MainPage handleCurrentCart={handleCurrentCart} cart={cart} />
+          <MainPage handleCurrentCart={handleCurrentCart} cart={cart} user={user} handleCurrentUser={handleCurrentUser}/>
         }/>
         {/* Need the navigation bar and reviews module here */}
         <Route
