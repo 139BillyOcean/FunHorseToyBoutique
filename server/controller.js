@@ -49,7 +49,7 @@ module.exports = {
       .then((data)=> {
         model.addListingToUser(data)
           .then((data)=>{
-            console.log('here');
+            // console.log('here');
             console.log(data);
 
           });

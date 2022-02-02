@@ -30,9 +30,10 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
         }/>
         {/* Need the list product page here */}
         <Route path='/listproduct/' element={
-          <div>
-            List Product
-          </div>
+          <CreateListing
+          user={user}
+
+          />
         }/>
         {/* Need the cart page here */}
         <Route path='/viewcart/' element={
