@@ -21,11 +21,12 @@ module.exports = {
   },
 
   getSingleUser: (req, res) => {
-    model.getSingleUser(req.params.userId)
+    model
+      .getSingleUser(req.params.userId)
       .then((data) => {
         res.status(200).send(data);
       })
-      .catch(err => res.status(404).send(err));
+      .catch((err) => res.status(404).send(err));
   },
 
   getSearchResults: (req, res) => {
@@ -38,7 +39,8 @@ module.exports = {
   },
 
   getCurrentUser: (req, res) => {
-    model.getCurrentUser(req.query.user)
+    model
+      .getCurrentUser(req.query.user)
       .then((data) => {
         res.status(200).send(data[0]);
       })
@@ -49,14 +51,13 @@ module.exports = {
 
   createListing: (req, res) => {
     // console.log(req.query.user)
-    model.createListing(req.query.user, req.body)
-      .then((data)=> {
-        model.addListingToUser(data)
-          .then((data)=>{
-            // console.log('here');
-            console.log(data);
-
-          });
+    model
+      .createListing(req.query.user, req.body)
+      .then((data) => {
+        model.addListingToUser(data).then((data) => {
+          // console.log('here');
+          console.log(data);
+        });
         // console.log(data)
         res.status(200).send(data);
       })
@@ -76,8 +77,8 @@ module.exports = {
         street2: req.body.street2 || null,
         city: req.body.city,
         state: req.body.state,
-        zipcode: req.body.zipcode
-      }
+        zipcode: req.body.zipcode,
+      },
     };
     model
       .addUser(newUser)
@@ -101,15 +102,33 @@ module.exports = {
         // street2: req.body.newUser.street2 || null,
         city: req.body.address.city,
         state: req.body.address.state,
-        zipcode: req.body.address.zipcode
-      }
+        zipcode: req.body.address.zipcode,
+      },
     };
-    model.addUser(newUser)
+    model
+      .addUser(newUser)
       .then(() => {
         res.sendStatus(201);
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(404).send(err);
       });
-  }
+  },
+
+  addReview: (req, res) => {
+    let review = req.body.review;
+
+    model
+      .addReview(review, req.query.productId)
+      .then(() => res.sendStatus(201))
+      .catch((err) => res.status(404).send(err));
+  },
+  addAnswer: (req, res) => {
+    let answer = req.body.answer;
+
+    model
+      .addAnswer(review, req.query.productId)
+      .then(() => res.sendStatus(201))
+      .catch((err) => res.status(404).send(err));
+  },
 };

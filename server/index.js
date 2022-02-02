@@ -20,12 +20,14 @@ app.use('/viewcart/', express.static('./client/dist'));
 app.use('/accountoverview/', express.static('./client/dist'));
 app.use(express.json());
 
-app.use(session({
-  secret: 'blue ocean',
-  resave: false,
-  saveUninitialized: false,
-  store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
-}));
+app.use(
+  session({
+    secret: 'blue ocean',
+    resave: false,
+    saveUninitialized: false,
+    store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' }),
+  })
+);
 app.use(passport.authenticate('session'));
 
 passport.use(new LocalStrategy(verify));
@@ -61,17 +63,22 @@ app.post('/createListing', controller.createListing);
 app.post('/adduser', controller.createUser);
 app.post('/signup', signUp);
 app.post('/users', controller.addNewUser);
+app.post('/review', controller.addReview);
 
-app.post('/login', passport.authenticate('local', {
-  failureRedirect: '/login-failure',
-  successRedirect: '/login-success'
-}), (err, req, res, next) => {
-  if (err) {
-    next(err);
+app.post(
+  '/login',
+  passport.authenticate('local', {
+    failureRedirect: '/login-failure',
+    successRedirect: '/login-success',
+  }),
+  (err, req, res, next) => {
+    if (err) {
+      next(err);
+    }
   }
-});
+);
 
-app.get('/logout', function(req, res, next) {
+app.get('/logout', function (req, res, next) {
   req.logout();
   res.redirect('/');
 });

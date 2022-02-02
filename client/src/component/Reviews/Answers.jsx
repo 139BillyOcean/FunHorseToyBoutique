@@ -1,6 +1,6 @@
 import React from 'react';
 import IndividualAnswer from '../Reviews/IndividualAnswers.jsx';
-const Answers = ({ answers }) => {
+const Answers = ({ answers, questionId }) => {
   return (
     <div>
       {answers.map((answer) => (
