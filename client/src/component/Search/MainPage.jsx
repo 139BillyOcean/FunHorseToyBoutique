@@ -18,7 +18,7 @@ const MainPage = () => {
   const [kgToys, setKGToys] = useState(false);
   const [availableTags, setAvailableTags] = useState([]);
   const [appliedTags, setAppliedTags] = useState([]);
-  const [sortOption, setSortOption] = useState('desc');
+  const [sortOption, setSortOption] = useState('default');
 
   useEffect(() => {
     axios

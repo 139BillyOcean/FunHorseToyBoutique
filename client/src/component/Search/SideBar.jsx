@@ -32,19 +32,18 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
     }
   }
 
-  const handleSortOptionsClick = (event) => {
-    setSortOption(event.target.value)
+  const handleSortOptionsClick = (val) => {
+    setSortOption(val)
   }
 
   return(
     <div>
       <div>
       <label for="sortOptions">Sort By:</label>
-        <select name="sortOptions" onClick={handleSortOptionsClick}>
-          <option value="bestsellers" onClick={handleSortOptionsClick}>Bestsellers</option>
-          <option value="desc" onClick={handleSortOptionsClick}>Price: High To Low</option>
-          <option value="asc" onClick={handleSortOptionsClick}>Price: Low To High</option>
-          <option value="rating" onClick={handleSortOptionsClick}>Top Rated</option>
+        <select name="desc" onChange={ () => handleSortOptionsClick(event.target.value)}>
+          <option value="default" >New Arrivals</option>
+          <option value="desc" >Price: High To Low</option>
+          <option value="asc">Price: Low To High</option>
         </select>
         </div>
       <div>Filter By: </div>
