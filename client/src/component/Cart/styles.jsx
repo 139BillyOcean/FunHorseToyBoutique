@@ -20,3 +20,8 @@ export const listBox = {
   paddingRight: '5%',
   flexGrow: 1
 }
+
+export const img = {
+  maxHeight: '20%',
+  maxWidth: '20%'
+}
