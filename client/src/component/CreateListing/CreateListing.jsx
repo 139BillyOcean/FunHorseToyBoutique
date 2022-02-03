@@ -5,12 +5,12 @@ import Tags from './Tags.jsx'
 import Photos from './Photos.jsx'
 import { useNavigate } from 'react-router-dom';
 
-const CreateListing = ({user}) => {
+const CreateListing = ({}) => {
   let navigate = useNavigate();
   // need to grab current account info - user id to send in post
-  console.log(user)
+  // console.log(user)
   var curYear = new Date().getFullYear()
-  var userId = '61f889eb145fe868b3c6979c'
+  // var userId = '61f889eb145fe868b3c6979c'
 
   // need to grab home button
   //need to implement handleSubmit to either 1: refresh the page to a blank state with a ntoification saying (successfully added!) or 2: redirect to account overview page
@@ -102,8 +102,15 @@ const CreateListing = ({user}) => {
   }, [photos])
 
   useEffect(()=>{
-    axios.get('/authentication')
-      .then()
+    axios.get('/authenticate')
+      .then((response)=>{
+        // console.log(response.data.username)
+        axios.get('/users', {params: {user: response.data.username}})
+          .then((response)=>{
+            // console.log('here', response.data._id)
+            const userId = response.data._id
+          })
+      })
   }, [])
   return (
     <div id='CreateListing-container'>

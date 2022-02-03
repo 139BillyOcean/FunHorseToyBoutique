@@ -106,6 +106,15 @@ module.exports = {
       .catch(err => {
         res.status(404).send(err);
       });
-  }
+  },
+  test: (req, res) => {
+    model
+      .test()
+      .then((response) => {
+        console.log(response)
+        res.send(response)})
+      .catch((err) => console.log(err));
+    // res.send('working');
+  },
 };
 

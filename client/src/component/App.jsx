@@ -25,8 +25,6 @@ const App = ({ user, cart, handleCurrentCart, handleCurrentUser }) => {
         {/* Need the list product page here */}
         <Route path='/listproduct/' element={
           <CreateListing
-          user={user}
-
           />
         }/>
         {/* Need the cart page here */}

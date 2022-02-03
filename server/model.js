@@ -72,5 +72,13 @@ module.exports = {
   // {listings: data._id}
   addUser: (user) => {
     return User.create(user);
-  }
+  },
+  test: () => {
+    var reviewId = "reviews._id";
+    return Toy.findOne({_id: "61f89422edbb84b70e40df31"}, {'reviews': {$elemMatch: {_id: {$in: "61f9d7a987d6f4638495c7af"}}}})
+    // return Toy.findOne({
+    //   "_id" : "61f89422edbb84b70e40df31",
+
+    // }).select("reviews").find({"reviews._id" : "61f9d7a987d6f4638495c7af"})
+  },
 };
