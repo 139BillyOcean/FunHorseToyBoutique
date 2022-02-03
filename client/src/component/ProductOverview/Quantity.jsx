@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import styles from './Overview.styles.css';
+//import styles from './Overview.styles.css';
+import OverviewCSS from './Overview.module.css';
 
 const Quantity = ({ quantityInStock, quantitySelected, handleQuantity }) => {
   const [hidePlus, setHidePlus] = useState(true);
@@ -37,13 +38,13 @@ const Quantity = ({ quantityInStock, quantitySelected, handleQuantity }) => {
   }
 
   return (
-    <div className={styles.quantity} id='quantity'>
+    <div className={OverviewCSS.quantity} id='quantity'>
       Quantity:
-      {hideMinus? ' ' : <span onClick={handleMinus} className={styles.minus} id='minus'>
+      {hideMinus? '\u00A0\u00A0\u00A0\u00A0\u00A0' : <span onClick={handleMinus} className={OverviewCSS.minus} id='minus'>
         -
       </span>}
       {quantitySelected}
-      {hidePlus? ' ' : <span onClick={handlePlus} className={styles.plus} id='plus'>
+      {hidePlus? 	'' : <span onClick={handlePlus} className={OverviewCSS.plus} id='plus'>
         +
       </span>}
     </div>
