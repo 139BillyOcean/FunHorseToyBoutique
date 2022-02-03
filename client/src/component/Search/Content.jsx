@@ -7,14 +7,14 @@ import SearchCSS from "./Search.module.css";
 const Content = ({toys, handleCurrentCart, cart}) => {
   return (
   <div>
-     <ul>
+     <div className = {SearchCSS.content_container}>
       {
         toys.map((item, index) => (
           <li key={index}><ListEntry toy={item} cart={cart} handleCurrentCart={handleCurrentCart}/></li>
           )
         )
       }
-    </ul>
+    </div>
     </div>
   )
 }

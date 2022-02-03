@@ -19,7 +19,7 @@ const SearchBar = ({searchTerm, setSearchTerm, searchForItem}) => {
     <div >
       <form onSubmit={handleSearchSubmit}>
       <input  className={SearchCSS.search} placeholder="Search for a toy" type="text" value={searchTerm} onChange={handleChange}/>
-      <button><img className={SearchCSS.search_icon} src={searchIcon} alt = 'search icon'></img></button>
+      <img className={SearchCSS.search_icon} src={searchIcon} onClick={handleSearchSubmit} alt = 'search icon'></img>
       </form>
     </div>
   )
