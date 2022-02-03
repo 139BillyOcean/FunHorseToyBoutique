@@ -49,7 +49,7 @@ const NavBar = ({searchTerm, setSearchTerm, searchForItem, user, handleCurrentUs
 
   return (
     <div id = "navigationContainer" className={SearchCSS.navigationContainer}>
-     <Link to={'/'}><img src={logo} alt="main logo" className={SearchCSS.logo.image}></img></Link>
+     <Link to={'/'}><img src={logo} alt="main logo" className={SearchCSS.logo}></img></Link>
       <img
        src={nameMotto}
        alt="name motto"
@@ -58,7 +58,6 @@ const NavBar = ({searchTerm, setSearchTerm, searchForItem, user, handleCurrentUs
        </img>
         <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} searchForItem={searchForItem}/>
         <div>
-
         <button className = {SearchCSS.user} onClick={handleSignIn}>{userName}</button>
         <br/>
         <img src = {cart} onClick={handleCart} className = {SearchCSS.cart}></img>
