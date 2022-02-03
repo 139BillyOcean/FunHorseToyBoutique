@@ -7,9 +7,7 @@ import Quantity from "./Quantity.jsx";
 import OverviewCSS from "./Overview.module.css";
 import addToCart from '../../../dist/images/cart.png';
 import { useNavigate } from "react-router-dom";
-//import Anna's Nav bar and css:
-import Navbar from "../Search/NavBar.jsx";
-import SearchCSS from "../Search/Search.module.css";
+import Navbar from "./NavBar.jsx";
 
 const ProductOverview = ({
   toy,
