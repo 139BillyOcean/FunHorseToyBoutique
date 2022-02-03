@@ -22,8 +22,8 @@ export const Cart = ({cart, handleCurrentCart}) => {
 
   return (
     <div>
-      <img src='./images/Animated-Fun-Horse-Logo.gif' style={img}></img>
-      <div id='flexSetup' style={flexSetup}>
+      <img src='./images/Animated-Fun-Horse-Logo.gif' style={img} id='logo'></img>
+      <div id='flexSetup mainCart' style={flexSetup}>
         <DataColumn quantity={quantity} totalCost={totalCost}/>
         <ProductsColumn cart={cart}/>
         <PaymentColumn handleCurrentCart={handleCurrentCart}/>
