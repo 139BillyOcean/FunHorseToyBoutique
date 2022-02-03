@@ -12,7 +12,7 @@ export const Cart = ({cart, handleCurrentCart}) => {
     let items = 0
     let cost = 0
     cart.map((item) => {
-      price = item.price.sale || item.price.original
+      const price = item.price.sale || item.price.original
       items += item.selectedQuantity
       cost += (item.selectedQuantity * price)
     })
