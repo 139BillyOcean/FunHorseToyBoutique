@@ -4,16 +4,18 @@ import css from './Account.styles.css';
 const UserInfo = ({ userData }) => {
   if (userData) {
     return (
-      <div className={css.rowContainer}>
+      <div className={css.rowContainer} id="user-info-container">
         <div className={css.columnContainer}>
           {
             userData.profilePicture ?
             <img
               className={css.profilePicture}
+              id="profile-picture"
               src={userData.profilePicture}
             ></img> :
             <img
               className={css.profilePicture}
+              id="default-profile-picture"
               src="https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max"
             ></img>
           }
