@@ -48,6 +48,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/home', controller.getAllProducts);
+
 app.get('/home/search/:searchTerm', controller.getSearchResults);
 app.get('/overview/:objectId', controller.getSingleProduct);
 app.get('/overview/user/:userId', controller.getSingleUser);
@@ -64,7 +65,7 @@ app.post('/adduser', controller.createUser);
 app.post('/signup', signUp);
 app.post('/users', controller.addNewUser);
 app.post('/review', controller.addReview);
-app.post('/answer', controller.addAnswer);
+// app.post('/answer', controller.addAnswer);
 
 app.post(
   '/login',
