@@ -6,13 +6,32 @@ import Listings from './Listings.jsx';
 import axios from 'axios';
 // import toyData from '../../data/toys.js';
 
-const Account = ({ currentUser }) => {
+const Account = () => {
+  const [currentUser, setCurrentUser] = useState('');
   const [userData, setUserData] = useState('');
   const [userPurchases, setUserPurchases] = useState('');
   const [userListings, setUserListings] = useState('');
 
   useEffect(() => {
     // fetch current user info
+    axios.get('/authenticate')
+    .then((response) => {
+      setCurrentUser(response.data.username);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
+    axios.get('/overview/61fb1c3c42574c780d0891a1')
+      .then((response) => {
+        setUserPurchases(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }, [])
+
+  useEffect(() => {
     axios.get('/users', {
       params: {
         user: currentUser
@@ -20,15 +39,11 @@ const Account = ({ currentUser }) => {
     })
     .then((response) => {
       setUserData(response.data);
-      return axios.get(`/overview/${response.data.listings[0]}`);
-    })
-    .then((response) => {
-      setUserPurchases(response.data);
     })
     .catch((error) => {
       console.log(error);
     })
-  }, [])
+  }, [currentUser])
 
   return (
     <div>
