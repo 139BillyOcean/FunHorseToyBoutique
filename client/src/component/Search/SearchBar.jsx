@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import SearchCSS from "./Search.module.css";
+import searchIcon from '../../../dist/images/search.png';
 
 const SearchBar = ({searchTerm, setSearchTerm, searchForItem}) => {
 
@@ -17,8 +18,8 @@ const SearchBar = ({searchTerm, setSearchTerm, searchForItem}) => {
   return (
     <div >
       <form onSubmit={handleSearchSubmit}>
-      <input placeholder="Search for a toy" type="text" value={searchTerm} onChange={handleChange}/>
-      <button>Search</button>
+      <input  className={SearchCSS.search} placeholder="Search for a toy" type="text" value={searchTerm} onChange={handleChange}/>
+      <img className={SearchCSS.search_icon} src={searchIcon} onClick={handleSearchSubmit} alt = 'search icon'></img>
       </form>
     </div>
   )

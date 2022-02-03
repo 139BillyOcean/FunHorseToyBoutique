@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from './Overview.styles.css';
+//import styles from './Overview.styles.css';
+import OverviewCSS from './Overview.module.css';
 
 const Carousel = ({ photos, handleImageChange }) => {
   return (
-    <div className={styles.carousel} id='carousel'>
+    <div className={OverviewCSS.carousel} id='carousel'>
       {photos.map((photo, index) => {
         return (
-          <div className={styles.carouselItem} id='carousel-item' key={index} onClick={() => {handleImageChange(photos[index])}}>
+          <div className={OverviewCSS.carouselItem} id='carousel-item' key={index} onClick={() => {handleImageChange(photos[index])}}>
             <img src={photo}/>
           </div>
         );

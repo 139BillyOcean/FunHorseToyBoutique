@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar.jsx";
 import SideBar from "./SideBar.jsx";
 import Content from "./Content.jsx";
-// import styles from "./Search.styles.css";
 import SearchCSS from "./Search.module.css";
 import faketoys from "./fakedata.js";
 import axios from "axios";
 // import Modal from './Modal.jsx';
 
 
-const MainPage = ({handleCurrentCart, cart}) => {
+const MainPage = ({handleCurrentCart, cart, user, handleCurrentUser}) => {
   const [toys, setToys] = useState([]);
   const [modal, showModal] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -83,7 +82,7 @@ const MainPage = ({handleCurrentCart, cart}) => {
   return (
     <div id="main" className ={SearchCSS.main} >
        {/* {modal ? <Modal modal={modal} showModal={showModal} /> : null} */}
-    <NavBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} searchForItem={searchForItem} />
+    <NavBar toys={toys} searchTerm={searchTerm} setSearchTerm={setSearchTerm} searchForItem={searchForItem} user={user} handleCurrentUser={handleCurrentUser} />
     <ul id = 'mainContainer' className={SearchCSS.mainContainer}>
       <li id = 'sidebar' className={SearchCSS.sidebar}>
         <SideBar

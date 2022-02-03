@@ -1,0 +1,23 @@
+.answer {
+  border: 2px solid black;
+  padding: 2px;
+  margin: 2px;
+}
+
+.answerBody {
+  border: 2px solid black;
+  padding: 2px;
+  margin: 2px;
+}
+
+.answerDate {
+  border: 2px solid black;
+  padding: 2px;
+  margin: 2px;
+}
+
+.answerer {
+  border: 2px solid black;
+  padding: 2px;
+  margin: 2px;
+}
