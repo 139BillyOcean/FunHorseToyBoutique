@@ -53,7 +53,6 @@ app.get('/overview/:objectId', controller.getSingleProduct);
 app.get('/overview/user/:userId', controller.getSingleUser);
 app.get('/home/search', controller.getSearchResults);
 app.get('/users', controller.getCurrentUser);
-app.get('/test', controller.test)
 
 app.get('/authenticate', (req, res) => {
   let user = req.user;

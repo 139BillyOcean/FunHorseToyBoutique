@@ -11,7 +11,7 @@ module.exports = {
   },
 
   getSingleProduct: (req, res) => {
-    console.log(req.params);
+    // console.log(req.params);
     model
       .getSingleProduct(req.params.objectId)
       .then((data) => {
@@ -127,7 +127,10 @@ module.exports = {
     let answer = req.body.answer;
     model
       .addAnswer(answer, req.query.questionId)
-      .then(() => res.sendStatus(201))
+      .then((response) => {
+        response
+        res.sendStatus(201)
+      })
       .catch((err) => res.status(404).send(err));
   },
 };
