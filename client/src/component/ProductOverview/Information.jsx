@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 // import styles from './Overview.styles.css';
 import OverviewCSS from './Overview.module.css';
-import heart_empty from '../../../dist/images/heart-empty.png';
+// import heart_empty from '../../../dist/images/heart-empty.png';
 
 const Information = ({ quantity, description, seller, tags, year, brand, condition, name }) => {
   return (
@@ -66,13 +66,13 @@ const Information = ({ quantity, description, seller, tags, year, brand, conditi
             {seller}
           </div>
         </div>
-        <div className={OverviewCSS.category} id='category'>
+        {/* <div className={OverviewCSS.category} id='category'>
           <div className={OverviewCSS.categoryTitle}>
             Add to Wishlist:
-          </div>
-          <img src={heart_empty} className={OverviewCSS.heart_hollow} />
+          </div> */}
+          {/* <img src={heart_empty} className={OverviewCSS.heart_hollow} /> */}
           {/* <img src={heart_fill} className={OverviewCSS.heart_full} */}
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );
