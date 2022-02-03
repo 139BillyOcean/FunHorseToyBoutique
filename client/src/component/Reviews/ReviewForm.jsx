@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './ReviewForm.styles.css';
-const ReviewForm = () => {
+const axios = require('axios');
+const ReviewForm = ({ productId }) => {
   const [reviewForm, setReviewForm] = useState(false);
   const [reviewTitle, setReviewTitle] = useState('');
   const [reviewBody, setReviewBody] = useState('');
-  const [reviewStars, setReviewStars] = useState(0);
 
   const handleReviewTitle = (e) => setReviewTitle(e.target.value);
   const handleReviewBody = (e) => setReviewBody(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('submit function working');
+    var review = {
+      reviewer: '',
+      body: reviewBody,
+      title: reviewTitle,
+    };
+    axios.post('/review', { review }, { params: { productId: productId } });
   };
 
   return (
