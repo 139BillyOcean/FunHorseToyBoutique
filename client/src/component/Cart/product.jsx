@@ -8,8 +8,8 @@ export const Product = ({product}) => {
     <div id='flexsetup Product' style={flexSetup}>
       <img src={product.photos[0]} id='listbox' style={img}></img>
       <div id='listbox' style={listBox}>
-        <div id='productName and price'>{product.name}  {cost}$</div>
-        <div id='productDescription'>{product.description}</div>
+        <div id='productName and price' style={listBox}>{product.name}  {cost}$</div>
+        <div id='productDescription' style={listBox}>{product.description}</div>
       </div>
     </div>
   )
