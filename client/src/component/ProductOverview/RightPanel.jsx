@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-//import styles from './Overview.styles.css';
 import OverviewCSS from './Overview.module.css';
 
 const RightPanel = () => {
