@@ -37,7 +37,9 @@ const Reviews = ({ productId }) => {
       <div>Reviews</div>
       <div className={styles.reviewSection}>
         {reviewSubData !== null &&
-          reviewSubData.map((review) => <IndividualReview review={review} />)}
+          reviewSubData.map((review) => (
+            <IndividualReview review={review} productId={productId} />
+          ))}
       </div>
       <button onClick={() => setReviewCount(reviewCount + 2)}>
         show more reviews
