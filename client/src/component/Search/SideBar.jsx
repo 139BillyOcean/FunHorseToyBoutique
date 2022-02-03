@@ -63,9 +63,9 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
       </div>
       <div>Condition</div>
       <form>
-        <input type="checkbox" value="New" onClick={handleNewClick}/>
+        <input type="checkbox" className = {SearchCSS.checkbox} value="New" onClick={handleNewClick}/>
         <label> New</label>
-        <input type="checkbox" value="Used" onClick={handleUsedClick} />
+        <input type="checkbox" className = {SearchCSS.checkbox} value="Used" onClick={handleUsedClick} />
         <label>Used</label>
       </form>
       <div>Brand</div>
@@ -96,7 +96,7 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
           <li key={index}>#{item}  <strong>x</strong></li>
         ))}
       </ul> : null}
-      <button onClick={() => {searchForItem()}}>Apply filters</button>
+      <button className={SearchCSS.filter_button} onClick={() => {searchForItem()}}>Apply filters</button>
     </div>
   )
 }

@@ -12,7 +12,7 @@ export const Cart = ({cart, handleCurrentCart}) => {
     let items = 0
     let cost = 0
     cart.map((item) => {
-      const price = item.price.sale || item.price.original
+      let price = item.price.sale || item.price.original
       items += item.selectedQuantity
       cost += (item.selectedQuantity * price)
     })
@@ -26,7 +26,7 @@ export const Cart = ({cart, handleCurrentCart}) => {
       <div id='flexSetup' style={flexSetup}>
         <DataColumn quantity={quantity} totalCost={totalCost}/>
         <ProductsColumn cart={cart}/>
-        <PaymentColumn />
+        <PaymentColumn handleCurrentCart/>
       </div>
     </div>
   )
