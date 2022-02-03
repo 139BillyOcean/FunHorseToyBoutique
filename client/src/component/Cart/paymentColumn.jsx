@@ -12,7 +12,7 @@ export const PaymentColumn = ({handleCurrentCart}) => {
 
   return (
     <div id='paymentColumn' style={listBox}>
-    {checkout ? <div id='CompletedPurchase'> Purchase Complete </div> : <button onClick={buy}> Purchase Now </button>}
+    {checkout ? <div id='CompletedPurchase' style={listBox}> Purchase Complete </div> : <button onClick={buy}> Purchase Now </button>}
     <button onClick={() => {navigate('/')}}>Home</button>
     <button onClick={() => {handleCurrentCart([])}}>Clear Cart</button>
     </div>
