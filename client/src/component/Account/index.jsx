@@ -50,22 +50,24 @@ const Account = () => {
       <button>Home</button>
       <div
         className={css.mainHeader}
+        id="main-header"
         ><h1
           className={css.headerText}
+          id="header-text"
           >Account Overview
         </h1>
       </div>
       <UserInfo
         userData={userData}
       />
-      <div className={css.listingRowContainer}>
-        <div className={css.columnContainer}>
+      <div className={css.listingRowContainer} id="purchases-listing-container">
+        <div className={css.columnContainer} id="purchases-container">
           <h3>Purchases</h3>
           <Purchases
             productInfo={userPurchases}
           />
         </div>
-        <div className={css.columnContainer}>
+        <div className={css.columnContainer} id="listings-container">
           <h3>Listings</h3>
           <Purchases
             productInfo={userPurchases}
