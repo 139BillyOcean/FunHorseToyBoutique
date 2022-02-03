@@ -331,3 +331,59 @@
     width: 100%;
   }
 }
+
+/* NavBar */
+.navigationContainer {
+  display: flex;
+  list-style-type: none;
+  height: 200px;
+  width: 100vh;
+}
+
+.logo {
+  height: 90%;
+  border: 1px solid black;
+  width: 100%;
+  text-align: center;
+}
+
+.logo img {
+  height: 100%;
+  width: 100%;
+}
+
+.nameMotto {
+  position: absolute;
+  height: 200px;
+  width: 70%;
+  left: 15%;
+  top: 5px;
+}
+
+.user {
+  position: absolute;
+  width: 183px;
+  height: 33px;
+  right: 2%;
+  top: 2%;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  background: #C4C4C4;
+}
+
+.cart {
+  padding: 10px;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 2%;
+  top: 10%;
+  background: #CF6789;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  background: #C4C4C4;
+  cursor: pointer;
+}
