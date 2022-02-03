@@ -40,7 +40,7 @@ const ListEntry = ({toy, handleCurrentCart, cart}) => {
       <p className = {SearchCSS.brand}>By {toy.brand}</p>
       </div>
       <div >
-      <img className={SearchCSS.pink_cart} onClick={handleAddToCart} src="../../../dist/images/cart-pink.png"></img>
+      <img className={SearchCSS.pink_cart} onClick={handleAddToCart} src={pinkCart}></img>
       <p className = {SearchCSS.stock}>{toyStock}</p>
       </div>
       </div>
