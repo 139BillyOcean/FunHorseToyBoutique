@@ -86,12 +86,13 @@ module.exports = {
       { new: true }
     );
   },
-  addAnswer: (answer, questionId, productId) => {
-    return Toy.findOneAndUpdate(
-      { _id: productId },
-      // { reviews: { $elemMatch: { _id: { $in: questionId } } } }
-      { reviews: { $push: { answers: answer } } },
-      { new: true }
-    );
-  },
+  // addAnswer: (answer, questionId, productId) => {
+  //   return Toy.findOne(
+  //     {_id: productId}, {'reviews': {$elemMatch: {_id: {$in: questionId}}}},
+  //     // { reviews: { $elemMatch: { _id: { $in: questionId } } } }
+  //     // { $push: { answers: answer } },
+  //     // { new: true }
+  //   )
+  //   .update({ $push: { answers: answer } }).exec()
+  // },
 };

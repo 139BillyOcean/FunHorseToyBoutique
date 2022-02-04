@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import styles from './Reviews.styles.css';
+import ReviewsCSS from './Reviews.module.css';
 import data from '../Reviews/FakeReviewData.js';
 
 const axios = require('axios');
@@ -11,7 +11,7 @@ import ReviewForm from '../Reviews/ReviewForm.jsx';
 const Reviews = ({ productId }) => {
   const [reviewData, setReviewData] = useState(null);
   const [reviewSubData, setReviewSubData] = useState(null);
-  const [reviewCount, setReviewCount] = useState(2);
+  const [reviewCount, setReviewCount] = useState(5);
 
   useEffect(() => {
     axios
@@ -31,17 +31,21 @@ const Reviews = ({ productId }) => {
     }
   }, [reviewCount]);
 
+  //need to add id name for every div so its visible in inspect elements
   return (
-    <div>
+    <div id='main' className={ReviewsCSS.main}>
       <ReviewForm productId={productId} />
-      <div>Reviews</div>
-      <div className={styles.reviewSection}>
+      <div className={ReviewsCSS.reviewSection}>
         {reviewSubData !== null &&
           reviewSubData.map((review) => (
             <IndividualReview review={review} productId={productId} />
           ))}
       </div>
-      <button onClick={() => setReviewCount(reviewCount + 2)}>
+      <button
+        id='show_btn'
+        className={ReviewsCSS.show_btn}
+        onClick={() => setReviewCount(reviewCount + 2)}
+      >
         show more reviews
       </button>
     </div>

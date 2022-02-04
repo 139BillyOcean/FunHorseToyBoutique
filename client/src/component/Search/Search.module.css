@@ -188,7 +188,7 @@ cursor: pointer;
   /* margin-right: 2%; */
   padding: 10px;
   width: 200px;
-  height: 800px;
+  height: 855px;
   left: 3px;
   top: 218px;
   background: #C4C4C4;
@@ -206,7 +206,7 @@ color: #6A8FC5;
 
 .sidebarElement {
   margin-bottom: 5px;
-  margin-top: -5px;
+  margin-top: 5px;
 }
 
 [type="checkbox"]:not(:checked),
@@ -214,6 +214,27 @@ color: #6A8FC5;
     outline: none;
     box-shadow: none;
   }
+.sort_button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  background: #6A8FC5;
+  width: 3rem;
+  height: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.sort_options {
+  width: 8rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 
 .filter_button {
 /* position: absolute; */
@@ -344,3 +365,4 @@ background-image: ;
 .options {
   font-size: 12px;
 }
+

@@ -11,7 +11,7 @@ module.exports = {
   },
 
   getSingleProduct: (req, res) => {
-    console.log(req.params);
+    // console.log(req.params);
     model
       .getSingleProduct(req.params.objectId)
       .then((data) => {
@@ -123,11 +123,11 @@ module.exports = {
       .then(() => res.sendStatus(201))
       .catch((err) => res.status(404).send(err));
   },
-  addAnswer: (req, res) => {
-    model
-      .addAnswer(req.body.answer, req.query.questionId, req.query.productId)
-      .then((response) => console.log(response))
-      .then(() => res.sendStatus(201))
-      .catch((err) => res.status(404).send(err));
-  },
+  // addAnswer: (req, res) => {
+  //   model
+  //     .addAnswer(req.body.answer, req.query.questionId, req.query.productId)
+  //     .then((response) => console.log(response))
+  //     .then(() => res.sendStatus(201))
+  //     .catch((err) => res.status(404).send(err));
+  // },
 };

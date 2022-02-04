@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {Product} from './product.jsx'
-import {mainbox} from './styles.jsx'
+import CartCSS from './Cart.module.css';
 
 export const ProductsColumn = ({cart}) => {
   return (
-    <div id='productsColumn' style={mainbox}>
+    <div id='mainbox' className={CartCSS.mainbox}>
       {cart.map((product) => <Product product={product} />)}
     </div>
   )

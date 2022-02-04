@@ -47,16 +47,17 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
   return(
     <div>
       <div className={SearchCSS.sidebarElement}>
-      <label for="sortOptions">Sort By:</label>
-        <select name="desc" onChange={ () => handleSortOptionsClick(event.target.value)}>
+      <label for="sortOptions"></label>
+        <select name="desc" onChange={ () => handleSortOptionsClick(event.target.value)}  className={SearchCSS.sort_options}>
           <option value="default" >New Arrivals</option>
           <option value="desc" >Price: High To Low</option>
           <option value="asc">Price: Low To High</option>
         </select>
-        <button onClick={() => {searchForItem()}}>Sort</button>
+        <button onClick={() => {searchForItem()}} className={SearchCSS.sort_button }>Sort</button>
         </div>
+        <hr/>
       <div className={SearchCSS.sidebarElement}>
-        <p>Filter By:</p>
+        <p>FILTER BY:</p>
       <div>
         <label for="price">Price </label>
         <input type="range" name="price" min="0" max="1000" defaultValue="1000" onChange={handleSliderChange} />
@@ -64,7 +65,8 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
       </div>
       </div>
       <div className={SearchCSS.sidebarElement}>
-        <p>Condition</p>
+      <hr/>
+        <p>CONDITION:</p>
       <form className = {SearchCSS.form}>
         <input type="checkbox" className = {SearchCSS.checkbox} value="New" onClick={handleNewClick}/>
         <label> New</label>
@@ -72,8 +74,9 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
         <label>Used</label>
       </form>
       </div>
+      <hr/>
       <div className={SearchCSS.sidebarElement}>
-        <p>Brand</p>
+        <p>BRAND: </p>
       <ul>
         {
           availableBrands.map((item,index)=> (
@@ -88,8 +91,9 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
         ))}
       </ul> : null}
       </div>
+      <hr/>
       <div className={SearchCSS.sidebarElement}>
-        <p>Keyword</p>
+        <p>KEYWORD:</p>
       <ul>
         {
           availableTags.map((item, index) => (

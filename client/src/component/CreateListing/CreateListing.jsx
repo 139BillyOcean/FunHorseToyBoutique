@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Tags from './Tags.jsx'
 import Photos from './Photos.jsx'
 import { useNavigate } from 'react-router-dom';
+import ListingCSS from './Listing.module.css';
+import logo from '../../../dist/images/Fun-Horse-Transparent.png';
 
 const CreateListing = ({user}) => {
   let navigate = useNavigate();
@@ -105,31 +107,47 @@ const CreateListing = ({user}) => {
 
   }, [photos, tags])
   return (
-    <div id='CreateListing-container'>
-    <Link to={'/'}>
-          <button id='home-button'>Home</button>
-        </Link>
-    <form id='CreateListing-overview'>
-        <label id='product-title'>
+    <div id='createListing-container' >
+      <button className={ListingCSS.home_button} onClick={() => { navigate('/'); }}>
+        Home
+      </button>
+      <Link to={'/'}>
+        {/* logo acts as home button */}
+      <img className={ListingCSS.logo} src ={logo}></img>
+          {/* <button id='home-button'>Home</button> */}
+      </Link>
+      <div className={ListingCSS.pagetitle}>List  Your Toy!</div>
+      <form className={ListingCSS.form} id='CreateListing-overview'>
+        <div>
+        <label
+        className={ListingCSS.alllabel}id='product-title'>
           Title of your Listing:
           <input
             name="name"
             type="text"
+            className={ListingCSS.input_name}
             value={inputs.name || ''}
             onChange={handleChange} />
         </label>
+        </div>
         <br />
+        <div>
         <label
+        className={ListingCSS.alllabel}
         id='product-description'>
           Description:
           <input
             name="description"
+            className={ListingCSS.input_desc}
             type="text"
             value={inputs.description || ''}
             onChange={handleChange} />
         </label>
+        </div>
+
         <br />
         <label
+        className={ListingCSS.alllabel}
         id='product-photos'>
           urls of Photos:
           {photos.map((photo)=>{
@@ -145,6 +163,7 @@ const CreateListing = ({user}) => {
           <input
             name="photos"
             type="text"
+            className={ListingCSS.input_photos}
             value={inputs.photos || ''}
             onChange={handleChange} />
         </label>
@@ -153,7 +172,8 @@ const CreateListing = ({user}) => {
           event.preventDefault()
           handleAddPhoto(event)
         }}
-        id='addPhotos'
+          id='addPhotos'
+          className = {ListingCSS.addPhotos}
         type="submit">Add photos</button>
         {/* <br />
         <label
@@ -167,9 +187,10 @@ const CreateListing = ({user}) => {
         </label> */}
         <br />
         <label
-        id='product-condition'>
+        id='product-condition' className={ListingCSS.alllabel}>
           Condition:
           <select
+          className = {ListingCSS.select}
             name="condition"
             value={inputs.condition || 'new'}
             onChange={handleChange} >
@@ -178,27 +199,32 @@ const CreateListing = ({user}) => {
             </select>
         </label>
         <label
+        className={ListingCSS.alllabel}
         id='product-price'>
           Your Price: $
           <input
             name="price"
             type="number"
-            min="0.01"
+            placeholder = "Price must be 0.01 minimum"
+            className={ListingCSS.input_price}
             value={inputs.price || 0}
             onChange={handleChange} />
         </label>
         <br />
         <label
+        className={ListingCSS.alllabel}
         id='product-brand'>
           Brand:
           <input
             name="brand"
             type="text"
+            className={ListingCSS.input_brand}
             value={inputs.brand || ''}
             onChange={handleChange} />
         </label>
         <br />
         <label
+        className={ListingCSS.alllabel}
         id='product-year'>
           Product Manufactured Year:
           <input
@@ -206,11 +232,13 @@ const CreateListing = ({user}) => {
             type="number"
             max="2022"
             min="0"
+            className={ListingCSS.input_year}
             value={inputs.year}
             onChange={handleChange} />
         </label>
         <br />
         <label
+        className={ListingCSS.alllabel}
         id='product-tags'>
           Tags:
           {tags.map((tag)=>{
@@ -226,6 +254,7 @@ const CreateListing = ({user}) => {
           <input
             name="tags"
             type="text"
+            className={ListingCSS.input_tags}
             value={inputs.tags || ''}
             onChange={handleChange} />
         </label>
@@ -234,28 +263,34 @@ const CreateListing = ({user}) => {
           event.preventDefault()
           handleAddTag(event)
         }}
-        id='addTag'
+          id='addTag'
+          className = {ListingCSS.addTag}
         type="submit">Add tag</button>
         <br />
         <label
+        className={ListingCSS.alllabel}
         id='product-quantity'>
           How many do you want to sell?:
           <input
             name="quantity"
             type="number"
             min="1"
+            className={ListingCSS.input_quantity}
             value={inputs.quantity || 1}
             onChange={handleChange} />
         </label>
         <br />
+        <div>
         <button
         onClick={(event)=>{
           event.preventDefault()
           handleSubmit(event)
           //make it link to account overivew?
         }}
-        id='addListing'
+          id='addListing'
+          className = {ListingCSS.addListing}
         type="submit">Add Listing Now</button>
+        </div>
       </form>
     </div>
   )
