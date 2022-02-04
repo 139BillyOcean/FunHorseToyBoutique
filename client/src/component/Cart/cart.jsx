@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {DataColumn} from './dataColumn.jsx'
 import {ProductsColumn} from './productsColumn.jsx'
 import {PaymentColumn} from './paymentColumn.jsx'
-import {flexSetup} from './styles.jsx'
+import {flexSetup, img} from './styles.jsx'
 
 export const Cart = ({cart, handleCurrentCart}) => {
   const [quantity, updateQuantity] = useState(0)
@@ -22,11 +22,11 @@ export const Cart = ({cart, handleCurrentCart}) => {
 
   return (
     <div>
-      <div id='SearchBar'>This will be the overhead search bar</div>
-      <div id='flexSetup' style={flexSetup}>
+      <img src='./images/Animated-Fun-Horse-Logo.gif' style={img} id='logo'></img>
+      <div id='flexSetup mainCart' style={flexSetup}>
         <DataColumn quantity={quantity} totalCost={totalCost}/>
         <ProductsColumn cart={cart}/>
-        <PaymentColumn handleCurrentCart/>
+        <PaymentColumn handleCurrentCart={handleCurrentCart}/>
       </div>
     </div>
   )

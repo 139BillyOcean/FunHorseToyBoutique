@@ -1,11 +1,12 @@
 import React from 'react';
-//import styles from './Search.styles.css';
 import SearchCSS from "./Search.module.css";
 import { useParams, Link } from 'react-router-dom';
+import pinkCart from '../../../dist/images/cart-pink.png';
+
 
 const ListEntry = ({toy, handleCurrentCart, cart}) => {
   var toyStock = '';
- 
+
 
   if (toy.quantity === 0){
       toyStock = 'OUT OF STOCK';
@@ -29,18 +30,18 @@ const ListEntry = ({toy, handleCurrentCart, cart}) => {
   return (
     <div className={SearchCSS.itemContainer}>
       <div>
-        <img src={toy.photos[0]} width="100" height="100"/>
+        <img className={SearchCSS.thumbnail} src={toy.photos[0]} width="100" height="100"/>
       </div>
-      <div >
+      <div className = {SearchCSS.title_container} >
       <Link to={`/product/${toy._id}`}>
-      <p>{toy.name}</p>
+      <p className = {SearchCSS.title}>{toy.name}</p>
       </Link>
-      <p>${toy.price.original}</p>
-      <p>By {toy.brand}</p>
+      <p className = {SearchCSS.price}>${toy.price.original}</p>
+      <p className = {SearchCSS.brand}>By {toy.brand}</p>
       </div>
       <div >
-      <button onClick={handleAddToCart}>Add to cart</button>
-      <p>{toyStock}</p>
+      <img className={SearchCSS.pink_cart} onClick={handleAddToCart} src={pinkCart}></img>
+      <p className = {SearchCSS.stock}>{toyStock}</p>
       </div>
       </div>
 

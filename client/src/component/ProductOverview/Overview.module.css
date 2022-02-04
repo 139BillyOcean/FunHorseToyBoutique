@@ -1,12 +1,11 @@
 /* ProductOverview.jsx */
 
 .productOverview {
-  width: 90%;
+  width: 100%;
   height: 60vh;
-  margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .buttonContainer {
@@ -18,8 +17,10 @@
   align-items: space-between;
 }
 
+
+
 .sell_btn {
-  width: 150px;
+  width: 200px;
   height: 86px;
   background: #CF6789;
   outline: none;
@@ -30,21 +31,30 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   color: white;
-  margin-bottom: 20px;
+  margin-top: 25%;
+  margin-bottom: 20%;
+  cursor: pointer;
+  transition: box-shadow .3s;
+}
+
+.sell_btn:hover {
+  box-shadow: 0 0 15px rgba(33,33,33,.2);
 }
 
 .price {
-  width: 150px;
+  width: 190px;
   height: 30px;
   background-color: #e4e1e1;
   padding-left: 10px;
   padding-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 20%;
   color: #6A8FC5;
   font-family: 'Montserrat';
   font-style: normal;
   text-transform: uppercase;
   border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .salePrice {
@@ -64,31 +74,51 @@
 }
 
 .addToCart {
+  width: 180px;
   background-color: #CF6789;
   color: white;
   border-radius: 12px;
+  font-family: 'Montserrat';
   padding: 10px;
   font-style: normal;
   font-size: 20px;
   cursor: pointer;
+  text-align: center;
+  margin-bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .3s;
+}
+
+.addToCart:hover {
+  box-shadow: 0 0 15px rgba(33,33,33,.2);
 }
 
 .cart_icon {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
   height: 40px;
+  padding-top: 10px;
   width: 50px;
 }
 
 .viewcart {
+  width: 200px;
   background-color: #6A8FC5;
   color: white;
   border-radius: 12px;
-  margin: 15px;
   padding: 15px;
   font-style: normal;
   font-size: 20px;
   cursor: pointer;
   outline: none;
   border: none;
+  transition: box-shadow .3s;
+}
+
+.viewcart:hover {
+  box-shadow: 0 0 15px rgba(33,33,33,.2);
 }
 
 /* Gallery.jsx */
@@ -156,6 +186,7 @@
 .information {
   width: 25%;
   flex-direction: column;
+  align-items: space-around;
 }
 
 .productTitle {
@@ -175,7 +206,7 @@
   display: flex;
   height: 91%;
   flex-direction: column;
-  align-items: space-between;
+  align-items: space-around;
   padding-left: 5px;
   padding-right: 5px;
   background-color: #eeebeb;
@@ -185,14 +216,14 @@
 .category {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 8%;
 }
 
 .categoryDescription {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
-  height: 20%;
+  height: 27%;
 }
 
 .categoryTitle {
@@ -239,21 +270,21 @@
 /* Quantity */
 .quantity {
   background-color: #C4C4C4;
-  width: 150px;
+  width: 165px;
   height: 30px;
-  padding-left: 10px;
   font-style: normal;
   font-size: 20px;;
   color: white;
   font-weight: bold;
-  padding-left: 20px;
+  padding-left: 35px;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 20%;
 }
 
 .plus {
   padding-left: 10px;
 }
+
 .plus:hover {
   padding-left: 10px;
   cursor: pointer;
@@ -342,7 +373,6 @@
 
 .logo {
   height: 90%;
-  border: 1px solid black;
   width: 100%;
   text-align: center;
 }
@@ -372,7 +402,14 @@
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   background: #C4C4C4;
+  cursor: pointer;
+  transition: box-shadow .3s;
 }
+
+.user:hover {
+  box-shadow: 0 0 15px rgba(33,33,33,.2);
+}
+
 
 .cart {
   padding: 10px;
@@ -386,4 +423,9 @@
   border-radius: 5px;
   background: #C4C4C4;
   cursor: pointer;
+  transition: box-shadow .3s;
+}
+
+.cart:hover {
+  box-shadow: 0 0 15px rgba(33,33,33,.2);
 }

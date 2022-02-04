@@ -9,6 +9,7 @@ const Purchases = ({ productInfo }) => {
           <img
             src={productInfo.photos[0]}
             className={css.profilePicture}
+            id="product-picture"
           ></img>
           {productInfo.name}
         </div>
