@@ -23,7 +23,7 @@ const UserInfo = ({ userData }) => {
         </div>
         <div className={AccountCSS.columnContainer}>
           <div className = {AccountCSS.stats}>Name: {userData.name}</div>
-          <div className = {AccountCSS.stats}>Member since: {userData.date}</div>
+          <div className = {AccountCSS.stats}>Member since: {userData.date.slice(0,10)}</div>
           <div className = {AccountCSS.stats}>Email: {userData.email}</div>
           <div className = {AccountCSS.stats} >Address: {userData.address.street} {userData.address.city} {userData.address.state}, {userData.address.zipcode}</div>
         </div>
