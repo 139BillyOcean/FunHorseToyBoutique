@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 import Tags from './Tags.jsx'
 import Photos from './Photos.jsx'
 import { useNavigate } from 'react-router-dom';
+import ListingCSS from './Listing.module.css';
+import logo from '../../../dist/images/Fun-Horse-Transparent.png';
 
-const CreateListing = ({}) => {
+const CreateListing = ({user}) => {
   let navigate = useNavigate();
   // need to grab current account info - user id to send in post
   // console.log(user)
   var curYear = new Date().getFullYear()
-  // var userId = '61f889eb145fe868b3c6979c'
+  var userId = '61f889eb145fe868b3c6979c'
 
   // need to grab home button
   //need to implement handleSubmit to either 1: refresh the page to a blank state with a ntoification saying (successfully added!) or 2: redirect to account overview page
@@ -102,40 +104,42 @@ const CreateListing = ({}) => {
   }, [photos])
 
   useEffect(()=>{
-    axios.get('/authenticate')
-      .then((response)=>{
-        // console.log(response.data.username)
-        axios.get('/users', {params: {user: response.data.username}})
-          .then((response)=>{
-            // console.log('here', response.data._id)
-            const userId = response.data._id
-          })
-      })
-  }, [])
+
+  }, [photos, tags])
   return (
-    <div id='CreateListing-container'>
-    <Link to={'/'}>
-          <button id='home-button'>Home</button>
-        </Link>
-    <form id='CreateListing-overview'>
+    <div id='createListing-container' >
+      <Link to={'/'}>
+        {/* logo acts as home button */}
+      <img className={ListingCSS.logo} src ={logo}></img>
+          {/* <button id='home-button'>Home</button> */}
+      </Link>
+      <h1>List  Your Toy!</h1>
+      <form className={ListingCSS.form} id='CreateListing-overview'>
+        <div>
         <label id='product-title'>
           Title of your Listing:
           <input
             name="name"
             type="text"
+            className={ListingCSS.input_name}
             value={inputs.name || ''}
             onChange={handleChange} />
         </label>
+        </div>
         <br />
+        <div>
         <label
         id='product-description'>
           Description:
           <input
             name="description"
+            className={ListingCSS.input_desc}
             type="text"
             value={inputs.description || ''}
             onChange={handleChange} />
         </label>
+        </div>
+
         <br />
         <label
         id='product-photos'>
@@ -153,6 +157,7 @@ const CreateListing = ({}) => {
           <input
             name="photos"
             type="text"
+            className={ListingCSS.input_photos}
             value={inputs.photos || ''}
             onChange={handleChange} />
         </label>
@@ -161,7 +166,8 @@ const CreateListing = ({}) => {
           event.preventDefault()
           handleAddPhoto(event)
         }}
-        id='addPhotos'
+          id='addPhotos'
+          className = {ListingCSS.addPhotos}
         type="submit">Add photos</button>
         {/* <br />
         <label
@@ -175,7 +181,7 @@ const CreateListing = ({}) => {
         </label> */}
         <br />
         <label
-        id='product-condition'>
+        id='product-condition' className = {ListingCSS.select}>
           Condition:
           <select
             name="condition"
@@ -190,8 +196,9 @@ const CreateListing = ({}) => {
           Your Price: $
           <input
             name="price"
-            type="number"
-            min="0.01"
+            type="text"
+            placeholder = "Price must be 0.01 minimum"
+            className={ListingCSS.input_price}
             value={inputs.price || 0}
             onChange={handleChange} />
         </label>
@@ -202,6 +209,7 @@ const CreateListing = ({}) => {
           <input
             name="brand"
             type="text"
+            className={ListingCSS.input_brand}
             value={inputs.brand || ''}
             onChange={handleChange} />
         </label>
@@ -214,13 +222,14 @@ const CreateListing = ({}) => {
             type="number"
             max="2022"
             min="0"
+            className={ListingCSS.input_year}
             value={inputs.year}
             onChange={handleChange} />
         </label>
         <br />
         <label
         id='product-tags'>
-          Keywords:
+          Tags:
           {tags.map((tag)=>{
             return(
             <Tags
@@ -234,6 +243,7 @@ const CreateListing = ({}) => {
           <input
             name="tags"
             type="text"
+            className={ListingCSS.input_tags}
             value={inputs.tags || ''}
             onChange={handleChange} />
         </label>
@@ -242,7 +252,8 @@ const CreateListing = ({}) => {
           event.preventDefault()
           handleAddTag(event)
         }}
-        id='addTag'
+          id='addTag'
+          className = {ListingCSS.addTag}
         type="submit">Add tag</button>
         <br />
         <label
@@ -252,6 +263,7 @@ const CreateListing = ({}) => {
             name="quantity"
             type="number"
             min="1"
+            className={ListingCSS.input_quantity}
             value={inputs.quantity || 1}
             onChange={handleChange} />
         </label>
@@ -262,7 +274,8 @@ const CreateListing = ({}) => {
           handleSubmit(event)
           //make it link to account overivew?
         }}
-        id='addListing'
+          id='addListing'
+          className = {ListingCSS.addListing}
         type="submit">Add Listing Now</button>
       </form>
     </div>

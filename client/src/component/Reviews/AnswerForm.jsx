@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import styles from './AnswerForm.styles.css';
 const axios = require('axios');
 
-const AnswerForm = ({ questionId }) => {
+const AnswerForm = ({ questionId, productId }) => {
   const [AnswerForm, setAnswerForm] = useState(false);
   const [AnswerTitle, setAnswerTitle] = useState('');
   const [AnswerBody, setAnswerBody] = useState('');
@@ -12,12 +12,16 @@ const AnswerForm = ({ questionId }) => {
   const handleAnswerBody = (e) => setAnswerBody(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
-    var Answer = {
-      Answerer: '',
+    var answer = {
+      answerer: '',
       body: AnswerBody,
       title: AnswerTitle,
     };
-    axios.post('/Answer', { Answer }, { params: { questionId: questionId } });
+    axios.post(
+      '/answer',
+      { answer },
+      { params: { questionId: questionId, productId: productId } }
+    );
   };
 
   return (

@@ -48,6 +48,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/home', controller.getAllProducts);
+
 app.get('/home/search/:searchTerm', controller.getSearchResults);
 app.get('/overview/:objectId', controller.getSingleProduct);
 app.get('/overview/user/:userId', controller.getSingleUser);

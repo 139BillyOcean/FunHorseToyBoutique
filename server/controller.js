@@ -123,14 +123,11 @@ module.exports = {
       .then(() => res.sendStatus(201))
       .catch((err) => res.status(404).send(err));
   },
-  addAnswer: (req, res) => {
-    let answer = req.body.answer;
-    model
-      .addAnswer(answer, req.query.questionId)
-      .then((response) => {
-        response
-        res.sendStatus(201)
-      })
-      .catch((err) => res.status(404).send(err));
-  },
+  // addAnswer: (req, res) => {
+  //   model
+  //     .addAnswer(req.body.answer, req.query.questionId, req.query.productId)
+  //     .then((response) => console.log(response))
+  //     .then(() => res.sendStatus(201))
+  //     .catch((err) => res.status(404).send(err));
+  // },
 };

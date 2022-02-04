@@ -1,4 +1,5 @@
 const { Toy, User } = require('../database/index.js');
+const mongoose = require('mongoose');
 
 module.exports = {
   getAllProducts: () => {
@@ -85,11 +86,13 @@ module.exports = {
       { new: true }
     );
   },
-  addAnswer: (answer, questionId) => {
-    return Toy.findOneAndUpdate(
-      { _id: questionId },
-      { $push: { answers: answer } },
-      { new: true }
-    );
-  },
+  // addAnswer: (answer, questionId, productId) => {
+  //   return Toy.findOne(
+  //     {_id: productId}, {'reviews': {$elemMatch: {_id: {$in: questionId}}}},
+  //     // { reviews: { $elemMatch: { _id: { $in: questionId } } } }
+  //     // { $push: { answers: answer } },
+  //     // { new: true }
+  //   )
+  //   .update({ $push: { answers: answer } }).exec()
+  // },
 };
