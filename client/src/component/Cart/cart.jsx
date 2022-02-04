@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {DataColumn} from './dataColumn.jsx'
 import {ProductsColumn} from './productsColumn.jsx'
 import {PaymentColumn} from './paymentColumn.jsx'
-import {flexSetup, img} from './styles.jsx'
+import CartCSS from './Cart.module.css';
 
 export const Cart = ({cart, handleCurrentCart}) => {
   const [quantity, updateQuantity] = useState(0)
@@ -23,10 +23,12 @@ export const Cart = ({cart, handleCurrentCart}) => {
   return (
     <div>
       <img src='./images/Animated-Fun-Horse-Logo.gif' style={img} id='logo'></img>
-      <div id='flexSetup mainCart' style={flexSetup}>
+      <div id='flexSetup mainCart' className={CartCSS.content}>
+        <div className = {CartCSS.total}>
         <DataColumn quantity={quantity} totalCost={totalCost}/>
+        </div>
         <ProductsColumn cart={cart}/>
-        <PaymentColumn cart={cart} handleCurrentCart={handleCurrentCart}/>
+        <PaymentColumn handleCurrentCart={handleCurrentCart}/>
       </div>
     </div>
   )

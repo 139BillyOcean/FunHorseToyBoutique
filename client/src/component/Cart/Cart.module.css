@@ -1,0 +1,147 @@
+
+.content {
+display: flex;
+justify-content: center;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+border-radius:12px;
+column-gap: 20px;
+row-gap: 20px;
+margin-top: 100px;
+width: 95%;
+padding: 0;
+margin: 10px;
+}
+
+.item {
+  display: flex;
+justify-content: center;
+border: 3px white solid;
+margin-top: 30px;
+margin-bottom: 30px;
+background: #C4C4C4;
+color: white;
+border-radius: 12px;
+
+}
+
+.mainbox {
+  padding: 5px;
+  padding-left: 5%;
+  padding-right: 5%;
+  flex-grow: 3;
+  background-color: #E5E5E5;
+}
+
+.listBox {
+  padding: 5px;
+  padding-left: 5%;
+  padding-right: 5%;
+  flex-grow: 1;
+  border-radius:12px;
+}
+.name {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  text-transform: uppercase;
+  margin: 10px;
+  padding: 10px;
+}
+
+.desc {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: white;
+  margin: 15px;
+}
+
+.payment {
+  /* padding: 5px; */
+  padding-left: 2%;
+  padding-right: 5%;
+  padding-bottom: 2%;
+  border-radius:12px;
+  background-color: #E5E5E5;
+}
+
+.home_btn {
+/*
+position: absolute; */
+width: 142px;
+height: 49px;
+outline: none;
+border: none;
+background: #CDA261;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 12px;
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+color: #FFFFFF;
+margin-left: 35px;
+margin-top: 50px;
+}
+
+.img {
+  height: 150px;
+  width: 150px;
+  margin: 20px;
+  border-radius: 12px;
+}
+.total {
+padding: 20px;
+min-width: 221px;
+height: 86px;
+background: #C4C4C4;
+color: white;
+border-radius: 12px;
+}
+.purchase_done {
+  padding: 30px;
+  color: #CF6789;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+}
+.clear_btn {
+width: 207px;
+height: 45px;
+ margin-left: 15px;
+margin-top: 50px;
+outline: none;
+border: none;
+background: #6A8FC5;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 12px;
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+color: #FFFFFF;
+}
+
+.purchase_btn {
+  width: 207px;
+  height: 45px;
+  margin-left: 25px;
+  margin-top: 50px;
+  outline: none;
+  border: none;
+  background: #CF6789;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: #FFFFFF;
+}
