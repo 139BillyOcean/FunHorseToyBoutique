@@ -113,7 +113,7 @@ const CreateListing = ({user}) => {
       <img className={ListingCSS.logo} src ={logo}></img>
           {/* <button id='home-button'>Home</button> */}
       </Link>
-      <h1>List  Your Toy!</h1>
+      <div className={ListingCSS.pagetitle}>List  Your Toy!</div>
       <form className={ListingCSS.form} id='CreateListing-overview'>
         <div>
         <label id='product-title'>
@@ -196,7 +196,7 @@ const CreateListing = ({user}) => {
           Your Price: $
           <input
             name="price"
-            type="text"
+            type="number"
             placeholder = "Price must be 0.01 minimum"
             className={ListingCSS.input_price}
             value={inputs.price || 0}
@@ -268,6 +268,7 @@ const CreateListing = ({user}) => {
             onChange={handleChange} />
         </label>
         <br />
+        <div>
         <button
         onClick={(event)=>{
           event.preventDefault()
@@ -277,6 +278,7 @@ const CreateListing = ({user}) => {
           id='addListing'
           className = {ListingCSS.addListing}
         type="submit">Add Listing Now</button>
+        </div>
       </form>
     </div>
   )

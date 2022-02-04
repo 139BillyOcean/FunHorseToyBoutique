@@ -16,6 +16,20 @@ align-items: center;
 justify-content: center; */
 }
 
+.pagetitle {
+  position: absolute;
+width: 413px;
+height: 73px;
+left: 696px;
+top: 25px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 60px;
+line-height: 73px;
+color: #6A8FC5;
+}
+
  label {
 width: 238px;
 height: 29px;
@@ -29,7 +43,7 @@ color: #FFFFFF;
 }
 
 
-h1 {
+/* h1 {
 position: absolute;
 width: 413px;
 height: 73px;
@@ -41,7 +55,7 @@ font-weight: 500;
 font-size: 60px;
 line-height: 73px;
 color: #6A8FC5;
-}
+} */
 
 
 .input_name {
@@ -189,7 +203,7 @@ text-transform: uppercase;
 }
 
 input[type=text] {
-  color: white;
+  color: rgb(0, 0, 0);
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
