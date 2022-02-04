@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import styles from './IndividualReview.styles.css';
+import IndividualReviewCSS from './IndividualReview.module.css';
 import data from '../Reviews/FakeReviewData.js';
 import Answers from '../Reviews/Answers.jsx';
 import AnswerForm from '../Reviews/AnswerForm.jsx';
@@ -18,30 +18,40 @@ const IndividualReview = ({ review, productId }) => {
   }, [answers]);
 
   return (
-    <div className={styles.review}>
-      <div className={styles.reviewer}>Reviewer: {review.reviewer}</div>
+    <div className={IndividualReviewCSS.review}>
+      <div className={IndividualReviewCSS.reviewer}>
+        Name: {review.reviewer}
+      </div>
       {review.title === undefined ? (
-        <span className={styles.reviewTitle}>Title: Untitled</span>
+        <span className={IndividualReviewCSS.reviewTitle}>
+          Title: No Title Yet
+        </span>
       ) : (
-        <span className={styles.reviewTitle}>Title: {review.title}</span>
+        <span className={IndividualReviewCSS.reviewTitle}>
+          Title: {review.title}
+        </span>
       )}
-      <span className={styles.reviewDate}>Date: {review.date}</span>
-      <div className={styles.reviewBody}>{review.body}</div>
-      <div className={styles.reviewHelpful}>Helpfulness: {review.helpful}</div>
-      <div>Answers</div>
+      <span className={IndividualReviewCSS.reviewDate}>
+        Date: {review.date}
+      </span>
+      <div className={IndividualReviewCSS.reviewBody}>{review.body}</div>
+      {/* <div className={IndividualReviewCSS.reviewHelpful}>
+        Helpfulness: {review.helpful}
+      </div> */}
+      {/* <div className={IndividualReviewCSS.answer_title}>Answers:</div>
       {answers === true && (
         <Answers
           answers={review.answers}
           questionId={review._id}
           productId={productId}
         />
-      )}
-      <AnswerForm
+      )} */}
+      {/* <AnswerForm
         answers={review.answers}
         questionId={review._id}
         productId={productId}
-      />
-      <button onClick={() => showAnswers(!answers)}>{buttonString}</button>
+      /> */}
+      {/* <button id = 'show-hide-btn' className={ IndividualReviewCSS.showhide_btn} onClick={() => showAnswers(!answers)}>{buttonString}</button> */}
     </div>
   );
 };
