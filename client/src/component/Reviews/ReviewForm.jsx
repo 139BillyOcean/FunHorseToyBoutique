@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './ReviewForm.styles.css';
 const axios = require('axios');
@@ -6,13 +6,23 @@ const ReviewForm = ({ productId }) => {
   const [reviewForm, setReviewForm] = useState(false);
   const [reviewTitle, setReviewTitle] = useState('');
   const [reviewBody, setReviewBody] = useState('');
+  const [userName, setUserName] = useState('Log In');
 
   const handleReviewTitle = (e) => setReviewTitle(e.target.value);
   const handleReviewBody = (e) => setReviewBody(e.target.value);
+
+  useEffect(() => {
+    axios.get('/authenticate').then((results) => {
+      if (results.data) {
+        setUserName(results.data.username);
+      }
+    }, []);
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     var review = {
-      reviewer: '',
+      reviewer: userName,
       body: reviewBody,
       title: reviewTitle,
     };
