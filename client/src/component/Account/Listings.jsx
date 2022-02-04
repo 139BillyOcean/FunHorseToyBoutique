@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './Account.styles.css';
+import AccountCSS from './Account.module.css';
 
 const Listings = () => {
   return (

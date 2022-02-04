@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import css from './Account.styles.css';
+import AccountCSS from './Account.module.css';
 import UserInfo from './UserInfo.jsx';
 import Purchases from './Purchases.jsx';
 import Listings from './Listings.jsx';
@@ -45,36 +45,42 @@ const Account = () => {
     })
   }, [currentUser])
 
+
+  //add Anna's <Navbar /> instead home button to the top
   return (
     <div>
       <button>Home</button>
+      <div id= 'container' className = {AccountCSS.container}>
       <div
-        className={css.mainHeader}
+        className={AccountCSS.mainHeader}
         id="main-header"
         ><h1
-          className={css.headerText}
+          className={AccountCSS.headerText}
           id="header-text"
           >Account Overview
         </h1>
-      </div>
+        </div>
+        <div id = 'content' className = {AccountCSS.content}>
       <UserInfo
         userData={userData}
       />
-      <div className={css.listingRowContainer} id="purchases-listing-container">
-        <div className={css.columnContainer} id="purchases-container">
-          <h3>Purchases</h3>
+      <div className={AccountCSS.listingRowContainer} id="purchases-listing-container">
+        <div className={AccountCSS.columnContainer} id="purchases-container">
+          <h3 className = {AccountCSS.title}>Purchases</h3>
           <Purchases
             productInfo={userPurchases}
           />
         </div>
-        <div className={css.columnContainer} id="listings-container">
-          <h3>Listings</h3>
+        <div className={AccountCSS.columnContainer} id="listings-container">
+          <h3 className = {AccountCSS.title}>Listings</h3>
           <Purchases
             productInfo={userPurchases}
           />
         </div>
       </div>
-    </div>
+      </div>
+      </div>
+      </div>
   );
 };
 
