@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
-
+import ListingCSS from './Listing.module.css';
 const Photos = ({onClick, index, photo}) => {
   return(
-  <ul onClick={()=>{
+  <ul
+  className={ListingCSS.createlistingadds}
+  onClick={()=>{
     event.preventDefault()
     onClick(index)
     }}>
