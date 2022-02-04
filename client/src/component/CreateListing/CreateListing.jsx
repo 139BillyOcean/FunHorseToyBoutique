@@ -108,6 +108,9 @@ const CreateListing = ({user}) => {
   }, [photos, tags])
   return (
     <div id='createListing-container' >
+      <button className={ListingCSS.home_button} onClick={() => { navigate('/'); }}>
+        Home
+      </button>
       <Link to={'/'}>
         {/* logo acts as home button */}
       <img className={ListingCSS.logo} src ={logo}></img>
@@ -116,7 +119,8 @@ const CreateListing = ({user}) => {
       <div className={ListingCSS.pagetitle}>List  Your Toy!</div>
       <form className={ListingCSS.form} id='CreateListing-overview'>
         <div>
-        <label id='product-title'>
+        <label
+        className={ListingCSS.alllabel}id='product-title'>
           Title of your Listing:
           <input
             name="name"
@@ -129,6 +133,7 @@ const CreateListing = ({user}) => {
         <br />
         <div>
         <label
+        className={ListingCSS.alllabel}
         id='product-description'>
           Description:
           <input
@@ -142,6 +147,7 @@ const CreateListing = ({user}) => {
 
         <br />
         <label
+        className={ListingCSS.alllabel}
         id='product-photos'>
           urls of Photos:
           {photos.map((photo)=>{
@@ -181,9 +187,10 @@ const CreateListing = ({user}) => {
         </label> */}
         <br />
         <label
-        id='product-condition' className = {ListingCSS.select}>
+        id='product-condition' className={ListingCSS.alllabel}>
           Condition:
           <select
+          className = {ListingCSS.select}
             name="condition"
             value={inputs.condition || 'new'}
             onChange={handleChange} >
@@ -192,6 +199,7 @@ const CreateListing = ({user}) => {
             </select>
         </label>
         <label
+        className={ListingCSS.alllabel}
         id='product-price'>
           Your Price: $
           <input
@@ -204,6 +212,7 @@ const CreateListing = ({user}) => {
         </label>
         <br />
         <label
+        className={ListingCSS.alllabel}
         id='product-brand'>
           Brand:
           <input
@@ -215,6 +224,7 @@ const CreateListing = ({user}) => {
         </label>
         <br />
         <label
+        className={ListingCSS.alllabel}
         id='product-year'>
           Product Manufactured Year:
           <input
@@ -228,6 +238,7 @@ const CreateListing = ({user}) => {
         </label>
         <br />
         <label
+        className={ListingCSS.alllabel}
         id='product-tags'>
           Tags:
           {tags.map((tag)=>{
@@ -257,6 +268,7 @@ const CreateListing = ({user}) => {
         type="submit">Add tag</button>
         <br />
         <label
+        className={ListingCSS.alllabel}
         id='product-quantity'>
           How many do you want to sell?:
           <input
