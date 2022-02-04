@@ -7,12 +7,11 @@ import { useNavigate } from 'react-router-dom';
 import ListingCSS from './Listing.module.css';
 import logo from '../../../dist/images/Fun-Horse-Transparent.png';
 
-const CreateListing = ({user}) => {
+const CreateListing = () => {
   let navigate = useNavigate();
   // need to grab current account info - user id to send in post
   // console.log(user)
   var curYear = new Date().getFullYear()
-  var userId = '61f889eb145fe868b3c6979c'
 
   // need to grab home button
   //need to implement handleSubmit to either 1: refresh the page to a blank state with a ntoification saying (successfully added!) or 2: redirect to account overview page
@@ -21,6 +20,7 @@ const CreateListing = ({user}) => {
   // const [description, setDescription] = useState('')
   // const [condition ,setCondition] = useState('')
   // const [features, setFeatures] = useState('')
+  const [userId, setUserId] = useState('61f889eb145fe868b3c6979c')
   const [tags, setTags] = useState([])
   const [photos, setPhotos] = useState([])
   const [inputs, setInputs] = useState({
@@ -104,8 +104,17 @@ const CreateListing = ({user}) => {
   }, [photos])
 
   useEffect(()=>{
-
-  }, [photos, tags])
+    axios.get('/authenticate')
+      .then((result)=>{
+        // console.log(result.data)
+        axios.get('/users', {params: {user: result.data.username}})
+          .then((response)=>{
+            // console.log(response.data._id)
+            setUserId(response.data._id)
+            // console.log(userId)
+          })
+      })
+  }, [])
   return (
     <div id='createListing-container' >
       <button className={ListingCSS.home_button} onClick={() => { navigate('/'); }}>
