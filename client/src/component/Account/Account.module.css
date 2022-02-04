@@ -1,0 +1,147 @@
+
+.container {
+  width: 100%;
+  border-radius: 12px;
+  background-color: white;
+}
+
+.mainHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
+  width: 90%;
+}
+
+.headerText {
+  align-self: flex-end;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 48px;
+/* identical to box height */
+color: #6A8FC5;
+margin-left: 150px;
+
+}
+
+.profilePicture {
+  height: 120px;
+  width: 120px;
+  margin: 10px;
+  border: 3px solid #6A8FC5;
+  border-radius: 12px;
+}
+.item {
+  height: 160px;
+  width: 120px;
+  margin: 10px;
+  border: 3px solid #6A8FC5;
+  border-radius: 12px;
+}
+
+
+.content {
+  background-color: #C4C4C4;
+margin-left: 50px;
+padding-bottom: 20px;
+padding-right: 20px;
+border-radius: 12px;
+width: 92%;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 20px;
+  width: 90%;
+}
+
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: white;
+  /* margin-left: 50px;
+  margin-right: 50px; */
+}
+
+.item_stats {
+  display: flex;
+  flex-direction: column;
+  color: #6A8FC5;
+  background-color: #E5E5E5;
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+margin-left: 10px;
+padding: 20px;
+border-radius: 12px;
+}
+
+.columnContainer .image {
+  padding: 0;
+  margin: 0;
+}
+
+.listingRowContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  width: 97%;
+  background-color: white;
+}
+
+.username {
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+color: #6A8FC5;
+margin-left: 10px;
+}
+
+.name {
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+color: #6A8FC5;
+margin-left: 10px;
+border-bottom: 3px solid #6A8FC5;
+}
+
+.stats {
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+color: #6A8FC5;
+}
+
+.title {
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+color: #6A8FC5;
+margin-left: 10px;
+text-transform: uppercase;
+padding: 0;
+margin-left: 20px;
+margin-top: 0;
+margin-bottom: 20px;
+border-bottom: 3px solid #6A8FC5 ;
+}
