@@ -19,22 +19,24 @@ const IndividualReview = ({ review, productId }) => {
 
   return (
     <div className={IndividualReviewCSS.review}>
+      <div className={IndividualReviewCSS.reviewDate}>
+        Date: {review.date.slice(0, 10)}
+      </div>
       <div className={IndividualReviewCSS.reviewer}>
         Name: {review.reviewer}
       </div>
       {review.title === undefined ? (
-        <span className={IndividualReviewCSS.reviewTitle}>
+        <div className={IndividualReviewCSS.reviewTitle}>
           Title: No Title Yet
-        </span>
+        </div>
       ) : (
-        <span className={IndividualReviewCSS.reviewTitle}>
+        <div className={IndividualReviewCSS.reviewTitle}>
           Title: {review.title}
-        </span>
+        </div>
       )}
-      <span className={IndividualReviewCSS.reviewDate}>
-        Date: {review.date}
-      </span>
-      <div className={IndividualReviewCSS.reviewBody}>{review.body}</div>
+      <div className={IndividualReviewCSS.reviewBody}>
+        Review: {review.body}
+      </div>
       {/* <div className={IndividualReviewCSS.reviewHelpful}>
         Helpfulness: {review.helpful}
       </div> */}

@@ -32,6 +32,7 @@ const ReviewForm = ({ productId }) => {
     } else {
       alert('Please login before adding a review');
     }
+    setReviewForm(!reviewForm);
   };
 
   return (
