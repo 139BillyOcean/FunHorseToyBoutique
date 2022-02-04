@@ -206,7 +206,7 @@ color: #6A8FC5;
 
 .sidebarElement {
   margin-bottom: 5px;
-  margin-top: -5px;
+  margin-top: 5px;
 }
 
 [type="checkbox"]:not(:checked),
