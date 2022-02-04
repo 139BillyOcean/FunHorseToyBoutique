@@ -68,6 +68,7 @@ module.exports = {
   addListingToUser: (data) => {
     //iwth userid, add listing id to user document
     // data.user
+    // console.log('data after creating lisitng', data)
     var toyId = data._id;
     return User.findOneAndUpdate(
       { _id: data.user },
