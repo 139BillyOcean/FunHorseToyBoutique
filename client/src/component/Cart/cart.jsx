@@ -13,8 +13,8 @@ export const Cart = ({cart, handleCurrentCart}) => {
     let cost = 0
     cart.map((item) => {
       let price = item.price.sale || item.price.original
-      items += item.selectedQuantity
-      cost += (item.selectedQuantity * price)
+      items += item.selectedQuantity || 1
+      cost += ((item.selectedQuantity || 1 ) * price)
     })
     updateQuantity(items)
     updateTotalCost(cost)
