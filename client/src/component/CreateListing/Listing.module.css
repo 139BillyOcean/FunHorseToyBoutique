@@ -16,6 +16,16 @@
   border: none;
 }
 
+.select {
+  width: 5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 1px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .home_button:hover {
   opacity: 0.5;
   cursor: pointer;
@@ -24,7 +34,7 @@
 .form {
   position: relative;
 width: 55vw;
-height: 100vh;
+height: 80%;
 /* display: flex; */
 /* align-items: center; */
 /* justify-content: center; */
@@ -58,7 +68,7 @@ color: #6A8FC5;
  .alllabel {
 width: 238px;
 height: 29px;
-padding-left: 87px;
+padding-left: 60px;
 font-weight: 500;
 font-size: 24px;
 line-height: 29px;
@@ -210,9 +220,30 @@ text-transform: uppercase;
 margin-left: 6.5vw;
 margin-bottom: 10px;
 }
+.createlistingadds {
+  color: #6A8FC5;
+}
 
 .addListing {
-  /* position: relative; */
+  width: 150px;
+  height: 50px;
+  background: #CF6789;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  color: white;
+  font-style: normal;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-left: 450px;
+}
+/*
+.addListing {
+  position: relative;
 width: 273px;
 height: 54px;
 left: 391px;
@@ -228,7 +259,7 @@ font-family: 'Montserrat', sans-serif;
 font-size: 15px;
 letter-spacing: 1px;
 text-transform: uppercase;
-}
+} */
 
 input[type=text] {
   text-align: left;
