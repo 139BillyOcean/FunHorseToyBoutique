@@ -188,7 +188,7 @@ cursor: pointer;
   /* margin-right: 2%; */
   padding: 10px;
   width: 200px;
-  height: 800px;
+  height: 855px;
   left: 3px;
   top: 218px;
   background: #C4C4C4;
@@ -206,7 +206,7 @@ color: #6A8FC5;
 
 .sidebarElement {
   margin-bottom: 5px;
-  margin-top: -5px;
+  margin-top: 5px;
 }
 
 [type="checkbox"]:not(:checked),
