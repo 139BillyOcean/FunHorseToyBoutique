@@ -4,6 +4,7 @@ import UserInfo from './UserInfo.jsx';
 import Purchases from './Purchases.jsx';
 import Listings from './Listings.jsx';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 // import toyData from '../../data/toys.js';
 
 const Account = () => {
@@ -45,11 +46,15 @@ const Account = () => {
     })
   }, [currentUser])
 
+  const navigate = useNavigate();
+  const handleHome = () => {
+    navigate('/');
+  }
 
   //add Anna's <Navbar /> instead home button to the top
   return (
     <div>
-      <button>Home</button>
+      <button onClick={handleHome}>Home</button>
       <div id= 'container' className = {AccountCSS.container}>
       <div
         className={AccountCSS.mainHeader}
