@@ -26,7 +26,7 @@ export const Cart = ({cart, handleCurrentCart}) => {
       <div id='flexSetup mainCart' style={flexSetup}>
         <DataColumn quantity={quantity} totalCost={totalCost}/>
         <ProductsColumn cart={cart}/>
-        <PaymentColumn handleCurrentCart={handleCurrentCart}/>
+        <PaymentColumn cart={cart} handleCurrentCart={handleCurrentCart}/>
       </div>
     </div>
   )

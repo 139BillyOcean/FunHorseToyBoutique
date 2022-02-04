@@ -187,6 +187,7 @@
   width: 25%;
   flex-direction: column;
   align-items: space-around;
+  height: 100%;
 }
 
 .productTitle {
@@ -385,8 +386,8 @@
 .nameMotto {
   position: absolute;
   height: 200px;
-  width: 70%;
-  left: 15%;
+  width: 750px;
+  left: 30%;
   top: 5px;
 }
 

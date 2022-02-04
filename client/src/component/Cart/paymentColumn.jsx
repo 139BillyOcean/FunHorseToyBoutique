@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {listBox} from './styles.jsx'
 import {useNavigate} from 'react-router-dom'
 
-export const PaymentColumn = ({handleCurrentCart}) => {
+export const PaymentColumn = ({cart, handleCurrentCart}) => {
   const [checkout, changeCheckout] = useState(false)
   let navigate = useNavigate();
   const buy = () => {

@@ -1,6 +1,6 @@
-const currentCartReducer = (state = {}, action) => {
+const currentCartReducer = (state = [], action) => {
   switch (action.type) {
-  case 'CHANGE_CART':
+  case 'UPDATE_CART':
     if (action.cart) {
       return state = action.cart;
     } else {

@@ -1,6 +1,6 @@
 const currentUserReducer = (state = {}, action) => {
   switch (action.type) {
-  case 'CHANGE_USER':
+  case 'UPDATE_USER':
     if (action.user) {
       return state = action.user;
     } else {
