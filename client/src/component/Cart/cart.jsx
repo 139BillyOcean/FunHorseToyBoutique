@@ -22,7 +22,7 @@ export const Cart = ({cart, handleCurrentCart}) => {
 
   return (
     <div>
-      <img src='./images/Animated-Fun-Horse-Logo.gif' style={img} id='logo'></img>
+      <img src='./images/Animated-Fun-Horse-Logo.gif' id='logo' className={CartCSS.img}></img>
       <div id='flexSetup mainCart' className={CartCSS.content}>
         <div className = {CartCSS.total}>
         <DataColumn quantity={quantity} totalCost={totalCost}/>
