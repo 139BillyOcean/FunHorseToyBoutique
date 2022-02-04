@@ -62,7 +62,7 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
         <output for="price">$0 - ${maxPrice}</output>
       </div>
       <div>Condition</div>
-      <form>
+      <form className = {SearchCSS.form}>
         <input type="checkbox" className = {SearchCSS.checkbox} value="New" onClick={handleNewClick}/>
         <label> New</label>
         <input type="checkbox" className = {SearchCSS.checkbox} value="Used" onClick={handleUsedClick} />
@@ -82,7 +82,7 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
           <li key={index}>#{item}  <strong>x</strong></li>
         ))}
       </ul> : null}
-      <div>Tag</div>
+      <div>Keyword</div>
       <ul>
         {
           availableTags.map((item, index) => (

@@ -188,7 +188,7 @@ cursor: pointer;
   /* margin-right: 2%; */
   padding: 10px;
   width: 200px;
-  height: 810px;
+  height: 700px;
   left: 3px;
   top: 218px;
   background: #C4C4C4;
@@ -242,10 +242,12 @@ height: fit-content;
 left: 215px;
 top: 218px;
 background: #E5E5E5;
-margin-left: 35px;
+margin-left: 60px;
 padding-top: 30px;
 padding-bottom: 30px;
-padding-left: 20px;
+padding-left: 10px;
+border-radius: 12px;
+
 }
 
 .content_container {
@@ -253,7 +255,7 @@ width: 1200px;
 display: flex;
 flex-wrap: wrap;
 flex-direction: row;
-row-gap: 10px;
+row-gap: 20px;
 column-gap: 20px;
 justify-content: center;
 }
