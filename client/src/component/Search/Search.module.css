@@ -214,6 +214,14 @@ color: #6A8FC5;
     outline: none;
     box-shadow: none;
   }
+.sort_button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  background: #6A8FC5;
+}
 
 .filter_button {
 /* position: absolute; */

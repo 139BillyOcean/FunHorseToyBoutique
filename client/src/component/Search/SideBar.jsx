@@ -53,8 +53,9 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
           <option value="desc" >Price: High To Low</option>
           <option value="asc">Price: Low To High</option>
         </select>
-        <button onClick={() => {searchForItem()}}>Sort</button>
+        <button onClick={() => {searchForItem()}} className={SearchCSS.sort_button }>Sort</button>
         </div>
+        <hr/>
       <div className={SearchCSS.sidebarElement}>
         <p>Filter By:</p>
       <div>
@@ -64,6 +65,7 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
       </div>
       </div>
       <div className={SearchCSS.sidebarElement}>
+      <hr/>
         <p>Condition</p>
       <form className = {SearchCSS.form}>
         <input type="checkbox" className = {SearchCSS.checkbox} value="New" onClick={handleNewClick}/>
@@ -72,6 +74,7 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
         <label>Used</label>
       </form>
       </div>
+      <hr/>
       <div className={SearchCSS.sidebarElement}>
         <p>Brand</p>
       <ul>
@@ -88,6 +91,7 @@ const SideBar = ({searchForItem, usedFilter, setUsedFilter, newFilter, setNewFil
         ))}
       </ul> : null}
       </div>
+      <hr/>
       <div className={SearchCSS.sidebarElement}>
         <p>Keyword</p>
       <ul>
