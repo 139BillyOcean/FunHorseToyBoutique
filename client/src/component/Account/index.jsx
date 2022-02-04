@@ -46,6 +46,16 @@ const Account = () => {
     })
   }, [currentUser])
 
+  useEffect(() => {
+    axios.get(`/overview/${userData.listings}`)
+      .then((response) => {
+        setUserListings(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }, [userData])
+
   const navigate = useNavigate();
   const handleHome = () => {
     navigate('/');
@@ -79,7 +89,7 @@ const Account = () => {
         <div className={AccountCSS.columnContainer} id="listings-container">
           <h3 className = {AccountCSS.title}>Listings</h3>
           <Purchases
-            productInfo={userPurchases}
+            productInfo={userListings}
           />
         </div>
       </div>

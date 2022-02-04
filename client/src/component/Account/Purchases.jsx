@@ -15,9 +15,9 @@ const Purchases = ({ productInfo }) => {
           </div>
         </div>
         <div className={AccountCSS.item_stats}>
-          <div>Price: {productInfo.price.original}</div>
+          <div>Price: ${productInfo.price.original}</div>
           <div>Condition: {productInfo.condition}</div>
-          <div>Date: {productInfo.dateCreated}</div>
+          <div>Date: {productInfo.dateCreated.slice(0,10)}</div>
         </div>
       </div>
     )
