@@ -100,8 +100,10 @@
   text-transform: uppercase;
 }
 .input_review {
+  position: relative;
+  left: 5%;
   width: 65%;
-  height: 40px;
+  height: 80px;
   background: #c4c4c4;
   border: 2px solid #ffffff;
   box-sizing: border-box;
@@ -116,6 +118,8 @@
 }
 
 .submit_btn {
+  position: relative;
+  left: 73%;
   width: 100px;
   height: 30px;
   background: #cf6789;

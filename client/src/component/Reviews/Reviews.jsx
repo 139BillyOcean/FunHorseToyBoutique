@@ -11,7 +11,7 @@ import ReviewForm from '../Reviews/ReviewForm.jsx';
 const Reviews = ({ productId }) => {
   const [reviewData, setReviewData] = useState(null);
   const [reviewSubData, setReviewSubData] = useState(null);
-  const [reviewCount, setReviewCount] = useState(5);
+  const [reviewCount, setReviewCount] = useState(10);
 
   useEffect(() => {
     axios
@@ -19,7 +19,7 @@ const Reviews = ({ productId }) => {
       .then(
         (response) => (
           setReviewData(response.data.reviews),
-          setReviewSubData(response.data.reviews.slice(0, 5))
+          setReviewSubData(response.data.reviews.slice(0, 10))
         )
       )
       .catch((err) => console.log(err));
@@ -44,7 +44,7 @@ const Reviews = ({ productId }) => {
       <button
         id='show_btn'
         className={ReviewsCSS.show_btn}
-        onClick={() => setReviewCount(reviewCount + 2)}
+        onClick={() => setReviewCount(reviewCount + 5)}
       >
         show more reviews
       </button>
